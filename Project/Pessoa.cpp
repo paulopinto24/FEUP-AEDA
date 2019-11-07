@@ -19,7 +19,6 @@ Administrativo::Administrativo(string n, string nif, string dn, double s, string
 	funcao = f;
 }
 
-Entregador::Entregador(string n, string nif, string dn, double s, Veiculo v) : Funcionario(n, nif, dn, s) {
-	veiculo.setMarca(v.getMarca);
-	veiculo.setMatricula(v.getMatricula);
+Entregador::Entregador(string n, string nif, string dn, double s, Veiculo& v) : Funcionario(n, nif, dn, s) {
+	veiculo = v;
 }

@@ -3,6 +3,8 @@
 
 #include <string>
 #include "GPScoord.h"
+#include "Pessoa.h"
+#include <vector>
 
 using namespace std;
 
@@ -13,9 +15,11 @@ private:
 	string morada;
 	string concelho;
 	GPScoord gps;
+	Pessoa gerente;
+	vector<Cliente> clientes;
 
 public:
-	Base(string d, string m, string c, int d, int m, float s, char dir);
+	Base(const string d, const string m, const string c, GPScoord& gpscoord, Pessoa &g);
 };
 
 

@@ -7,7 +7,7 @@
 #include <vector>
 #include <fstream>
 #include "Base.h"
-
+#include <string>
 
 
 class UghEatsFD
