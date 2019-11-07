@@ -1,3 +1,5 @@
+#pragma once
+
 #include <fstream>
 
 #include "UghEatsFD.h"
@@ -9,23 +11,7 @@ void loadApplication(UghEatsFD p1) {
 	inFile.open("UghEatsFD.txt");
 
 	/*if (inFile:fail()) {
-
 	}*/
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

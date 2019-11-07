@@ -1,3 +1,5 @@
+#pragma once
+
 #ifndef UGHEATSFD_H
 #define UGHEATSFD_H
 

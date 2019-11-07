@@ -1,3 +1,5 @@
+#pragma once
+
 #include <iostream>
 using namespace std;
 
@@ -17,10 +19,5 @@ void openingMenu() {
 	cout << "3 - Quit" << endl;
 	cout << endl;
 }
-
-
-
-
-
 
 
