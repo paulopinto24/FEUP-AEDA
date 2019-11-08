@@ -9,11 +9,11 @@
 #include "Base.h"
 #include <string>
 
-
+template <class B>
 class UghEatsFD
 {
 private:
-	vector<Base> bases;
+	vector<B> bases;
 public:
 	UghEatsFD();
 };

@@ -1,6 +1,9 @@
 #pragma once
 
 #include <iostream>
+#include <string>
+
+
 using namespace std;
 
 void welcomeMenu() {
@@ -13,7 +16,7 @@ void welcomeMenu() {
 	cout << endl;
 }
 
-void openingMenu() {
+int openingMenu() {
 	cout << "1 - Sign in" << endl;
 	cout << "2 - Sign up" << endl;
 	cout << "3 - Quit" << endl;
@@ -22,11 +25,15 @@ void openingMenu() {
 	int option;
 
 	cin >> option;
-	/*
-	switch (option) {
-	case 1:
-		
-	}*/
+
+	while (option < 1 || option > 3) {
+		cerr << "Please insert a valid option... \n";
+		cin.clear();
+		cin.ignore();
+		cin >> option;
+	}
+	
+	return option;
 }
 
 bool validEmail(string const& email) {
@@ -35,15 +42,15 @@ bool validEmail(string const& email) {
 	string feup = "@fe.up.pt";
 
 	if (email.length() >= gmail.length()) {
-		if (email.compare(email.length() - gmail.length(), gmail.length(), gmail))
+		if (email.compare(email.length() - gmail.length(), gmail.length(), gmail) == 0)
 			return true;
 	}
 	if (email.length() >= hotmail.length()) {
-		if (email.compare(email.length() - hotmail.length(), hotmail.length(), hotmail))
+		if (email.compare(email.length() - hotmail.length(), hotmail.length(), hotmail) == 0)
 			return true;
 	}
 	if (email.length() >= feup.length()) {
-		if (email.compare(email.length() - feup.length(), feup.length(), feup))
+		if (email.compare(email.length() - feup.length(), feup.length(), feup) == 0)
 			return true;
 	}
 	return false;
@@ -51,7 +58,7 @@ bool validEmail(string const& email) {
 
 bool inscricao() {
 	int base;
-	Base b;
+	//Base b;
 	cout << "Select base:\n -> Porto(1)\n -> Lisboa(2)\n -> Faro(3)";
 	cin >> base;
 

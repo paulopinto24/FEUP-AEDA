@@ -5,7 +5,8 @@
 #include "UghEatsFD.h"
 using namespace std;
 
-void loadApplication(UghEatsFD p1) {
+template <class B>
+void loadApplication(UghEatsFD<B> p1) {
 	ifstream inFile;
 
 	inFile.open("UghEatsFD.txt");

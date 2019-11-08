@@ -8,21 +8,21 @@
 
 using namespace std;
 
-
-class Base : public GPScoord, Pessoa
+template <class G, class P, class C>
+class Base 
 {
 private:
 	string distrito;
 	string morada;
 	string concelho;
-	GPScoord gps;
-	Pessoa gerente;
-	vector<Cliente> clientes;
+	G gps;
+	P gerente;
+	vector<C> clientes;
 
 public:
 	Base();
-	Base(const string d, const string m, const string c, GPScoord& gpscoord, Pessoa &g);
-	bool addCliente(Cliente);
+	Base(const string d, const string m, const string c, G& gpscoord, P &g);
+	bool addCliente(C);
 };
 
 

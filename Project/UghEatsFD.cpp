@@ -3,8 +3,8 @@
 
 using namespace std;
 
-
-UghEatsFD::UghEatsFD()
+template <class B>
+UghEatsFD<B>::UghEatsFD()
 {
 	
 }
