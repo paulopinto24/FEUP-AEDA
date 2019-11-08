@@ -4,6 +4,8 @@
 #include <iostream>
 #include "Veiculo.h"
 #include "Restaurante.h"
+#include "UghEatsFD.h"
+#include "Base.h"
 
 using namespace std;
 
@@ -13,7 +15,9 @@ private:
 	string nome;
 	string NIF;
 public:
+	Pessoa();
 	Pessoa(string n, string nif);
+	bool operator == (Pessoa& p);
 };
 
 class Cliente : public Pessoa

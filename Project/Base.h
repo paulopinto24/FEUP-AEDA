@@ -8,7 +8,8 @@
 
 using namespace std;
 
-class Base : public GPScoord
+
+class Base : public GPScoord, Pessoa
 {
 private:
 	string distrito;
@@ -19,7 +20,9 @@ private:
 	vector<Cliente> clientes;
 
 public:
+	Base();
 	Base(const string d, const string m, const string c, GPScoord& gpscoord, Pessoa &g);
+	bool addCliente(Cliente);
 };
 
 

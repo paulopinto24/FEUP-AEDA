@@ -1,8 +1,16 @@
 #include "Pessoa.h"
 
+Pessoa::Pessoa() {};
+
 Pessoa::Pessoa(string n, string nif) {
 	nome = n;
 	NIF = nif;
+}
+
+bool Pessoa::operator==(Pessoa& p) {
+	if (this->NIF == p.NIF)
+		return true;
+	else return false;
 }
 
 Cliente::Cliente(string n, string nif, string e, string m) :Pessoa(n, nif) {

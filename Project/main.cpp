@@ -3,8 +3,8 @@
 #include "Base.h"
 #include <iostream>
 #include <string>
-using namespace std;
 
+using namespace std;
 
 int main() {
 	UghEatsFD app;

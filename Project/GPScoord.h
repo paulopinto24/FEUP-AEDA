@@ -9,7 +9,7 @@ private:
 	float seconds;
 	char direction;
 public:
-	//GPScoord();
+	GPScoord();
 	GPScoord(int d, int m, float s, char dir);
 };
 
