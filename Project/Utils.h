@@ -1,18 +1,48 @@
 #pragma once
 
-#include <fstream>
-
 #include "UghEatsFD.h"
+#include <iostream>
+#include <fstream>
 using namespace std;
 
-template <class B>
-void loadApplication(UghEatsFD<B> p1) {
-	ifstream inFile;
+int loadApplication(UghEatsFD p1) {
+	fstream inFile;
+	inFile.open("UghEatsFD.txt", fstream::in);
 
-	inFile.open("UghEatsFD.txt");
+	if (!(inFile.is_open())) {
+		cout << "Error loading application." << endl;
+		return 1;
+	}
 
-	/*if (inFile:fail()) {
-	}*/
+	vector<string> strVec;
+	string str;
+	int cntLin = 1;
+
+	cout << "Loading application..." << endl;
+
+	while (getline(inFile, str)) {
+		if (cntLin < 4) {
+			cntLin++;
+			continue;
+		}
+		else {
+			if (str == "---") {
+				//process inf collected in strVec
+				for (int i = 0; i < strVec.size(); i++) {
+					cout << strVec.at(i) << endl;
+				}
+				strVec.clear();
+				continue;
+			}
+			else {
+				strVec.push_back(str);
+				continue;
+			}
+		}
+	}
+
+	inFile.close();
+
 }
 
 
