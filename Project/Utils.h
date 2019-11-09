@@ -28,9 +28,6 @@ int loadApplication(UghEatsFD p1) {
 		else {
 			if (str == "---") {
 				//process inf collected in strVec
-				for (int i = 0; i < strVec.size(); i++) {
-					cout << strVec.at(i) << endl;
-				}
 				strVec.clear();
 				continue;
 			}
