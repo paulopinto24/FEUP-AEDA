@@ -1,10 +1,9 @@
 #include "Base.h"
 
-template <class G, class P, class C>
-Base<G,P,C>::Base(){}
 
-template <class G, class P, class C>
-Base<G,P,C>::Base(const string d, const string m, const string c, G &gpscoord, P &g) {
+Base::Base(){}
+
+Base::Base(const string d, const string m, const string c, GPScoord&gpscoord, Pessoa &g) {
 	this->distrito = d;
 	this->morada = m;
 	this->concelho = c;
@@ -12,9 +11,8 @@ Base<G,P,C>::Base(const string d, const string m, const string c, G &gpscoord, P
 	gerente = g;
 }
 
-template <class G, class P, class C>
-bool Base<G,P,C>::addCliente(C c) {
-	for (int i = 0; i < clientes.size; i++) {
+bool Base::addCliente(Cliente c) {
+	for (int i = 0; i < clientes.size(); i++) {
 		if (clientes.at(i) == c)
 			return false;
 	}

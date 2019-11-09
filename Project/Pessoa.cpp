@@ -30,3 +30,7 @@ Administrativo::Administrativo(string n, string nif, string dn, double s, string
 Entregador::Entregador(string n, string nif, string dn, double s, Veiculo& v) : Funcionario(n, nif, dn, s) {
 	veiculo = v;
 }
+
+
+
+

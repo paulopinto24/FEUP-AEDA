@@ -35,3 +35,9 @@ bool Veiculo::operator==(const Veiculo & v1) const {
 		return true;
 	return false;
 }
+
+Veiculo::Veiculo()
+{
+}
+
+

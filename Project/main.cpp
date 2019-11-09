@@ -1,15 +1,40 @@
-#include "Menus.h"
+#include "UghEatsFD.h"
 #include "Utils.h"
-#include "Base.h"
-#include <iostream>
-#include <string>
+#include "Menus.h"
 
 using namespace std;
 
-template <class B>
 int main() {
+	ifstream inFile;
+
+	inFile.open("UghEatsFD.txt");
+
+	/*cout << "hello\n";
+
+	if (!(inFile.is_open())) {
+		cout << "Error loading application." << endl;
+		return -1;
+	}
+
+	inFile.close();
+
+	ofstream outFile;
+
+	outFile.open("UghEatsFD.txt");
+
+	outFile << "Pila" << endl;
+
+	outFile.close();*/
+
+
+
+
+
+
+
+
 	UghEatsFD app;
-	loadApplication(app);
+	//loadApplication(app);
 	welcomeMenu();
 	int option = openingMenu();
 
@@ -18,7 +43,7 @@ int main() {
 		//clientPage();
 		break;
 	case 2:
-		inscricao();
+		//inscricao();
 		break;
 	case 3:
 		cout << "Goodbye..." << endl;

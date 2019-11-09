@@ -23,5 +23,6 @@ private:
 	vector<string> tipoCulinaria;
 	static vector<Produto> produtos;
 public:
+	Restaurante();
 	Restaurante(string, string, vector<string>&);
 };

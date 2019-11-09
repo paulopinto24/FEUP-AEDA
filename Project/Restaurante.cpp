@@ -11,3 +11,9 @@ Produto::Produto(string n, string t, double p) {
 	tipo = t;
 	preco = p;
 }
+
+Restaurante::Restaurante()
+{
+}
+
+

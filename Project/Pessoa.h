@@ -1,11 +1,7 @@
 #pragma once
 
-#include <string>
-#include <iostream>
+
 #include "Veiculo.h"
-#include "Restaurante.h"
-#include "UghEatsFD.h"
-#include "Base.h"
 
 using namespace std;
 
@@ -55,3 +51,4 @@ private:
 public:
 	Entregador(string n, string nif, string dn, double s, Veiculo &v);
 };
+

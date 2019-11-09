@@ -21,3 +21,5 @@ public:
 	void setDataAquisicao(string);
 	bool operator == (const Veiculo& v) const;
 };
+
+

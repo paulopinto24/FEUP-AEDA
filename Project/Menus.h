@@ -17,7 +17,7 @@ void welcomeMenu() {
 }
 
 int openingMenu() {
-	cout << "1 - Sign in" << endl;
+	cout << "1 - Sign in (function to develop once the rest is done)" << endl;
 	cout << "2 - Sign up" << endl;
 	cout << "3 - Quit" << endl;
 	cout << endl;
@@ -112,6 +112,8 @@ bool inscricao() {
 	cout << endl << endl;
 
 	//b.addCliente(Cliente(nome, nif, email, morada));
+
+	return true;//a func precisa de retornar alguma coisa
 }
 
 
