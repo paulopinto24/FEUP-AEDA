@@ -7,3 +7,7 @@ UghEatsFD::UghEatsFD()
 {
 	
 }
+
+Base UghEatsFD::getBase(int i) {
+	return bases.at(i);
+}

@@ -36,18 +36,38 @@ int main() {
 	UghEatsFD app;
 	//loadApplication(app);
 	welcomeMenu();
-	int option = openingMenu();
+	int option{};
+	string opt = openingMenu();
+
+	if (opt == "1")
+		option = 1;
+	else if (opt == "2")
+		option = 2;
+	else if (opt == "3")
+		option = 3;
 
 	switch (option) {
 	case 1:
 		//clientPage();
 		break;
 	case 2:
-		//inscricao();
+		int base;
+		cout << "Select base:\n1 - Porto\n2 - Lisboa\n3 - Faro\n";
+		cin >> base;
+		cin.clear();
+		cin.ignore();
+
+		while (base < 1 || base > 3) {
+			cerr << "Please input a valid base:\n -> Porto(1)\n -> Lisboa(2)\n -> Faro(3)\n";
+			cin >> base;
+			cin.clear();
+			cin.ignore();
+		}
+		
+		//inscricao(app.getBase(base));
 		break;
 	case 3:
 		cout << "Goodbye..." << endl;
-		system("pause");
 		return 0;
 	}
 

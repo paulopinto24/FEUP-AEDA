@@ -16,20 +16,12 @@ private:
 	string concelho;
 	GPScoord gps;
 	Pessoa gerente;
-	vector<Cliente> clientes;
-
 public:
+	vector<Cliente> clientes;
 	Base();
 	Base(const string d, const string m, const string c, GPScoord& gpscoord, Pessoa &g);
 	bool addCliente(Cliente);
 };
-
-
-
-
-
-
-
 
 
 #endif // !BASE_H

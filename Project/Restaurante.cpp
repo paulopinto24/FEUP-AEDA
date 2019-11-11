@@ -16,4 +16,8 @@ Restaurante::Restaurante()
 {
 }
 
+bool Restaurante::isAvailable() {
+	return this->available;
+}
+
 

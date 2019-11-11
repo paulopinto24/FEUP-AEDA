@@ -1,7 +1,9 @@
 #pragma once
 
-
+#include <iostream>
+#include <sstream>
 #include "Veiculo.h"
+#include "Restaurante.h"
 
 using namespace std;
 
@@ -13,6 +15,7 @@ private:
 public:
 	Pessoa();
 	Pessoa(string n, string nif);
+	string getNIF();
 	bool operator == (Pessoa& p);
 };
 
@@ -23,7 +26,10 @@ private:
 	string morada;
 public:
 	Cliente(string n, string nif, string e, string m);
-	//bool encomenda(Restaurante r, string d, string hora);
+	void setEmail(string email);
+	void setMorada(string morada);
+	string getEmail();
+	int encomenda();
 };
 
 class Funcionario : public Pessoa

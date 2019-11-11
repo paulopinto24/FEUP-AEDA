@@ -22,7 +22,9 @@ private:
 	string morada;
 	vector<string> tipoCulinaria;
 	static vector<Produto> produtos;
+	bool available;
 public:
 	Restaurante();
 	Restaurante(string, string, vector<string>&);
+	bool isAvailable();
 };

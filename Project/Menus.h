@@ -2,7 +2,7 @@
 
 #include <iostream>
 #include <string>
-
+#include "Base.h"
 
 using namespace std;
 
@@ -16,31 +16,37 @@ void welcomeMenu() {
 	cout << endl;
 }
 
-int openingMenu() {
+string openingMenu() {
 	cout << "1 - Sign in (function to develop once the rest is done)" << endl;
 	cout << "2 - Sign up" << endl;
 	cout << "3 - Quit" << endl;
-	cout << endl;
 
-	int option;
+	string option;
 
-	cin >> option;
+	getline(cin, option);
 
-	while (option < 1 || option > 3) {
+	while (option != "1" && option != "2" && option != "3") {
 		cerr << "Please insert a valid option... \n";
 		cin.clear();
 		cin.ignore();
 		cin >> option;
 	}
+
+	cout << endl;
 	
 	return option;
 }
 
 bool validEmail(string const& email) {
+	string teste = "q";
 	string gmail = "@gmail.com";
 	string hotmail = "@hotmail.com";
 	string feup = "@fe.up.pt";
 
+	if (email.length() >= teste.length()) {
+		if (email.compare(email.length() - teste.length(), teste.length(), teste) == 0)
+			return true;
+	}
 	if (email.length() >= gmail.length()) {
 		if (email.compare(email.length() - gmail.length(), gmail.length(), gmail) == 0)
 			return true;
@@ -56,64 +62,127 @@ bool validEmail(string const& email) {
 	return false;
 }
 
-bool inscricao() {
-	int base;
-	//Base b;
-	cout << "Select base:\n -> Porto(1)\n -> Lisboa(2)\n -> Faro(3)";
-	cin >> base;
+bool is_digits(const std::string& str)
+{
+	return str.find_first_not_of("0123456789") == std::string::npos;
+}
 
-	while (base < 1 || base > 3) {
-		cerr << "Please input a valid base:\n -> Porto(1)\n -> Lisboa(2)\n -> Faro(3)";
-		cin.clear();
-		cin.ignore();
-		cin >> base;
-	}
-
-	/*
-	switch (base) {
-	case 1:
-		b = Porto;
-	case 2:
-		b = Lisboa;
-	case 3:
-		b = Faro;
-	}*/
-
+bool inscricao(Base b) {
+	
 	string nome;
 	string morada;
-	int inif;
+	string nif;
 	string email;
 
-	cout << "Name : ";
+	// Nome
+	cout << "\nName : ";
 	getline(cin, nome);
 
+	// Email
 	cout << endl << "Email : ";
 	cin >> email;
+	cin.clear();
+	cin.ignore();
 	while (!validEmail(email)) {
 		cerr << "Please insert a valid email: ";
+		cin >> email;
 		cin.clear();
 		cin.ignore();
-		cin >> email;
 	}
+	/*   descomentar quando forem criadas as bases
 
+	for (int i = 0; i < b.clientes.size(); i++) {
+		if (email == b.clientes.at(i).getEmail) {
+			cerr << "This email is already in use...\n";
+			return false;
+		}
+	}*/
+
+	// Morada
 	cout << endl << "Morada : ";
 	getline(cin, morada);
 
+	// NIF
 	cout << endl << "NIF : ";
-	cin >> inif;
-	string nif = to_string(inif);
-	while (nif.length() != 9) {
+	cin >> nif;
+	cin.clear();
+	cin.ignore();
+	
+	while (nif.length() != 9 || !is_digits(nif)) {
 		cerr << "Please insert a valid NIF : ";
+		cin >> nif;
 		cin.clear();
 		cin.ignore();
-		cin >> inif;
 	}
+	/*
+	for (int i = 0; i < b.clientes.size(); i++) {
+		if (nif == b.clientes.at(i).getNIF()) {
+			cerr << "This NIF is already in use...\n";
+			return false;
+		}
+	}*/
 
 	cout << endl << endl;
 
 	//b.addCliente(Cliente(nome, nif, email, morada));
 
-	return true;//a func precisa de retornar alguma coisa
+	return true; // tem a ver com controlo de erros, se retornar true é pq deu bem, se retornar false não foi possível adicionar cliente
+}
+
+void entrar() {
+	int option;
+	cout << "1 - Sign up email\n2- Sign up with NIF\n\n";
+	cin >> option;
+
+	if (option == 1) {
+		string email;
+
+		cout << "Please input your email: ";
+		cin >> email;
+
+		// ciclo para encontrar o cliente com o email especificado
+
+		//return cliente;
+	}
+	else {
+		string nif;
+
+		cout << "Please input your NIF: ";
+		cin >> nif;
+
+		// ciclo para encontrar o cliente com o NIF especificado
+
+		//return cliente;
+	}
+}
+
+void clientPage(Cliente cliente) {
+	int option;
+
+	cout << "Options (...)\n\n";
+	cout << "1 - Order\n2 - Change email\n3 - Change address\n";
+	cin >> option;
+
+	string email;
+	string morada;
+
+	switch(option){
+	case 1:
+		//cliente.encomenda();
+		break;
+	case 2:
+		cout << "New email : ";
+		getline(cin, email);
+		cliente.setEmail(email);
+		break;
+	case 3:
+		cout << "New address : ";
+		getline(cin, morada);
+		cliente.setMorada(morada);
+		break;
+	default:
+		break;
+	}
 }
 
 
