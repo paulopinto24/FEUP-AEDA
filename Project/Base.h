@@ -15,14 +15,23 @@ private:
 	string morada;
 	string concelho;
 	GPScoord gps;
-	Pessoa gerente;
+	vector<Cliente> clientes; //estava em publico, nao percebi entao pus privado
+	vector<Administrativo> gerente;
+	vector<Restaurante> restaurantes;
 	// ter uma lista por base de restaurantes ?? ou associar o restaurante à base pela morada/coordenadas gps?
 	// ter uma lista de entregadores (so e apenas se tivermos tempo)
 public:
-	vector<Cliente> clientes;
-	Base();
-	Base(const string d, const string m, const string c, GPScoord& gpscoord, Pessoa &g);
+	//Base();
+	Base(const string d, const string m, const string c, GPScoord& gpscoord);
 	bool addCliente(Cliente);
+	string getDistrito();
+	string getMorada();
+	string getConcelho();
+	GPScoord getLocation();
+	Cliente getCliente(int i);
+	void addGerente(Administrativo& ad);
+	Administrativo getGerente();
+	int getClientesSize();
 };
 
 

@@ -2,10 +2,17 @@
 
 GPScoord::GPScoord() {};
 
-GPScoord::GPScoord(int d, int m, float s, char dir)
+GPScoord::GPScoord(float lat, float lon)
 {
-	degrees = d;
-	minutes = m;
-	seconds = s;
-	direction = dir;
-};
+	latitude = lat;
+	longitude = lon;
+}
+
+float GPScoord::getLat() {
+	return latitude;
+}
+
+float GPScoord::getLon() {
+	return longitude;
+}
+

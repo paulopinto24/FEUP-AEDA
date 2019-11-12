@@ -15,8 +15,17 @@ bool Pessoa::operator==(Pessoa& p) {
 	else return false;
 }
 
+int Pessoa::encomenda()
+{
+	return 0;
+}
+
 string Pessoa::getNIF() {
 	return this->NIF;
+}
+
+string Pessoa::getNome() {
+	return nome;
 }
 
 Cliente::Cliente(string n, string nif, string e, string m) :Pessoa(n, nif) {
@@ -82,13 +91,33 @@ int Cliente::encomenda() {
 	return 0;
 }
 
+string Cliente::getMorada()
+{
+	return morada;
+}
+
 Funcionario::Funcionario(string n, string nif, string dn, double s) : Pessoa(n, nif) {
 	dataNasc = dn;
 	salario = s;
 }
 
+string Funcionario::getDataNasc()
+{
+	return dataNasc;
+}
+
+double Funcionario::getSalario()
+{
+	return salario;
+}
+
 Administrativo::Administrativo(string n, string nif, string dn, double s, string f) : Funcionario(n, nif, dn, s) {
 	funcao = f;
+}
+
+string Administrativo::getFunc()
+{
+	return funcao;
 }
 
 Entregador::Entregador(string n, string nif, string dn, double s, Veiculo& v) : Funcionario(n, nif, dn, s) {

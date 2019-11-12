@@ -6,13 +6,13 @@
 class GPScoord
 {
 private:
-	int degrees;
-	int minutes;
-	float seconds;
-	char direction;
+	float latitude;
+	float longitude;
 public:
 	GPScoord();
-	GPScoord(int d, int m, float s, char dir);
+	GPScoord(float lat, float lon);
+	float getLat();
+	float getLon();
 };
 
 

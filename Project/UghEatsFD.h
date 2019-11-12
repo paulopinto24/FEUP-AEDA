@@ -14,6 +14,7 @@ private:
 public:
 	UghEatsFD();
 	Base getBase(int);
+	void addBase(Base b);
 };
 
 

@@ -16,7 +16,9 @@ public:
 	Pessoa();
 	Pessoa(string n, string nif);
 	string getNIF();
+	string getNome();
 	bool operator == (Pessoa& p);
+	int encomenda();
 };
 
 class Cliente : public Pessoa
@@ -30,6 +32,7 @@ public:
 	void setMorada(string morada);
 	string getEmail();
 	int encomenda();
+	string getMorada();
 	//será necessário saber a que base pertence cada cliente? 
 };
 
@@ -40,6 +43,8 @@ private:
 	double salario;
 public:
 	Funcionario(string n, string nif, string dn, double s);
+	string getDataNasc();
+	double getSalario();
 };
 
 class Administrativo : public Funcionario
@@ -48,6 +53,7 @@ private:
 	string funcao;
 public:
 	Administrativo(string n, string nif, string dn, double s, string f);
+	string getFunc();
 };
 
 class Entregador : public Funcionario

@@ -22,9 +22,6 @@ int selectBase() {
 }
 
 int main() {
-	ifstream inFile;
-
-	inFile.open("UghEatsFD.txt");
 
 	/*cout << "hello\n";
 
@@ -47,11 +44,11 @@ int main() {
 
 
 
-
-
-
 	UghEatsFD app;
-	//loadApplication(app);
+	if (loadApplication(&app)) {
+		cout << "Error loading application." << endl;
+		return 1;
+	}
 	welcomeMenu();
 	int option{};
 	string opt = openingMenu();
@@ -76,6 +73,7 @@ int main() {
 		break;
 	case 3:
 		cout << "Goodbye..." << endl;
+		saveApplication(&app);
 		return 0;
 	}
 
