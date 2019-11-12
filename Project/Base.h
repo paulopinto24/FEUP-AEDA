@@ -16,6 +16,8 @@ private:
 	string concelho;
 	GPScoord gps;
 	Pessoa gerente;
+	// ter uma lista por base de restaurantes ?? ou associar o restaurante à base pela morada/coordenadas gps?
+	// ter uma lista de entregadores (so e apenas se tivermos tempo)
 public:
 	vector<Cliente> clientes;
 	Base();

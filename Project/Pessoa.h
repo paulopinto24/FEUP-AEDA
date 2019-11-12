@@ -30,6 +30,7 @@ public:
 	void setMorada(string morada);
 	string getEmail();
 	int encomenda();
+	//será necessário saber a que base pertence cada cliente? 
 };
 
 class Funcionario : public Pessoa

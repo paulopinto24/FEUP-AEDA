@@ -4,6 +4,23 @@
 
 using namespace std;
 
+int selectBase() {
+	int base;
+	cout << "Select base:\n1 - Porto\n2 - Lisboa\n3 - Faro\n";
+	cin >> base;
+	cin.clear();
+	cin.ignore();
+
+	while (base < 1 || base > 3) {
+		cerr << "Please input a valid base:\n -> Porto(1)\n -> Lisboa(2)\n -> Faro(3)\n";
+		cin >> base;
+		cin.clear();
+		cin.ignore();
+	}
+
+	return base;
+}
+
 int main() {
 	ifstream inFile;
 
@@ -48,28 +65,19 @@ int main() {
 
 	switch (option) {
 	case 1:
-		//clientPage();
+		//Cliente cliente = entrar(app.getBase(selectBase()));  // Não tenho completa certeza de q isto está bem
+		//clientPage(cliente);
 		break;
 	case 2:
-		int base;
-		cout << "Select base:\n1 - Porto\n2 - Lisboa\n3 - Faro\n";
-		cin >> base;
-		cin.clear();
-		cin.ignore();
-
-		while (base < 1 || base > 3) {
-			cerr << "Please input a valid base:\n -> Porto(1)\n -> Lisboa(2)\n -> Faro(3)\n";
-			cin >> base;
-			cin.clear();
-			cin.ignore();
+		if (!inscricao(app.getBase(selectBase()))) {
+			cerr << "Error processing sign in...\n";
+			return 1;
 		}
-		
-		//inscricao(app.getBase(base));
 		break;
 	case 3:
 		cout << "Goodbye..." << endl;
 		return 0;
 	}
 
-	return 0;
+	return -1;
 }

@@ -37,8 +37,9 @@ string openingMenu() {
 	return option;
 }
 
+// função testa se um email é válido i.e. tem formato de email
 bool validEmail(string const& email) {
-	string teste = "q";
+	string teste = "q";    // isto é so para nao ter q escrever um mail completo de cada vez que estou a testar o codigo (apagar antes de enviar para entrega)
 	string gmail = "@gmail.com";
 	string hotmail = "@hotmail.com";
 	string feup = "@fe.up.pt";
@@ -62,6 +63,7 @@ bool validEmail(string const& email) {
 	return false;
 }
 
+// função para ver se o NIF é composto apenas por dígitos
 bool is_digits(const std::string& str)
 {
 	return str.find_first_not_of("0123456789") == std::string::npos;
@@ -129,10 +131,19 @@ bool inscricao(Base b) {
 	return true; // tem a ver com controlo de erros, se retornar true é pq deu bem, se retornar false não foi possível adicionar cliente
 }
 
-void entrar() {
+void entrar(Base base) { //posteriormente esta funçao retornará um cliente
 	int option;
 	cout << "1 - Sign up email\n2- Sign up with NIF\n\n";
 	cin >> option;
+	cin.clear();
+	cin.ignore();
+
+	while (option < 1 || option > 2) {
+		cerr << "Please input a valid option:\n1 - Sign up email\n2- Sign up with NIF\n\n";
+		cin >> option;
+		cin.clear();
+		cin.ignore();
+	}
 
 	if (option == 1) {
 		string email;
@@ -140,9 +151,15 @@ void entrar() {
 		cout << "Please input your email: ";
 		cin >> email;
 
-		// ciclo para encontrar o cliente com o email especificado
+		/*
+		for (int i = 0; i < base.clientes.size(); i++) {
+			if (base.clientes.at(i).getEmail == email) {
+				return base.clientes.at(i);
+			}
+		}*/
 
-		//return cliente;
+		cerr << email << " NOT FOUND" << endl;
+		exit(1);
 	}
 	else {
 		string nif;
@@ -150,9 +167,15 @@ void entrar() {
 		cout << "Please input your NIF: ";
 		cin >> nif;
 
-		// ciclo para encontrar o cliente com o NIF especificado
+		/*
+		for (int i = 0; i < base.clientes.size(); i++) {
+			if (base.clientes.at(i).getNIF() == nif) {
+				//return base.clientes.at(i);
+			}
+		}*/
 
-		//return cliente;
+		cerr << nif << " NOT FOUND" << endl;
+		exit(1);
 	}
 }
 
