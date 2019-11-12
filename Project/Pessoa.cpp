@@ -28,9 +28,11 @@ string Pessoa::getNome() {
 	return nome;
 }
 
-Cliente::Cliente(string n, string nif, string e, string m) :Pessoa(n, nif) {
+Cliente::Cliente(string n, string nif, string e, string m, string c, string b) :Pessoa(n, nif) {
 	email = e;
 	morada = m;
+	concelho = c;
+	base = b;
 }
 
 void Cliente::setEmail(string email) {
@@ -96,6 +98,11 @@ string Cliente::getMorada()
 	return morada;
 }
 
+string Cliente::getConcelho()
+{
+	return concelho;
+}
+
 Funcionario::Funcionario(string n, string nif, string dn, double s) : Pessoa(n, nif) {
 	dataNasc = dn;
 	salario = s;
@@ -122,6 +129,21 @@ string Administrativo::getFunc()
 
 Entregador::Entregador(string n, string nif, string dn, double s, Veiculo& v) : Funcionario(n, nif, dn, s) {
 	veiculo = v;
+}
+
+void Entregador::setCom(double comissao)
+{
+	this->comissao = comissao;
+}
+
+Veiculo Entregador::getVeiculo()
+{
+	return veiculo;
+}
+
+double Entregador::getComissao()
+{
+	return comissao;
 }
 
 

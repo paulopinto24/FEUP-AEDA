@@ -1,23 +1,11 @@
 UghEats
 Bases:
 Porto
-Rua de Cedofeita	
-Paranhos
+Porto;Rua de Cedofeita	
 29.1954;26.8839
-Joao Gomes;123558946;18-02-1999;20000;Gerente
-Daniel;32135131;dasujda@fknsdljnsl;adsjjssjjs
----
-Lisboa
-Rua de FEUPinhos	
-Nossa
--16.6613;57.2968
-Joao Gomes;123558946;18-02-1999;20000;Gerente
-Daniel;32135131;dasujda@fknsdljnsl;adsjjssjjs
----
-Faro
-Rua de Pedrinhas	
-Faro
--39.8446;-26.88
-Joao Gomes;123558946;18-02-1999;20000;Gerente
-Daniel;32135131;dasujda@fknsdljnsl;adsjjssjjs
+Porto_res.txt
+Porto_func.txt
+Porto_cli.txt
+Porto_black.txt
+Porto_front.txt
 ---

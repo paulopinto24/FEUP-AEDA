@@ -26,13 +26,16 @@ class Cliente : public Pessoa
 private:
 	string email;
 	string morada;
+	string concelho;
+	string base;
 public:
-	Cliente(string n, string nif, string e, string m);
+	Cliente(string n, string nif, string e, string m, string c, string b);
 	void setEmail(string email);
 	void setMorada(string morada);
 	string getEmail();
 	int encomenda();
 	string getMorada();
+	string getConcelho();
 	//será necessário saber a que base pertence cada cliente? 
 };
 
@@ -60,8 +63,11 @@ class Entregador : public Funcionario
 {
 private:
 	Veiculo veiculo;
-	//vector<Entrega> entregas;
+	double comissao;
 public:
 	Entregador(string n, string nif, string dn, double s, Veiculo &v);
+	void setCom(double comissao);
+	Veiculo getVeiculo();
+	double getComissao();
 };
 
