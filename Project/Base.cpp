@@ -10,6 +10,65 @@ Base::Base(const string d, const string m, const string c, GPScoord&gpscoord) {
 	gps = gpscoord;
 }
 
+//OBTER TAMANHOS DE VETORES DAS COISAS DA BASE
+
+int Base::getClientesSize()
+{
+	return clientes.size();
+}
+
+int Base::getAdminsS()
+{
+	return admins.size();
+}
+
+int Base::getEntregsS()
+{
+	return entregs.size();
+}
+
+int Base::getRestaurantesS()
+{
+	return restaurantes.size();
+}
+
+int Base::getFrontS()
+{
+	return concelhosFront.size();
+}
+
+int Base::getBlackS()
+{
+	return lista_negra.size();
+}
+
+//GETTERS DOS MESMOS VETORES
+
+Administrativo Base::getAdmin(int i)
+{
+	return admins.at(i);
+}
+
+Entregador Base::getEntreg(int i)
+{
+	return entregs.at(i);
+}
+
+Restaurante Base::getRes(int i)
+{
+	return restaurantes.at(i);
+}
+
+string Base::getFront(int i)
+{
+	return concelhosFront.at(i);
+}
+
+Cliente Base::getBlack(int i)
+{
+	return lista_negra.at(i);
+}
+
 bool Base::addCliente(Cliente c) {
 	for (int i = 0; i < clientes.size(); i++) {
 		if (clientes.at(i) == c)
@@ -54,19 +113,6 @@ bool Base::addAdmin(Administrativo & ad)
 	return true;
 }
 
-Administrativo Base::getGerente()
-{
-	return admins.at(0);
-}
-int Base::getClientesSize()
-{
-	return clientes.size();
-}
-
-int Base::clientesSize() {
-	return this->clientes.size();
-}
-
 bool Base::addEntregador(Entregador &e) {
 	for (int i = 0; i < entregs.size(); i++) {
 		if (entregs.at(i) == e) {
@@ -77,16 +123,12 @@ bool Base::addEntregador(Entregador &e) {
 	return true;
 }
 
-int Base::entregsSize() {
-	return this->entregs.size();
-}
-
 bool Base::addRestaurante(Restaurante& r) {
-	/*for (int i = 0; i < restaurantes.size(); i++) {
+	for (int i = 0; i < restaurantes.size(); i++) {
 		if (restaurantes.at(i) == r) {
 			return false;
 		}
-	}*/
+	}
 	restaurantes.push_back(r);
 	return true;
 }
@@ -95,16 +137,77 @@ vector<Restaurante> Base::getRestaurantes() {
 	return this->restaurantes;
 }
 
-//void Base::printByRes() {
-//	ostringstream oss;
-//	for (int i = 0; i < restaurantes.size(); i++) {
-//		oss << restaurantes.at(i).getNome() << endl;
-//		vector<Produto> produtos = restaurantes.at(i).getProdutos();
-//		for (int j = 0; j < produtos.size(); j++) {
-//			oss << " -> " << produtos.at(i).getProduto() << "   " << produtos.at(i).getPreco() << endl;
-//		}
-//	}
-//}
+string Base::printByRes() {
+	ostringstream oss;
+
+	for (int i = 0; i < restaurantes.size(); i++) {
+		int j = i + 1;
+		oss << j << " - " << restaurantes.at(i).printProducts() << endl;
+	}
+
+	string res(oss.str());
+
+	return res;
+}
+
+string Base::printByZone(string c) {
+	vector<Restaurante> resByZone;
+
+	for (int i = 0; i < restaurantes.size(); i++) {
+		if (restaurantes.at(i).getConcelho() == c) {
+			resByZone.push_back(restaurantes.at(i));
+		}
+	}
+
+	ostringstream oss;
+
+	for (int i = 0; i < resByZone.size(); i++) {
+		int j = i + 1;
+		oss << j << " - " << resByZone.at(i).printProducts() << endl;
+	}
+
+	string res(oss.str());
+
+	return res;
+}
+
+string Base::printByPrice(double p) {
+	ostringstream oss;
+
+	for (int i = 0; i < restaurantes.size(); i++) {
+		oss << restaurantes.at(i).getNome() << endl;
+		for (int j = 0; j < restaurantes.at(i).getProdByPrice(p).size(); j++) {
+			oss << " -> " << restaurantes.at(i).getProdByPrice(p).at(j).getNome() << endl;
+		}
+	}
+
+	string res(oss.str());
+
+	return res;
+}
+
+string Base::printByType(string t) {
+	ostringstream oss;
+	vector<Restaurante> rest;
+	bool add = false;
+
+	for (int i = 0; i < restaurantes.size(); i++) {
+		for (int j = 0; j < restaurantes.at(i).getType(t).size(); j++) {
+			if (restaurantes.at(i).getType(t).at(j) == t) {
+				add = true;
+			}
+		}
+
+		if (add) {
+			rest.push_back(restaurantes.at(i));
+			add = false;
+		}
+	}
+
+	string res(oss.str());
+
+	return res;
+}
 
 void Base::addBlack(Cliente c)
 {
@@ -114,56 +217,6 @@ void Base::addBlack(Cliente c)
 void Base::addFront(string s)
 {
 	concelhosFront.push_back(s);
-}
-
-int Base::getAdminsS()
-{
-	return admins.size();
-}
-
-int Base::getEntregsS()
-{
-	return entregs.size();
-}
-
-int Base::getRestaurantesS()
-{
-	return restaurantes.size();
-}
-
-int Base::getFrontS()
-{
-	return concelhosFront.size();
-}
-
-int Base::getBlackS()
-{
-	return lista_negra.size();
-}
-
-Administrativo Base::getAdmin(int i)
-{
-	return admins.at(i);
-}
-
-Entregador Base::getEntreg(int i)
-{
-	return entregs.at(i);
-}
-
-Restaurante Base::getRes(int i)
-{
-	return restaurantes.at(i);
-}
-
-string Base::getFront(int i)
-{
-	return concelhosFront.at(i);
-}
-
-Cliente Base::getBlack(int i)
-{
-	return lista_negra.at(i);
 }
 
 

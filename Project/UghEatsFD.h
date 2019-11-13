@@ -3,7 +3,6 @@
 #ifndef UGHEATSFD_H
 #define UGHEATSFD_H
 
-#include <vector>
 #include "Base.h"
 
 

@@ -1,6 +1,5 @@
 #pragma once
 
-#include <string>
 #include <vector>
 #include <sstream>
 
@@ -14,10 +13,10 @@ private:
 	double preco;
 public:
 	Produto(string, string, double);
-	string getProduto();
-	double getPreco();
 	string getNome();
+	double getPreco();
 	string getTipo();
+	bool operator==(Produto& p);
 };
 
 class Restaurante
@@ -33,13 +32,16 @@ public:
 	Restaurante();
 	Restaurante(string, string, string, vector<string>&, bool);
 	bool isAvailable();
-	//bool operator==(Restaurante& r);
+	bool operator==(Restaurante& r);
 	string getNome();
-	//vector<Produto> getProdutos();
-	//ostringstream printProducts();
-	void addProduto(Produto);
+	vector<Produto> getProdutos();
 	string getMorada();
 	string getConcelho();
+	string printProducts();
+	bool addProduto(Produto);
+	vector<Produto> getProdByPrice(double);
+	vector<string> getType(string);
+
 	bool getAvailable();
 	string getTpCul(int i);
 	int getTpCulS();

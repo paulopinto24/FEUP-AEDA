@@ -1,9 +1,9 @@
 #pragma once
 
 #include <iostream>
-#include <sstream>
 #include "Veiculo.h"
 #include "Restaurante.h"
+
 
 using namespace std;
 
@@ -33,9 +33,9 @@ public:
 	void setEmail(string email);
 	void setMorada(string morada);
 	string getEmail();
-	int encomenda();
-	string getMorada();
 	string getConcelho();
+	int encomenda();
+	string getMorada(); 
 	//será necessário saber a que base pertence cada cliente? 
 };
 

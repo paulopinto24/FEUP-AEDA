@@ -1,6 +1,6 @@
 #include "Utils.h"
 
-int loadApplication(UghEatsFD *p1) {
+int loadApplication(UghEatsFD* p1) {
 	fstream inFile;
 	inFile.open("UghEatsFD.txt", fstream::in);
 
@@ -46,7 +46,7 @@ int loadApplication(UghEatsFD *p1) {
 	return 0;
 }
 
-int saveApplication(UghEatsFD *p1) {
+int saveApplication(UghEatsFD* p1) {
 	fstream outFile;
 	outFile.open("UghEatsFD.txt", fstream::out);
 
@@ -202,7 +202,7 @@ vector<string> parseBySlash(string line) {
 }
 
 Base parseBase(vector<string> vec) {
-	
+
 	string distrito;
 	string morada;
 	string concelho;
@@ -216,7 +216,7 @@ Base parseBase(vector<string> vec) {
 	morada = tmp.at(1);
 
 	tmp = parseBySemiColon(vec.at(2)); //coord GPS
-	
+
 	GPScoord location(stof(tmp.at(0)), stof(tmp.at(1)));
 
 	Base b(distrito, morada, concelho, location);
@@ -325,7 +325,7 @@ Base parseBase(vector<string> vec) {
 	}
 
 	inClient.close();
-	
+
 	//abre o ficheiro de texto com a lista negra
 	fstream inB;
 	inB.open(vec.at(6), fstream::in);

@@ -18,7 +18,7 @@ int selectBase() {
 		cin.ignore();
 	}
 
-	return base;
+	return base - 1;
 }
 
 int main() {

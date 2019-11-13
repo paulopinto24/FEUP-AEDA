@@ -1,3 +1,5 @@
+#pragma once
+
 #ifndef GPScoord_H
 #define GPScoord_H
 

@@ -14,41 +14,87 @@ Produto::Produto(string n, string t, double p) {
 	preco = p;
 }
 
-double Produto::getPreco()
-{
-	return preco;
-}
-
-string Produto::getNome()
-{
+string Produto::getNome() {
 	return nome;
 }
 
-string Produto::getTipo()
-{
+double Produto::getPreco() {
+	return preco;
+}
+
+string Produto::getTipo() {
 	return tipo;
 }
 
-
+bool Produto::operator==(Produto& p) {
+	if (nome == p.nome) return true;
+	else return false;
+}
 
 Restaurante::Restaurante()
 {
+	available = false;
 }
 
 bool Restaurante::isAvailable() {
 	return this->available;
 }
 
-string Restaurante::getNome()
-{
+bool Restaurante::operator==(Restaurante &r) {
+	if (this->morada == r.morada) {
+		return true;
+	}
+	else return false;
+}
+
+string Restaurante::getNome() {
 	return nome;
 }
 
-void Restaurante::addProduto(Produto p)
-{
-	produtos.push_back(p);
+vector<Produto> Restaurante::getProdutos() {
+	return produtos;
 }
 
+bool Restaurante::addProduto(Produto p)
+{
+	for (int i = 0; i < produtos.size(); i++) {
+		if (produtos.at(i) == p) {
+			return false;
+		}
+	}
+	produtos.push_back(p);
+	return true;
+}
+
+string Restaurante::printProducts() {
+	ostringstream oss;
+	oss << this->nome << endl;
+	for (int i = 0; i < produtos.size(); i++) {
+		oss << " -> " << produtos.at(i).getNome() << "   " << produtos.at(i).getPreco() << endl;
+	}
+
+	string print(oss.str());
+
+	return print;
+}
+
+vector<Produto> Restaurante::getProdByPrice(double p) {
+	vector<Produto> prods;
+
+	for (int i = 0; i < produtos.size(); i++) {
+		if (produtos.at(i).getPreco() <= p) {
+			prods.push_back(produtos.at(i));
+		}
+	}
+
+	return prods;
+}
+
+vector<string> Restaurante::getType(string t) {
+	return tipoCulinaria;
+}
+
+//GETTERS DE RESTAURANTE
 string Restaurante::getMorada()
 {
 	return morada;
@@ -83,5 +129,6 @@ Produto Restaurante::getProd(int i)
 {
 	return produtos.at(i);
 }
+
 
 

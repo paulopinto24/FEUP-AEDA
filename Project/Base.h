@@ -1,14 +1,14 @@
+#pragma once
+
 #ifndef BASE_H
 #define BASE_H
 
-
-#include <vector>
 #include "Pessoa.h" 
 #include "GPScoord.h"
 
 using namespace std;
 
-class Base
+class Base 
 {
 private:
 	string distrito;
@@ -26,23 +26,13 @@ private:
 public:
 	//Base();
 	Base(const string d, const string m, const string c, GPScoord& gpscoord);
+	//getters
 	string getDistrito();
 	string getMorada();
 	string getConcelho();
 	GPScoord getLocation();
 	Cliente getCliente(int i);
-	bool addCliente(Cliente);
 	int getClientesSize();
-	int clientesSize();
-	bool addAdmin(Administrativo& ad);
-	Administrativo getGerente();
-	bool addEntregador(Entregador &);
-	int entregsSize();
-	bool addRestaurante(Restaurante&);
-	vector<Restaurante> getRestaurantes();
-	//void printByRes();
-	void addBlack(Cliente c);
-	void addFront(string s);
 	int getAdminsS();
 	int getEntregsS();
 	int getRestaurantesS();
@@ -51,8 +41,21 @@ public:
 	Administrativo getAdmin(int i);
 	Entregador getEntreg(int i);
 	Restaurante getRes(int i);
+	vector<Restaurante> getRestaurantes();
 	string getFront(int i);
 	Cliente getBlack(int i);
+	//adders
+	bool addCliente(Cliente);
+	bool addAdmin(Administrativo& ad);
+	bool addEntregador(Entregador &);
+	bool addRestaurante(Restaurante&);
+	void addBlack(Cliente c);
+	void addFront(string s);
+	//printers
+	string printByRes();
+	string printByZone(string);
+	string printByPrice(double);
+	string printByType(string);
 };
 
 

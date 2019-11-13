@@ -1,7 +1,5 @@
 #pragma once
 
-#include <iostream>
-#include <string>
 #include "Base.h"
 
 using namespace std;
@@ -64,9 +62,9 @@ bool validEmail(string const& email) {
 }
 
 // função para ver se o NIF é composto apenas por dígitos
-bool is_digits(const std::string& str)
+bool is_digits(const string& str)
 {
-	return str.find_first_not_of("0123456789") == std::string::npos;
+	return str.find_first_not_of("0123456789") == string::npos;
 }
 
 bool inscricao(Base b) {
@@ -93,8 +91,8 @@ bool inscricao(Base b) {
 	}
 	/*   descomentar quando forem criadas as bases
 
-	for (int i = 0; i < b.clientes.size(); i++) {
-		if (email == b.clientes.at(i).getEmail) {
+	for (int i = 0; i < b.clientesSize(); i++) {
+		if (email == b.getCliente(i).getEmail) {
 			cerr << "This email is already in use...\n";
 			return false;
 		}
@@ -117,8 +115,8 @@ bool inscricao(Base b) {
 		cin.ignore();
 	}
 	/*
-	for (int i = 0; i < b.clientes.size(); i++) {
-		if (nif == b.clientes.at(i).getNIF()) {
+	for (int i = 0; i < b.clientesSize(); i++) {
+		if (nif == b.getCliente(i).getNIF()) {
 			cerr << "This NIF is already in use...\n";
 			return false;
 		}
@@ -126,7 +124,7 @@ bool inscricao(Base b) {
 
 	cout << endl << endl;
 
-	//b.addCliente(Cliente(nome, nif, email, morada));
+	//b.addCliente(Cliente(nome, nif, email, morada, b.getDistrito()));
 
 	return true; // tem a ver com controlo de erros, se retornar true é pq deu bem, se retornar false não foi possível adicionar cliente
 }

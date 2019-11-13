@@ -31,8 +31,8 @@ string Pessoa::getNome() {
 Cliente::Cliente(string n, string nif, string e, string m, string c, string b) :Pessoa(n, nif) {
 	email = e;
 	morada = m;
-	concelho = c;
 	base = b;
+	concelho = c;
 }
 
 void Cliente::setEmail(string email) {
@@ -50,22 +50,21 @@ string Cliente::getEmail() {
 int Cliente::encomenda() {
 	int option;
 
-	cout << "1 - Restaurant\n2 - Food Type\n3 - Plate";
+	cout << "1 - Restaurant\n2 - Geographic zone\n3 - Price\n4 - Food type\n";
 	cin >> option;
 
 	if (option == 1) {
-		// loop para mostrar todos os restaurantes e escolher 1 (mostrar o preço da entrega -> 3 ou 5€)
-		// fazer loop com todas as comidas do restaurante escolhido
+		// usar printByRes
 	}
 	else if(option == 2) {
 		int ft;
-		// fazer loop com todos os tipos de comida e escolher 1
-		// fazer loop com todos os restaurantes que tem esse tipo de comida (mostrar o preço da entrega -> 3 ou 5€)
-		// fazer loop com todas as comidas do restaurante escolhido
+		// usar printByZone
 	}
 	else if (option == 3) {
-		// fazer loop de todos os pratos de todos os restaurantes e escolher 1
-		// fazer loop de todos os restaurantes que tem esse prato (mostrar o preço da entrega -> 3 ou 5€)
+		// usar printByPrice
+	}
+	else if (option == 4) {
+		// usar printByType
 	}
 	else {
 		cerr << "Erro no processamento da encomenda...\n";
@@ -96,11 +95,6 @@ int Cliente::encomenda() {
 string Cliente::getMorada()
 {
 	return morada;
-}
-
-string Cliente::getConcelho()
-{
-	return concelho;
 }
 
 Funcionario::Funcionario(string n, string nif, string dn, double s) : Pessoa(n, nif) {
@@ -136,6 +130,7 @@ void Entregador::setCom(double comissao)
 	this->comissao = comissao;
 }
 
+//GETTERS DE ENTREGADOR
 Veiculo Entregador::getVeiculo()
 {
 	return veiculo;
@@ -144,6 +139,12 @@ Veiculo Entregador::getVeiculo()
 double Entregador::getComissao()
 {
 	return comissao;
+}
+
+//GETTER PARA CLIENTE
+string Cliente::getConcelho()
+{
+	return concelho;
 }
 
 
