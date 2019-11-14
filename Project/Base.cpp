@@ -1,7 +1,7 @@
 #include "Base.h"
 
-//Base::Base() {}
 
+Base::Base(){}
 
 Base::Base(const string d, const string m, const string c, GPScoord&gpscoord) {
 	this->distrito = d;
@@ -40,6 +40,11 @@ int Base::getFrontS()
 int Base::getBlackS()
 {
 	return lista_negra.size();
+}
+
+int Base::getHisS()
+{
+	return historial.size();
 }
 
 //GETTERS DOS MESMOS VETORES
@@ -102,6 +107,11 @@ Cliente Base::getCliente(int i)
 	return clientes.at(i);
 }
 
+Entrega Base::getHis(int i)
+{
+	return historial.at(i);
+}
+
 bool Base::addAdmin(Administrativo & ad)
 {
 	for (int i = 0; i < admins.size(); i++) {
@@ -138,6 +148,7 @@ vector<Restaurante> Base::getRestaurantes() {
 }
 
 string Base::printByRes() {
+
 	ostringstream oss;
 
 	for (int i = 0; i < restaurantes.size(); i++) {
@@ -150,34 +161,54 @@ string Base::printByRes() {
 	return res;
 }
 
-string Base::printByZone(string c) {
-	vector<Restaurante> resByZone;
+int Base::printByZone(string c) {
+	vector<int> resByZone;
+	ostringstream oss;
+	int resOption;
+	int cnt = 1;
 
 	for (int i = 0; i < restaurantes.size(); i++) {
 		if (restaurantes.at(i).getConcelho() == c) {
-			resByZone.push_back(restaurantes.at(i));
+			resByZone.push_back(i);
+			oss << cnt << " - " << restaurantes.at(i).printProducts() << endl;
+			cnt++;
 		}
-	}
-
-	ostringstream oss;
-
-	for (int i = 0; i < resByZone.size(); i++) {
-		int j = i + 1;
-		oss << j << " - " << resByZone.at(i).printProducts() << endl;
 	}
 
 	string res(oss.str());
 
-	return res;
+	cout << res;
+	cin >> resOption;
+	
+	return resByZone.at(resOption - 1);
 }
+
+//string Base::printByPrice(double p) {
+//	ostringstream oss;
+//
+//	for (int i = 0; i < restaurantes.size(); i++) {
+//		oss << restaurantes.at(i).getNome() << endl;
+//		for (int j = 0; j < restaurantes.at(i).getProdByPrice(p).size(); j++) {
+//			oss << " -> " << restaurantes.at(i).getProdByPrice(p).at(j).getNome() << endl;
+//		}
+//	}
+//
+//	string res(oss.str());
+//
+//	return res;
+//}
 
 string Base::printByPrice(double p) {
 	ostringstream oss;
 
 	for (int i = 0; i < restaurantes.size(); i++) {
-		oss << restaurantes.at(i).getNome() << endl;
-		for (int j = 0; j < restaurantes.at(i).getProdByPrice(p).size(); j++) {
-			oss << " -> " << restaurantes.at(i).getProdByPrice(p).at(j).getNome() << endl;
+		int k = i + 1;
+		oss << k << " - " << restaurantes.at(i).getNome() << endl;
+		for (int j = 0; j < restaurantes.at(i).getProdS(); j++) {
+			if (restaurantes.at(i).getProd(j).getPreco() <= p) {
+				oss << "-> " << restaurantes.at(i).getProd(j).getNome() << "   " 
+					<< restaurantes.at(i).getProd(j).getPreco() << endl;
+			}
 		}
 	}
 
@@ -185,6 +216,29 @@ string Base::printByPrice(double p) {
 
 	return res;
 }
+
+//string Base::printByType(string t) {
+//	ostringstream oss;
+//	vector<Restaurante> rest;
+//	bool add = false;
+//
+//	for (int i = 0; i < restaurantes.size(); i++) {
+//		for (int j = 0; j < restaurantes.at(i).getType(t).size(); j++) {
+//			if (restaurantes.at(i).getType(t).at(j) == t) {
+//				add = true;
+//			}
+//		}
+//
+//		if (add) {
+//			rest.push_back(restaurantes.at(i));
+//			add = false;
+//		}
+//	}
+//
+//	string res(oss.str());
+//
+//	return res;
+//}
 
 string Base::printByType(string t) {
 	ostringstream oss;
@@ -192,16 +246,15 @@ string Base::printByType(string t) {
 	bool add = false;
 
 	for (int i = 0; i < restaurantes.size(); i++) {
-		for (int j = 0; j < restaurantes.at(i).getType(t).size(); j++) {
-			if (restaurantes.at(i).getType(t).at(j) == t) {
-				add = true;
+		int k = i + 1;
+		oss << k << " - " << restaurantes.at(i).getNome() << endl;
+		for (int j = 0; j < restaurantes.at(i).getProdS(); j++) {
+			if (restaurantes.at(i).getProd(j).getTipo() == t) {
+				oss << "-> " << restaurantes.at(i).getProd(j).getNome() << "   "
+					<< restaurantes.at(i).getProd(j).getPreco() << endl;
 			}
 		}
 
-		if (add) {
-			rest.push_back(restaurantes.at(i));
-			add = false;
-		}
 	}
 
 	string res(oss.str());
@@ -219,13 +272,13 @@ void Base::addFront(string s)
 	concelhosFront.push_back(s);
 }
 
-void Base::deleteClient(Cliente cliente) {
-	for (int i = 0; i < clientes.size(); i++) {
-		if (clientes.at(i) == cliente) {
-			clientes.erase(clientes.begin() + i);
-		}
-	}
+void Base::addEntrega(Entrega e)
+{
+	historial.push_back(e);
 }
+
+
+
 
 
 

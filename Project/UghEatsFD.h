@@ -12,7 +12,7 @@ private:
 	vector<Base> bases;
 public:
 	UghEatsFD();
-	Base &getBase(int);
+	Base& getBase(int);
 	void addBase(Base b);
 };
 

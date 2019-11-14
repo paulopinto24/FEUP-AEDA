@@ -1,5 +1,6 @@
 #include "Pessoa.h"
 
+
 Pessoa::Pessoa() {};
 
 using namespace std;
@@ -37,22 +38,17 @@ Cliente::Cliente(string n, string nif, string e, string m, string c, string b) :
 
 void Cliente::setEmail(string email) {
 	this->email = email;
-	cout << "Email successfully changed!\n";
 }
 
 void Cliente::setMorada(string morada) {
 	this->morada = morada;
 }
 
-void Cliente::setConcelho(string concelho) {
-	this->concelho = concelho;
-}
-
 string Cliente::getEmail() {
 	return this->email;
 }
 
-int Cliente::encomenda() {
+int Cliente::encomenda(Base* b) {
 	int option;
 
 	cout << "1 - Restaurant\n2 - Geographic zone\n3 - Price\n4 - Food type\n";
@@ -61,41 +57,309 @@ int Cliente::encomenda() {
 	int resOption;
 
 	if (option == 1) {
-		// printByRes();
+		cout << b->printByRes() << endl;
 		cin >> resOption;
+		vector<Produto> prods;
+		Restaurante r = b->getRes(resOption - 1);
+		for (int i = 0; i < r.getProdS(); i++) {
+			int j = i + 1;
+			cout << j << "- " << r.getProd(i).getNome() << " - " 
+				<< r.getProd(i).getPreco() << "€ -"
+				<< r.getProd(i).getTipo() << endl;
+		}
+		
+		cout << "Choose a product (Press '0' to escape): ";
+		int prodOption;
+		cin >> prodOption;
+		while (prodOption != 0) {
+			int choice = prodOption - 1;
+			prods.push_back(r.getProd(choice));
+			cin >> prodOption;
+		}
+
+		int dia, mes, hora, minuto;
+
+		cout << "Month : "; cin >> mes;
+		
+		cout << "Day : "; cin >> dia;
+		
+		cout << "Hour : "; cin >> hora;
+		
+		cout << "Minute : "; cin >> minuto;
+		
+
+		ostringstream d;
+		d << dia << '-' << mes << "-2019";
+		string data(d.str());   // so para o caso de ser mais facil trabalhar c string, senao descartar
+
+		ostringstream h;
+		h << hora << ':' << minuto;
+		string horas(h.str());   // so para o caso de ser mais facil trabalhar c string, senao descartar
+
+		string time = data + "|" + horas;
+
+		Encomenda encomenda(r, time, prods);
+		encomenda.printDados();
+		cout << "Confirmar e avançar para entrega? ('0' para sair)" << endl;
+		int conf;
+		cin >> conf;
+		if (conf == 0) {
+			exit(1);
+		}
+
+		if (r.getConcelho() == concelho) {
+			encomenda.setpFixo(3.0);
+		}
+		else {
+			encomenda.setpFixo(5.0);
+		}
+		encomenda.setpTotal();
+
+		Entrega entrega(encomenda, b->getEntreg(rand() % b->getEntregsS()));
+
+		cout << "A entrega foi bem sucedida?" << endl;
+		cout << "1 - Sim" << endl;
+		cout << "0 - Nao" << endl;
+
+		bool success;
+		cin >> success;
+
+		entrega.setSuccess(success);
+		b->addEntrega(entrega);
 	}
 	else if(option == 2) {
-		int ft;
-		// usar printByZone
+		string zona;
+		cout << "Concelho desejado: ";
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		getline(cin, zona);
+		resOption = b->printByZone(zona);
+		vector<Produto> prods;
+		Restaurante r = b->getRes(resOption);
+		for (int i = 0; i < r.getProdS(); i++) {
+			int j = i + 1;
+			cout << j << "- " << r.getProd(i).getNome() << " - "
+				<< r.getProd(i).getPreco() << "€ -"
+				<< r.getProd(i).getTipo() << endl;
+		}
+
+		cout << "Choose a product (Press '0' to escape): ";
+		int prodOption;
+		cin >> prodOption;
+		while (prodOption != 0) {
+			int choice = prodOption - 1;
+			prods.push_back(r.getProd(choice));
+			cin >> prodOption;
+		}
+
+		int dia, mes, hora, minuto;
+
+		cout << "Month : "; cin >> mes;
+
+		cout << "Day : "; cin >> dia;
+
+		cout << "Hour : "; cin >> hora;
+
+		cout << "Minute : "; cin >> minuto;
+
+
+		ostringstream d;
+		d << dia << '-' << mes << "-2019";
+		string data(d.str());   // so para o caso de ser mais facil trabalhar c string, senao descartar
+
+		ostringstream h;
+		h << hora << ':' << minuto;
+		string horas(h.str());   // so para o caso de ser mais facil trabalhar c string, senao descartar
+
+		string time = data + "|" + horas;
+
+		Encomenda encomenda(r, time, prods);
+		encomenda.printDados();
+		cout << "Confirmar e avançar para entrega? ('0' para sair)" << endl;
+		int conf;
+		cin >> conf;
+		if (conf == 0) {
+			exit(1);
+		}
+
+		if (r.getConcelho() == concelho) {
+			encomenda.setpFixo(3.0);
+		}
+		else {
+			encomenda.setpFixo(5.0);
+		}
+		encomenda.setpTotal();
+
+		Entrega entrega(encomenda, b->getEntreg(rand() % b->getEntregsS()));
+
+		cout << "A entrega foi bem sucedida?" << endl;
+		cout << "1 - Sim" << endl;
+		cout << "0 - Nao" << endl;
+
+		bool success;
+		cin >> success;
+
+		entrega.setSuccess(success);
+		b->addEntrega(entrega);
 	}
 	else if (option == 3) {
-		// usar printByPrice
+		double p;
+		cout << "Maximum desired price: ";
+		cin >> p;
+		cout << b->printByPrice(p) << endl;
+		cin >> resOption;
+		vector<Produto> prods;
+		Restaurante r = b->getRes(resOption - 1);
+		for (int i = 0; i < r.getProdS(); i++) {
+			int j = i + 1;
+			if (r.getProd(i).getPreco() <= p) {
+				cout << j << "- " << r.getProd(i).getNome() << " - "
+					<< r.getProd(i).getPreco() << "€ -"
+					<< r.getProd(i).getTipo() << endl;
+			}
+		}
+
+		cout << "Choose a product (Press '0' to escape): ";
+		int prodOption;
+		cin >> prodOption;
+		while (prodOption != 0) {
+			int choice = prodOption - 1;
+			prods.push_back(r.getProd(choice));
+			cin >> prodOption;
+		}
+
+		int dia, mes, hora, minuto;
+
+		cout << "Month : "; cin >> mes;
+
+		cout << "Day : "; cin >> dia;
+
+		cout << "Hour : "; cin >> hora;
+
+		cout << "Minute : "; cin >> minuto;
+
+
+		ostringstream d;
+		d << dia << '-' << mes << "-2019";
+		string data(d.str());   // so para o caso de ser mais facil trabalhar c string, senao descartar
+
+		ostringstream h;
+		h << hora << ':' << minuto;
+		string horas(h.str());   // so para o caso de ser mais facil trabalhar c string, senao descartar
+
+		string time = data + "|" + horas;
+
+		Encomenda encomenda(r, time, prods);
+		encomenda.printDados();
+		cout << "Confirmar e avançar para entrega? ('0' para sair)" << endl;
+		int conf;
+		cin >> conf;
+		if (conf == 0) {
+			exit(1);
+		}
+
+		if (r.getConcelho() == concelho) {
+			encomenda.setpFixo(3.0);
+		}
+		else {
+			encomenda.setpFixo(5.0);
+		}
+		encomenda.setpTotal();
+
+		Entrega entrega(encomenda, b->getEntreg(rand() % b->getEntregsS()));
+
+		cout << "A entrega foi bem sucedida?" << endl;
+		cout << "1 - Sim" << endl;
+		cout << "0 - Nao" << endl;
+
+		bool success;
+		cin >> success;
+
+		entrega.setSuccess(success);
+		b->addEntrega(entrega);
 	}
 	else if (option == 4) {
-		// usar printByType
+		string t;
+		cout << "Choose a food type: ";
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		getline(cin, t);
+		cout << b->printByType(t) << endl;
+		cin >> resOption;
+		vector<Produto> prods;
+		Restaurante r = b->getRes(resOption - 1);
+		for (int i = 0; i < r.getProdS(); i++) {
+			int j = i + 1;
+			if (r.getProd(i).getTipo() == t) {
+				cout << j << "- " << r.getProd(i).getNome() << " - "
+					<< r.getProd(i).getPreco() << "€ -"
+					<< r.getProd(i).getTipo() << endl;
+			}
+		}
+
+		cout << "Choose a product (Press '0' to escape): ";
+		int prodOption;
+		cin >> prodOption;
+		while (prodOption != 0) {
+			int choice = prodOption - 1;
+			prods.push_back(r.getProd(choice));
+			cin >> prodOption;
+		}
+
+		int dia, mes, hora, minuto;
+
+		cout << "Month : "; cin >> mes;
+
+		cout << "Day : "; cin >> dia;
+
+		cout << "Hour : "; cin >> hora;
+
+		cout << "Minute : "; cin >> minuto;
+
+
+		ostringstream d;
+		d << dia << '-' << mes << "-2019";
+		string data(d.str());   // so para o caso de ser mais facil trabalhar c string, senao descartar
+
+		ostringstream h;
+		h << hora << ':' << minuto;
+		string horas(h.str());   // so para o caso de ser mais facil trabalhar c string, senao descartar
+
+		string time = data + "|" + horas;
+
+		Encomenda encomenda(r, time, prods);
+		encomenda.printDados();
+		cout << "Confirmar e avançar para entrega? ('0' para sair)" << endl;
+		int conf;
+		cin >> conf;
+		if (conf == 0) {
+			exit(1);
+		}
+
+		if (r.getConcelho() == concelho) {
+			encomenda.setpFixo(3.0);
+		}
+		else {
+			encomenda.setpFixo(5.0);
+		}
+		encomenda.setpTotal();
+
+		Entrega entrega(encomenda, b->getEntreg(rand() % b->getEntregsS()));
+
+		cout << "A entrega foi bem sucedida?" << endl;
+		cout << "1 - Sim" << endl;
+		cout << "0 - Nao" << endl;
+
+		bool success;
+		cin >> success;
+
+		entrega.setSuccess(success);
+		b->addEntrega(entrega);
 	}
 	else {
 		cerr << "Erro no processamento da encomenda...\n";
 		return 1;
 	}
-
-	int dia, mes, hora, minuto;
-
-	cout << "Month : "; cin >> mes;
-	cout << "Day : "; cin >> dia;
-	cout << "Hour : "; cin >> hora;
-	cout << "Minute : "; cin >> minuto;
-
-	ostringstream d;
-	d << dia << '-' << mes << "-2019";
-	string data(d.str());   // so para o caso de ser mais facil trabalhar c string, senao descartar
-
-	ostringstream h;
-	h << hora << ':' << minuto;
-	string horas(h.str());   // so para o caso de ser mais facil trabalhar c string, senao descartar
-
-	// encontrar funcionario para realizar encomenda
-	// caso nao haja nenhum disponivel, retornar um valor diferente de 0
 
 	return 0;
 }
