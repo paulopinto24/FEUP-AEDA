@@ -44,6 +44,10 @@ void Cliente::setMorada(string morada) {
 	this->morada = morada;
 }
 
+void Cliente::setConcelho(string concelho) {
+	this->concelho = concelho;
+}
+
 string Cliente::getEmail() {
 	return this->email;
 }

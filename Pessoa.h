@@ -32,6 +32,7 @@ public:
 	Cliente(string n, string nif, string e, string m, string c, string b);
 	void setEmail(string email);
 	void setMorada(string morada);
+	void setConcelho(string concelho);
 	string getEmail();
 	string getConcelho();
 	int encomenda();

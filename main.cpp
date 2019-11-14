@@ -23,27 +23,6 @@ int selectBase() {
 
 int main() {
 
-	/*cout << "hello\n";
-
-	if (!(inFile.is_open())) {
-		cout << "Error loading application." << endl;
-		return -1;
-	}
-
-	inFile.close();
-
-	ofstream outFile;
-
-	outFile.open("UghEatsFD.txt");
-
-	outFile << "Pila" << endl;
-
-	outFile.close();*/
-
-
-
-
-
 	UghEatsFD app;
 	if (loadApplication(&app)) {
 		cout << "Error loading application." << endl;
@@ -64,24 +43,27 @@ int main() {
 			option = 3;
 
 		if (option == 1) {
-			clientPage(entrar(app.getBase(selectBase())));
+			Base &base = app.getBase(selectBase());
+			clientPage(entrar(base), base);
 			continue;
 		}
 		else if (option == 2) {
-			Base& b = app.getBase(selectBase());
-			if (!inscricao(b)) {
+
+			Base& base = app.getBase(selectBase());
+			if (!inscricao(base)) {
 				cerr << "Error processing sign in...\n";
 				return 1;
 			}
-			// fazer com que clientePage receba um cliente por referencia para alterar no original e nao na copia
-			Cliente* c = &b.getCliente(b.getClientesSize() - 1);
-			clientPage(*c);
+			
+			clientPage(base.getCliente(base.getClientesSize() - 1), base);
 			continue;
 		}
 		else if (option == 3) {
+
 			cout << "Goodbye..." << endl;
 			saveApplication(&app);
 			break;
+
 		}
 		else return -1;
 
