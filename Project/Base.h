@@ -7,7 +7,7 @@
 
 #include "Pessoa.h" 
 #include "GPScoord.h"
-#include "Entrega.h"
+//#include "Entrega.h"
 
 class Cliente;
 class Administrativo;
@@ -29,11 +29,11 @@ private:
 	vector<Restaurante> restaurantes;
 	vector<string> concelhosFront;
 	vector<Cliente> lista_negra;
-	map<Entregador, Entrega> historial;
+	//map<Entregador, Entrega> historial;
 	// ter uma lista por base de restaurantes ?? ou associar o restaurante à base pela morada/coordenadas gps?
 	// ter uma lista de entregadores (so e apenas se tivermos tempo)
 public:
-	Base();
+	//Base();
 	Base(const string d, const string m, const string c, GPScoord& gpscoord);
 	//getters
 	string getDistrito();
@@ -65,6 +65,8 @@ public:
 	string printByZone(string);
 	string printByPrice(double);
 	string printByType(string);
+
+	void deleteClient(Cliente);
 };
 
 

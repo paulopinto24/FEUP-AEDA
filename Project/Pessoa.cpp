@@ -1,6 +1,5 @@
 #include "Pessoa.h"
 
-
 Pessoa::Pessoa() {};
 
 using namespace std;
@@ -38,17 +37,22 @@ Cliente::Cliente(string n, string nif, string e, string m, string c, string b) :
 
 void Cliente::setEmail(string email) {
 	this->email = email;
+	cout << "Email successfully changed!\n";
 }
 
 void Cliente::setMorada(string morada) {
 	this->morada = morada;
 }
 
+void Cliente::setConcelho(string concelho) {
+	this->concelho = concelho;
+}
+
 string Cliente::getEmail() {
 	return this->email;
 }
 
-int Cliente::encomenda(Base b) {
+int Cliente::encomenda() {
 	int option;
 
 	cout << "1 - Restaurant\n2 - Geographic zone\n3 - Price\n4 - Food type\n";
@@ -57,44 +61,8 @@ int Cliente::encomenda(Base b) {
 	int resOption;
 
 	if (option == 1) {
-		b.printByRes();
+		// printByRes();
 		cin >> resOption;
-		vector<Produto> prods;
-		Restaurante r = b.getRes(resOption - 1);
-		for (int i = 0; i < r.getProdS(); i++) {
-			int j = i + 1;
-			cout << j << "- " << r.getProd(i).getNome() << " - " 
-				<< r.getProd(i).getPreco() << "€ -"
-				<< r.getProd(i).getTipo() << endl;
-		}
-		
-		cout << "Choose a product (Press '0' to escape): ";
-		int prodOption;
-		cin >> prodOption;
-		while (prodOption != 0) {
-			int choice = prodOption - 1;
-			prods.push_back(r.getProd(choice));
-			cin >> prodOption;
-		}
-
-		int dia, mes, hora, minuto;
-
-		cout << "Month : "; cin >> mes;
-		cout << "Day : "; cin >> dia;
-		cout << "Hour : "; cin >> hora;
-		cout << "Minute : "; cin >> minuto;
-
-		ostringstream d;
-		d << dia << '-' << mes << "-2019";
-		string data(d.str());   // so para o caso de ser mais facil trabalhar c string, senao descartar
-
-		ostringstream h;
-		h << hora << ':' << minuto;
-		string horas(h.str());   // so para o caso de ser mais facil trabalhar c string, senao descartar
-
-		string time = data + "|" + horas;
-
-		Encomenda(r, time, prods);
 	}
 	else if(option == 2) {
 		int ft;
@@ -111,7 +79,20 @@ int Cliente::encomenda(Base b) {
 		return 1;
 	}
 
-	
+	int dia, mes, hora, minuto;
+
+	cout << "Month : "; cin >> mes;
+	cout << "Day : "; cin >> dia;
+	cout << "Hour : "; cin >> hora;
+	cout << "Minute : "; cin >> minuto;
+
+	ostringstream d;
+	d << dia << '-' << mes << "-2019";
+	string data(d.str());   // so para o caso de ser mais facil trabalhar c string, senao descartar
+
+	ostringstream h;
+	h << hora << ':' << minuto;
+	string horas(h.str());   // so para o caso de ser mais facil trabalhar c string, senao descartar
 
 	// encontrar funcionario para realizar encomenda
 	// caso nao haja nenhum disponivel, retornar um valor diferente de 0

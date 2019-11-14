@@ -1,7 +1,7 @@
 #include "Base.h"
 
+//Base::Base() {}
 
-Base::Base(){}
 
 Base::Base(const string d, const string m, const string c, GPScoord&gpscoord) {
 	this->distrito = d;
@@ -138,7 +138,6 @@ vector<Restaurante> Base::getRestaurantes() {
 }
 
 string Base::printByRes() {
-
 	ostringstream oss;
 
 	for (int i = 0; i < restaurantes.size(); i++) {
@@ -220,7 +219,13 @@ void Base::addFront(string s)
 	concelhosFront.push_back(s);
 }
 
-
+void Base::deleteClient(Cliente cliente) {
+	for (int i = 0; i < clientes.size(); i++) {
+		if (clientes.at(i) == cliente) {
+			clientes.erase(clientes.begin() + i);
+		}
+	}
+}
 
 
 

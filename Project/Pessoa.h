@@ -3,14 +3,9 @@
 #include <iostream>
 #include "Veiculo.h"
 #include "Restaurante.h"
-#include "Base.h"
-#include "Encomenda.h"
-
 
 
 using namespace std;
-
-class Base;
 
 class Pessoa
 {
@@ -37,9 +32,10 @@ public:
 	Cliente(string n, string nif, string e, string m, string c, string b);
 	void setEmail(string email);
 	void setMorada(string morada);
+	void setConcelho(string concelho);
 	string getEmail();
 	string getConcelho();
-	int encomenda(Base b);
+	int encomenda();
 	string getMorada(); 
 	//será necessário saber a que base pertence cada cliente? 
 };
