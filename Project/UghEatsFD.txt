@@ -9,3 +9,21 @@ Porto_cli.txt
 Porto_black.txt
 Porto_front.txt
 ---
+Lisboa
+Lisboa; Rua do Sousa
+-48.7267;-132.54
+Lisboa_res.txt
+Lisboa_func.txt
+Lisboa_cli.txt
+Lisboa_black.txt
+Lisboa_front.txt
+---
+Faro
+Faro; Rua de Espinho
+-15.2922;-168.964
+Faro_res.txt
+Faro_func.txt
+Faro_cli.txt
+Faro_black.txt
+Faro_front.txt
+---
