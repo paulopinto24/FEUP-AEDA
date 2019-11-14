@@ -1,5 +1,6 @@
 #include "Pessoa.h"
 
+
 Pessoa::Pessoa() {};
 
 using namespace std;
@@ -47,14 +48,53 @@ string Cliente::getEmail() {
 	return this->email;
 }
 
-int Cliente::encomenda() {
+int Cliente::encomenda(Base b) {
 	int option;
 
 	cout << "1 - Restaurant\n2 - Geographic zone\n3 - Price\n4 - Food type\n";
 	cin >> option;
 
+	int resOption;
+
 	if (option == 1) {
-		// usar printByRes
+		b.printByRes();
+		cin >> resOption;
+		vector<Produto> prods;
+		Restaurante r = b.getRes(resOption - 1);
+		for (int i = 0; i < r.getProdS(); i++) {
+			int j = i + 1;
+			cout << j << "- " << r.getProd(i).getNome() << " - " 
+				<< r.getProd(i).getPreco() << "€ -"
+				<< r.getProd(i).getTipo() << endl;
+		}
+		
+		cout << "Choose a product (Press '0' to escape): ";
+		int prodOption;
+		cin >> prodOption;
+		while (prodOption != 0) {
+			int choice = prodOption - 1;
+			prods.push_back(r.getProd(choice));
+			cin >> prodOption;
+		}
+
+		int dia, mes, hora, minuto;
+
+		cout << "Month : "; cin >> mes;
+		cout << "Day : "; cin >> dia;
+		cout << "Hour : "; cin >> hora;
+		cout << "Minute : "; cin >> minuto;
+
+		ostringstream d;
+		d << dia << '-' << mes << "-2019";
+		string data(d.str());   // so para o caso de ser mais facil trabalhar c string, senao descartar
+
+		ostringstream h;
+		h << hora << ':' << minuto;
+		string horas(h.str());   // so para o caso de ser mais facil trabalhar c string, senao descartar
+
+		string time = data + "|" + horas;
+
+		Encomenda(r, time, prods);
 	}
 	else if(option == 2) {
 		int ft;
@@ -71,20 +111,7 @@ int Cliente::encomenda() {
 		return 1;
 	}
 
-	int dia, mes, hora, minuto;
-
-	cout << "Month : "; cin >> mes;
-	cout << "Day : "; cin >> dia;
-	cout << "Hour : "; cin >> hora;
-	cout << "Minute : "; cin >> minuto;
-
-	ostringstream d;
-	d << dia << '-' << mes << "-2019";
-	string data(d.str());   // so para o caso de ser mais facil trabalhar c string, senao descartar
-
-	ostringstream h;
-	h << hora << ':' << minuto;
-	string horas(h.str());   // so para o caso de ser mais facil trabalhar c string, senao descartar
+	
 
 	// encontrar funcionario para realizar encomenda
 	// caso nao haja nenhum disponivel, retornar um valor diferente de 0

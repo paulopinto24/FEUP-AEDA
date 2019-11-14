@@ -73,6 +73,7 @@ bool inscricao(Base b) {
 	string morada;
 	string nif;
 	string email;
+	string concelho;
 
 	// Nome
 	cout << "\nName : ";
@@ -89,14 +90,35 @@ bool inscricao(Base b) {
 		cin.clear();
 		cin.ignore();
 	}
-	/*   descomentar quando forem criadas as bases
 
-	for (int i = 0; i < b.clientesSize(); i++) {
-		if (email == b.getCliente(i).getEmail) {
+	for (int i = 0; i < b.getClientesSize(); i++) {
+		if (email == b.getCliente(i).getEmail()) {
 			cerr << "This email is already in use...\n";
 			return false;
 		}
-	}*/
+	}
+
+	//Concelho
+	cout << endl << "Concelho : ";
+	cin >> concelho;
+	cin.clear();
+	cin.ignore();
+	bool isConcelho = false;
+
+	if (concelho == b.getConcelho()) {
+		isConcelho = true;
+	}
+	else {
+		for (int i = 0; i <= b.getFrontS(); i++) {
+			if (concelho == b.getFront(i)) {
+				isConcelho = true;
+			}
+		}
+	}
+
+	if (!isConcelho) {
+		cerr << "Concelho not valid!!!" << endl;
+	}
 
 	// Morada
 	cout << endl << "Morada : ";
@@ -114,30 +136,33 @@ bool inscricao(Base b) {
 		cin.clear();
 		cin.ignore();
 	}
-	/*
-	for (int i = 0; i < b.clientesSize(); i++) {
+	
+	for (int i = 0; i < b.getClientesSize(); i++) {
 		if (nif == b.getCliente(i).getNIF()) {
 			cerr << "This NIF is already in use...\n";
 			return false;
 		}
-	}*/
+	}
 
 	cout << endl << endl;
 
-	//b.addCliente(Cliente(nome, nif, email, morada, b.getDistrito()));
+	cout << "até aqui" << endl << endl;
 
-	return true; // tem a ver com controlo de erros, se retornar true é pq deu bem, se retornar false não foi possível adicionar cliente
+	b.addCliente(Cliente(nome, nif, email, morada, concelho, b.getDistrito()));
+
+	return true; 
 }
 
-void entrar(Base base) { //posteriormente esta funçao retornará um cliente
+Cliente entrar(Base base) { //posteriormente esta funçao retornará um cliente
 	int option;
-	cout << "1 - Sign up email\n2- Sign up with NIF\n\n";
+
+	cout << "\nHow do you want do sign in?\n1 - Sign in email\n2 - Sign in with NIF\n\n";
 	cin >> option;
 	cin.clear();
 	cin.ignore();
 
 	while (option < 1 || option > 2) {
-		cerr << "Please input a valid option:\n1 - Sign up email\n2- Sign up with NIF\n\n";
+		cerr << "Please input a valid option:\n1 - Sign in email\n2- Sign in with NIF\n\n";
 		cin >> option;
 		cin.clear();
 		cin.ignore();
@@ -147,17 +172,21 @@ void entrar(Base base) { //posteriormente esta funçao retornará um cliente
 		string email;
 
 		cout << "Please input your email: ";
-		cin >> email;
 
-		/*
-		for (int i = 0; i < base.clientes.size(); i++) {
-			if (base.clientes.at(i).getEmail == email) {
-				return base.clientes.at(i);
+		while (1) {
+			cin >> email;
+			cin.clear();
+			cin.ignore();
+			for (int i = 0; i < base.getClientesSize(); i++) {
+				if (base.getCliente(i).getEmail() == email) {
+					return base.getCliente(i);
+				}
 			}
-		}*/
+			
+			cerr << email << " NOT FOUND" << endl;
+		}
 
-		cerr << email << " NOT FOUND" << endl;
-		exit(1);
+		
 	}
 	else {
 		string nif;
@@ -165,19 +194,18 @@ void entrar(Base base) { //posteriormente esta funçao retornará um cliente
 		cout << "Please input your NIF: ";
 		cin >> nif;
 
-		/*
-		for (int i = 0; i < base.clientes.size(); i++) {
-			if (base.clientes.at(i).getNIF() == nif) {
-				//return base.clientes.at(i);
+		for (int i = 0; i < base.getClientesSize(); i++) {
+			if (base.getCliente(i).getNIF() == nif) {
+				return base.getCliente(i);
 			}
-		}*/
+		}
 
 		cerr << nif << " NOT FOUND" << endl;
 		exit(1);
 	}
 }
 
-void clientPage(Cliente cliente) {
+void clientPage(Cliente cliente, Base b) {
 	int option;
 
 	cout << "Options (...)\n\n";
@@ -189,7 +217,7 @@ void clientPage(Cliente cliente) {
 
 	switch(option){
 	case 1:
-		//cliente.encomenda();
+		cliente.encomenda(b);
 		break;
 	case 2:
 		cout << "New email : ";

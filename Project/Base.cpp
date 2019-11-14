@@ -1,7 +1,7 @@
 #include "Base.h"
 
 
-
+Base::Base(){}
 
 Base::Base(const string d, const string m, const string c, GPScoord&gpscoord) {
 	this->distrito = d;
@@ -138,6 +138,7 @@ vector<Restaurante> Base::getRestaurantes() {
 }
 
 string Base::printByRes() {
+
 	ostringstream oss;
 
 	for (int i = 0; i < restaurantes.size(); i++) {

@@ -3,8 +3,16 @@
 #ifndef BASE_H
 #define BASE_H
 
+#include <map>
+
 #include "Pessoa.h" 
 #include "GPScoord.h"
+#include "Entrega.h"
+
+class Cliente;
+class Administrativo;
+class Entregador;
+class Entrega;
 
 using namespace std;
 
@@ -21,10 +29,11 @@ private:
 	vector<Restaurante> restaurantes;
 	vector<string> concelhosFront;
 	vector<Cliente> lista_negra;
+	map<Entregador, Entrega> historial;
 	// ter uma lista por base de restaurantes ?? ou associar o restaurante à base pela morada/coordenadas gps?
 	// ter uma lista de entregadores (so e apenas se tivermos tempo)
 public:
-	//Base();
+	Base();
 	Base(const string d, const string m, const string c, GPScoord& gpscoord);
 	//getters
 	string getDistrito();

@@ -4,9 +4,12 @@
 
 using namespace std;
 
+
+Base baseClient;
+
 int selectBase() {
 	int base;
-	cout << "Select base:\n1 - Porto\n2 - Lisboa\n3 - Faro\n";
+	cout << "\nSelect base:\n1 - Porto\n2 - Lisboa\n3 - Faro\n";
 	cin >> base;
 	cin.clear();
 	cin.ignore();
@@ -62,8 +65,8 @@ int main() {
 
 	switch (option) {
 	case 1:
-		//Cliente cliente = entrar(app.getBase(selectBase()));  // Não tenho completa certeza de q isto está bem
-		//clientPage(cliente);
+		baseClient = app.getBase(selectBase());
+		clientPage(entrar(baseClient), baseClient);
 		break;
 	case 2:
 		if (!inscricao(app.getBase(selectBase()))) {

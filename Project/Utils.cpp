@@ -58,7 +58,7 @@ int saveApplication(UghEatsFD* p1) {
 	outFile << "UghEats" << endl;
 	outFile << "Bases:" << endl;
 
-	for (int i = 0; i < 1; i++) {
+	for (int i = 0; i < 3; i++) {
 		outFile << p1->getBase(i).getDistrito() << endl;
 		outFile << p1->getBase(i).getConcelho() << ";" << p1->getBase(i).getMorada() << endl;
 		outFile << p1->getBase(i).getLocation().getLat() << ";" << p1->getBase(i).getLocation().getLon() << endl;
@@ -230,8 +230,6 @@ Base parseBase(vector<string> vec) {
 		exit(-1);
 	}
 
-	cout << "Loading Restaurants..." << endl;
-
 	string strg;
 	vector<string> strgVec;
 	vector<string> tipsCul;
@@ -258,16 +256,14 @@ Base parseBase(vector<string> vec) {
 			}
 			else if (cnt == 4) {
 				tipsCul = parseBySemiColon(strg);
-			}
+			}  
 			else if (cnt > 4) {
 				tmp = parseBySemiColon(strg);
-				for (int i = 0; i < tmp.size(); i++) {
-					cout << tmp.at(i) << endl;
-				}
 				Produto prod(tmp.at(0), tmp.at(1), stod(tmp.at(2)));
 				prods.push_back(prod);
 			}
 		}
+
 	}
 
 	inRes.close();
@@ -280,8 +276,6 @@ Base parseBase(vector<string> vec) {
 		cout << "Error loading employees." << endl;
 		exit(-1);
 	}
-
-	cout << "Loading employees..." << endl;
 
 	bool trig = false;
 	while (getline(inFunc, strg)) {
@@ -316,7 +310,6 @@ Base parseBase(vector<string> vec) {
 		exit(-1);
 	}
 
-	cout << "Loading clients..." << endl;
 
 	while (getline(inClient, strg)) {
 		tmp = parseBySemiColon(strg);
@@ -335,7 +328,6 @@ Base parseBase(vector<string> vec) {
 		exit(-1);
 	}
 
-	cout << "Loading black list..." << endl;
 
 	while (getline(inB, strg)) {
 		tmp = parseBySemiColon(strg);
@@ -354,7 +346,6 @@ Base parseBase(vector<string> vec) {
 		exit(-1);
 	}
 
-	cout << "Loading bordering settlements..." << endl;
 
 	while (getline(inFront, strg)) {
 		b.addFront(strg);
