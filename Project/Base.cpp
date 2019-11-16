@@ -281,7 +281,14 @@ void Base::deleteClient(Cliente cliente) {
 }
 
 void Base::sortClientes() {
-	insertionSort(clientes);
+	for (unsigned int i = 1; i < clientes.size(); i++)
+	{
+		Cliente tmp = clientes.at(i);
+		int j;
+		for (j = i; j > 0 && tmp < clientes.at(j - 1); j--)
+			clientes.at(j) = clientes.at(j - 1);
+		clientes.at(j) = tmp;
+	}
 }
 
 void Base::addBlack(Cliente c)
@@ -304,7 +311,24 @@ void Base::addEntregaStr(string e)
 	historialStr.push_back(e);
 }
 
+void Base::sortBlack() {
 
+	// selection sort
+
+	int min_idx;
+
+	for (unsigned int i = 0; i < lista_negra.size() - 1; i++)
+	{
+		min_idx = i;
+		for (unsigned int j = i + 1; j < lista_negra.size(); j++)
+			if (lista_negra.at(j).getNIF() < lista_negra.at(min_idx).getNIF())
+				min_idx = j;
+
+		Cliente temp = lista_negra.at(min_idx);
+		lista_negra.at(min_idx) = lista_negra.at(i);
+		lista_negra.at(i) = temp;
+	}
+}
 
 
 

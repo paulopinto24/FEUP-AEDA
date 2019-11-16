@@ -27,9 +27,6 @@ public:
 	bool operator == (Pessoa& p);
 	int encomenda();
 	bool operator < (const Pessoa& p) const;
-	
-	template<class T>
-	void validInput(T valid);
 };
 
 class Cliente : public Pessoa

@@ -23,7 +23,7 @@ string openingMenu() {
 
 	getline(cin, option);
 
-	while (option != "1" && option != "2" && option != "3" && option != "Dev666") {
+	while (option != "1" && option != "2" && option != "3" && option != "AdminAEDA1920") {
 		cerr << "Please insert a valid option... \n";
 		cin.clear();
 		cin.ignore();
@@ -91,6 +91,13 @@ bool inscricao(Base& b) {
 		cin.ignore();
 	}
 
+	for (int i = 0; i < b.getBlackS(); i++) {
+		if (email == b.getBlack(i).getEmail()) {
+			cerr << "This email is already in use...\n";
+			return false;
+		}
+	}
+
 	for (int i = 0; i < b.getClientesSize(); i++) {
 		if (email == b.getCliente(i).getEmail()) {
 			cerr << "This email is already in use...\n";
@@ -99,25 +106,28 @@ bool inscricao(Base& b) {
 	}
 
 	//Concelho
-	cout << endl << "Concelho : ";
-	cin >> concelho;
-	cin.clear();
-	cin.ignore();
-	bool isConcelho = false;
+	while (1) {
+		cout << endl << "Concelho : ";
+		cin >> concelho;
+		cin.clear();
+		cin.ignore();
+		bool isConcelho = false;
 
-	if (concelho == b.getConcelho()) {
-		isConcelho = true;
-	}
-	else {
-		for (int i = 0; i < b.getFrontS(); i++) {
-			if (concelho == b.getFront(i)) {
-				isConcelho = true;
+		if (concelho == b.getConcelho()) {
+			isConcelho = true;
+		}
+		else {
+			for (int i = 0; i < b.getFrontS(); i++) {
+				if (concelho == b.getFront(i)) {
+					isConcelho = true;
+				}
 			}
 		}
-	}
 
-	if (!isConcelho) {
-		cerr << "Concelho not valid!!!" << endl;
+		if (!isConcelho) {
+			cerr << "Concelho not valid!!!" << endl;
+		}
+		else break;
 	}
 
 	// Morada
@@ -137,6 +147,13 @@ bool inscricao(Base& b) {
 		cin.ignore();
 	}
 	
+	for (int i = 0; i < b.getBlackS(); i++) {
+		if (nif == b.getBlack(i).getNIF()) {
+			cerr << "This NIF is already in use...\n";
+			return false;
+		}
+	}
+
 	for (int i = 0; i < b.getClientesSize(); i++) {
 		if (nif == b.getCliente(i).getNIF()) {
 			cerr << "This NIF is already in use...\n";
@@ -170,44 +187,75 @@ Cliente entrar(Base base) { //posteriormente esta funçao retornará um cliente
 
 	if (option == 1) {
 		string email;
-
-		cout << "Please input your email: ";
+		bool isBlack = false;
 
 		while (1) {
+
+			cout << "Please input your email: ";
 			cin >> email;
-			cin.clear();
-			cin.ignore();
+
+			// sequential search
+
+			for (int i = 0; i < base.getBlackS(); i++) {
+				if (base.getBlack(i).getEmail() == email) {
+					isBlack = true;
+					cerr << "Your account has been banned..." << endl;
+					break;
+				}
+			}
+
 			for (int i = 0; i < base.getClientesSize(); i++) {
 				if (base.getCliente(i).getEmail() == email) {
 					return base.getCliente(i);
 				}
 			}
-			
-			cerr << email << " NOT FOUND" << endl;
-		}
 
-		
+			if (!isBlack) {
+				cerr << email << " NOT FOUND" << endl;
+			}
+		}
 	}
 	else {
 		string nif;
+		bool isBlack = false;
 
-		cout << "Please input your NIF: ";
-		cin >> nif;
+		while (1) {
+			cout << "Please input your NIF: ";
+			cin >> nif;
 
-		int left = 0, right = base.getClientesSize() - 1;
-		while (left <= right)
-		{
-			int middle = (left + right) / 2;
-			if (base.getCliente(middle).getNIF() < nif)
-				left = middle + 1;
-			else if (base.getCliente(middle).getNIF() > nif)
-				right = middle - 1;
-			else
-				return base.getCliente(middle);
+			// binnary search
+
+			int left = 0, right = base.getBlackS() - 1;
+			while (left <= right)
+			{
+				int middle = (left + right) / 2;
+				if (base.getBlack(middle).getNIF() < nif)
+					left = middle + 1;
+				else if (base.getBlack(middle).getNIF() > nif)
+					right = middle - 1;
+				else {
+					isBlack = true;
+					cerr << "Your account has been banned..." << endl;
+					break;
+				}
+			}
+
+			left = 0, right = base.getClientesSize() - 1;
+			while (left <= right)
+			{
+				int middle = (left + right) / 2;
+				if (base.getCliente(middle).getNIF() < nif)
+					left = middle + 1;
+				else if (base.getCliente(middle).getNIF() > nif)
+					right = middle - 1;
+				else
+					return base.getCliente(middle);
+			}
+
+			if (!isBlack) {
+				cerr << nif << " NOT FOUND" << endl;
+			}
 		}
-
-		cerr << nif << " NOT FOUND" << endl;
-		exit(1);
 	}
 }
 
@@ -309,4 +357,63 @@ int clientPage(Cliente cliente, Base &b) {
 		}
 	}
 }
+
+void developerMenu(UghEatsFD* app) {
+
+	cout << endl;
+	cout << "WELCOME TO ADMIN MODE" << endl;
+
+	while (1) {
+		cout << "Please choose one of the following options: " << endl;
+		cout << "1 - See profits" << endl;
+		cout << "2 - Ban a user" << endl;
+		cout << "3 - Quit" << endl;
+
+		int option;
+		cin >> option;
+		while (1) {
+			if (cin.fail() || (option != 1 && option != 2 && option != 3)) {
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "You have entered wrong input" << endl;
+				cin >> option;
+			}
+			else {
+				break;
+			}
+		}
+
+		if (option == 1) {
+			app->getProfit();
+		}
+		else if(option == 2){
+			try {
+				app->banUser();
+			}
+			catch (ClienteInexistente &e) {
+				cout << "Exception caught: client with NIF " << e.getNif() << "does not exist" << endl;
+			}
+		}
+		else if (option == 3) {
+			break;
+		}
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

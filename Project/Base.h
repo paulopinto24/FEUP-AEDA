@@ -7,7 +7,6 @@
 #include "Pessoa.h" 
 #include "GPScoord.h"
 #include "Entrega.h"
-#include "Algorithms.h"
 
 class Cliente;
 class Administrativo;
@@ -76,6 +75,7 @@ public:
 	void deleteClient(Cliente cliente);
 	//sorter
 	void sortClientes();
+	void sortBlack();
 };
 
 

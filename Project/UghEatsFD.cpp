@@ -138,3 +138,46 @@ void UghEatsFD::getProfit() {
 		}
 	}
 }
+
+void UghEatsFD::banUser() {
+	int base;
+	cout << "\nSelect base:\n1 - Porto\n2 - Lisboa\n3 - Faro\n";
+	cin >> base;
+	while (1) {
+		if (cin.fail()) {
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			cout << "You have entered wrong input" << endl;
+			cin >> base;
+		}
+		else {
+			break;
+		}
+	}
+
+	Base* b = &bases.at(base - 1);
+
+	string nif;
+	cout << "Insert NIF: ";
+	cin >> nif;
+
+	bool found = false;
+
+	for (int i = 0; i < b->getClientesSize(); i++) {
+		if (b->getCliente(i).getNIF() == nif) {
+			found = true;
+			b->addBlack(b->getCliente(i));
+			b->deleteClient(b->getCliente(i));
+			b->sortClientes();
+			b->sortBlack();
+		}
+	}
+
+	if (!found) {
+		throw ClienteInexistente(nif);
+	}
+}
+
+
+
+
