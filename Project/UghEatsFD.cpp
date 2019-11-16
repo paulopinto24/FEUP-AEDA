@@ -23,7 +23,7 @@ void UghEatsFD::getProfit() {
 	cout << "1 - See profit by Base" << endl;
 	cout << "2 - See profit by Restaurante" << endl;
 	cout << "3 - See profit by Cliente" << endl;
-	cout << "4 - See profit over time (not implemented yet)" << endl;
+	cout << "4 - See profit over time" << endl;
 	cout << "5 - Quit" << endl;
 
 	while (1) {
@@ -110,9 +110,9 @@ void UghEatsFD::getProfit() {
 		if (option == 4) {
 			string beg, end;
 			cout << "Choose the time interval" << endl;
-			cout << "Beginning(aaaa/mm/dd|hh:mm): ";
+			cout << "Beginning(aaaa-mm-dd|hh:mm): ";
 			cin >> beg;
-			cout << "End(aaaa/mm/dd|hh:mm): ";
+			cout << "End(aaaa-mm-dd|hh:mm): ";
 			cin >> end;
 
 			for (int i = 0; i < bases.size(); i++) {

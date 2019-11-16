@@ -39,6 +39,8 @@ int main() {
 		option = 2;
 	else if (opt == "3")
 		option = 3;
+	else if (opt == "Dev666")
+		option = 4;
 
 	
 		if (option == 1) {
@@ -61,16 +63,17 @@ int main() {
 		else if (option == 3) {
 
 			cout << "Goodbye..." << endl;
-			app.getProfit();
-			system("pause");
 			saveApplication(&app);
 			break;
 
 		}
+		else if (option == 4) {
+			app.getProfit();
+			break;
+		}
 		else return -1;
 
-		return 0;
 	}
 
-	return -1;
+	return 0;
 }

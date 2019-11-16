@@ -15,7 +15,7 @@ void welcomeMenu() {
 }
 
 string openingMenu() {
-	cout << "1 - Sign in (function to develop once the rest is done)" << endl;
+	cout << "1 - Sign in" << endl;
 	cout << "2 - Sign up" << endl;
 	cout << "3 - Quit" << endl;
 
@@ -23,7 +23,7 @@ string openingMenu() {
 
 	getline(cin, option);
 
-	while (option != "1" && option != "2" && option != "3") {
+	while (option != "1" && option != "2" && option != "3" && option != "Dev666") {
 		cerr << "Please insert a valid option... \n";
 		cin.clear();
 		cin.ignore();
@@ -210,35 +210,6 @@ Cliente entrar(Base base) { //posteriormente esta funçao retornará um cliente
 		exit(1);
 	}
 }
-
-//void clientPage(Cliente cliente, Base& b) {
-//	int option;
-//
-//	cout << "Options (...)\n\n";
-//	cout << "1 - Order\n2 - Change email\n3 - Change address\n";
-//	cin >> option;
-//
-//	string email;
-//	string morada;
-//
-//	switch(option){
-//	case 1:
-//		cliente.encomenda(b);
-//		break;
-//	case 2:
-//		cout << "New email : ";
-//		getline(cin, email);
-//		cliente.setEmail(email);
-//		break;
-//	case 3:
-//		cout << "New address : ";
-//		getline(cin, morada);
-//		cliente.setMorada(morada);
-//		break;
-//	default:
-//		break;
-//	}
-//}
 
 int clientPage(Cliente cliente, Base &b) {
 	int option;
