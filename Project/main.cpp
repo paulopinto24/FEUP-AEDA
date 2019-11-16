@@ -23,12 +23,12 @@ int selectBase() {
 }
 
 int main() {
-
 	UghEatsFD app;
 	if (loadApplication(&app)) {
 		cout << "Error loading application." << endl;
 		return 1;
 	}
+	while(1){
 	welcomeMenu();
 	int option{};
 	string opt = openingMenu();
@@ -40,26 +40,36 @@ int main() {
 	else if (opt == "3")
 		option = 3;
 
-
-	Base* baseClient = &app.getBase(selectBase());
-
-	while (1) {
-		switch (option) {
-		case 1:
-			clientPage(entrar(baseClient), baseClient);
-			cin >> option;
-			break;
-		case 2:
-			if (!inscricao(app.getBase(selectBase()))) {
+	
+		if (option == 1) {
+			Base &base = app.getBase(selectBase());
+			clientPage(entrar(base), base);
+			base.sortClientes();
+			continue;
+		}
+		else if (option == 2) {
+			Base& base = app.getBase(selectBase());
+			if (!inscricao(base)) {
 				cerr << "Error processing sign in...\n";
 				return 1;
 			}
-			break;
-		case 3:
-			cout << "Goodbye..." << endl;
-			saveApplication(&app);
-			return 0;
+
+			clientPage(base.getCliente(base.getClientesSize() - 1), base);
+			base.sortClientes();
+			continue;
 		}
+		else if (option == 3) {
+
+			cout << "Goodbye..." << endl;
+			app.getProfit();
+			system("pause");
+			saveApplication(&app);
+			break;
+
+		}
+		else return -1;
+
+		return 0;
 	}
 
 	return -1;

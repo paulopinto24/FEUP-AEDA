@@ -1,10 +1,12 @@
 #pragma once
 
 #include <iostream>
+
 #include "Veiculo.h"
 #include "Restaurante.h"
 #include "Base.h"
 #include "Encomenda.h"
+
 
 
 
@@ -24,6 +26,10 @@ public:
 	string getNome();
 	bool operator == (Pessoa& p);
 	int encomenda();
+	bool operator < (const Pessoa& p) const;
+	
+	template<class T>
+	void validInput(T valid);
 };
 
 class Cliente : public Pessoa
@@ -37,10 +43,12 @@ public:
 	Cliente(string n, string nif, string e, string m, string c, string b);
 	void setEmail(string email);
 	void setMorada(string morada);
+	void setConcelho(string concelho);
 	string getEmail();
 	string getConcelho();
-	int encomenda(Base* b);
-	string getMorada(); 
+	int encomenda(Base& b);
+	string getMorada();
+	bool operator == (const Cliente&) const;
 	//será necessário saber a que base pertence cada cliente? 
 };
 

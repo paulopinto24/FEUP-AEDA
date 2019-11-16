@@ -19,5 +19,6 @@ public:
 	void setpFixo(double p);
 	double getpFixo();
 	double getpTotal();
+	string getData();
 };
 

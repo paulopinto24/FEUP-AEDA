@@ -21,6 +21,12 @@ int Pessoa::encomenda()
 	return 0;
 }
 
+bool Pessoa::operator < (const Pessoa& p) const {
+	if (this->NIF < p.NIF)
+		return true;
+	else return false;
+}
+
 string Pessoa::getNIF() {
 	return this->NIF;
 }
@@ -44,23 +50,50 @@ void Cliente::setMorada(string morada) {
 	this->morada = morada;
 }
 
+void Cliente::setConcelho(string concelho)
+{
+	this->concelho = concelho;
+}
+
 string Cliente::getEmail() {
 	return this->email;
 }
 
-int Cliente::encomenda(Base* b) {
+int Cliente::encomenda(Base& b) {
 	int option;
 
 	cout << "1 - Restaurant\n2 - Geographic zone\n3 - Price\n4 - Food type\n";
 	cin >> option;
+	while (1) {
+		if (cin.fail()) {
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			cout << "You have entered wrong input" << endl;
+			cin >> option;
+		}
+		else {
+			break;
+		}
+	}
 
 	int resOption;
 
 	if (option == 1) {
-		cout << b->printByRes() << endl;
+		cout << b.printByRes() << endl;
 		cin >> resOption;
+		while (1) {
+			if (cin.fail()) {
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "You have entered wrong input" << endl;
+				cin >> resOption;
+			}
+			else {
+				break;
+			}
+		}
 		vector<Produto> prods;
-		Restaurante r = b->getRes(resOption - 1);
+		Restaurante r = b.getRes(resOption - 1);
 		for (int i = 0; i < r.getProdS(); i++) {
 			int j = i + 1;
 			cout << j << "- " << r.getProd(i).getNome() << " - " 
@@ -71,25 +104,91 @@ int Cliente::encomenda(Base* b) {
 		cout << "Choose a product (Press '0' to escape): ";
 		int prodOption;
 		cin >> prodOption;
+		while (1) {
+			if (cin.fail()) {
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "You have entered wrong input" << endl;
+				cin >> prodOption;
+			}
+			else {
+				break;
+			}
+		}
 		while (prodOption != 0) {
 			int choice = prodOption - 1;
 			prods.push_back(r.getProd(choice));
 			cin >> prodOption;
+			while (1) {
+				if (cin.fail()) {
+					cin.clear();
+					cin.ignore(numeric_limits<streamsize>::max(), '\n');
+					cout << "You have entered wrong input" << endl;
+					cin >> prodOption;
+				}
+				else {
+					break;
+				}
+			}
 		}
 
 		int dia, mes, hora, minuto;
 
 		cout << "Month : "; cin >> mes;
+		while (1) {
+			if (cin.fail() || mes < 0 || mes > 12) {
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "You have entered wrong input" << endl;
+				cin >> mes;
+			}
+			else {
+				break;
+			}
+		}
 		
 		cout << "Day : "; cin >> dia;
-		
+		while (1) {
+			if (cin.fail() || dia < 0 || dia > 31) {
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "You have entered wrong input" << endl;
+				cin >> dia;
+			}
+			else {
+				break;
+			}
+		}
+
 		cout << "Hour : "; cin >> hora;
-		
+		while (1) {
+			if (cin.fail() || hora < 0 || hora > 24) {
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "You have entered wrong input" << endl;
+				cin >> hora;
+			}
+			else {
+				break;
+			}
+		}
+
 		cout << "Minute : "; cin >> minuto;
-		
+		while (1) {
+			if (cin.fail() || minuto < 0 || minuto > 60) {
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "You have entered wrong input" << endl;
+				cin >> minuto;
+			}
+			else {
+				break;
+			}
+		}
+
 
 		ostringstream d;
-		d << dia << '-' << mes << "-2019";
+		d << "2019" << "-" << mes << '-' << dia;
 		string data(d.str());   // so para o caso de ser mais facil trabalhar c string, senao descartar
 
 		ostringstream h;
@@ -103,6 +202,17 @@ int Cliente::encomenda(Base* b) {
 		cout << "Confirmar e avançar para entrega? ('0' para sair)" << endl;
 		int conf;
 		cin >> conf;
+		while (1) {
+			if (cin.fail() || minuto < 0 || minuto > 60) {
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "You have entered wrong input" << endl;
+				cin >> conf;
+			}
+			else {
+				break;
+			}
+		}
 		if (conf == 0) {
 			exit(1);
 		}
@@ -115,7 +225,7 @@ int Cliente::encomenda(Base* b) {
 		}
 		encomenda.setpTotal();
 
-		Entrega entrega(encomenda, b->getEntreg(rand() % b->getEntregsS()));
+		Entrega entrega(encomenda, b.getEntreg(rand() % b.getEntregsS()), r.getNome(), this->getNIF());
 
 		cout << "A entrega foi bem sucedida?" << endl;
 		cout << "1 - Sim" << endl;
@@ -123,9 +233,26 @@ int Cliente::encomenda(Base* b) {
 
 		bool success;
 		cin >> success;
+		while (1) {
+			if (cin.fail() || minuto < 0 || minuto > 60) {
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "You have entered wrong input" << endl;
+				cin >> success;
+			}
+			else {
+				break;
+			}
+		}
 
 		entrega.setSuccess(success);
-		b->addEntrega(entrega);
+		b.addEntrega(entrega);
+		string e;
+		ostringstream strs;
+		strs << entrega.getCustoTotal();
+		string str = strs.str();
+		e = entrega.getNIF() + ";" + entrega.getRestaurante() + ";" + str + ";" + time;
+		b.addEntregaStr(e);
 	}
 	else if(option == 2) {
 		string zona;
@@ -133,9 +260,9 @@ int Cliente::encomenda(Base* b) {
 		cin.clear();
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
 		getline(cin, zona);
-		resOption = b->printByZone(zona);
+		resOption = b.printByZone(zona);
 		vector<Produto> prods;
-		Restaurante r = b->getRes(resOption);
+		Restaurante r = b.getRes(resOption);
 		for (int i = 0; i < r.getProdS(); i++) {
 			int j = i + 1;
 			cout << j << "- " << r.getProd(i).getNome() << " - "
@@ -146,25 +273,91 @@ int Cliente::encomenda(Base* b) {
 		cout << "Choose a product (Press '0' to escape): ";
 		int prodOption;
 		cin >> prodOption;
+		while (1) {
+			if (cin.fail()) {
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "You have entered wrong input" << endl;
+				cin >> prodOption;
+			}
+			else {
+				break;
+			}
+		}
 		while (prodOption != 0) {
 			int choice = prodOption - 1;
 			prods.push_back(r.getProd(choice));
 			cin >> prodOption;
+			while (1) {
+				if (cin.fail()) {
+					cin.clear();
+					cin.ignore(numeric_limits<streamsize>::max(), '\n');
+					cout << "You have entered wrong input" << endl;
+					cin >> prodOption;
+				}
+				else {
+					break;
+				}
+			}
 		}
 
 		int dia, mes, hora, minuto;
 
 		cout << "Month : "; cin >> mes;
+		while (1) {
+			if (cin.fail() || mes < 0 || mes > 12) {
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "You have entered wrong input" << endl;
+				cin >> mes;
+			}
+			else {
+				break;
+			}
+		}
 
 		cout << "Day : "; cin >> dia;
+		while (1) {
+			if (cin.fail() || dia < 0 || dia > 31) {
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "You have entered wrong input" << endl;
+				cin >> dia;
+			}
+			else {
+				break;
+			}
+		}
 
 		cout << "Hour : "; cin >> hora;
+		while (1) {
+			if (cin.fail() || hora < 0 || hora > 24) {
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "You have entered wrong input" << endl;
+				cin >> hora;
+			}
+			else {
+				break;
+			}
+		}
 
 		cout << "Minute : "; cin >> minuto;
+		while (1) {
+			if (cin.fail() || minuto < 0 || minuto > 60) {
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "You have entered wrong input" << endl;
+				cin >> minuto;
+			}
+			else {
+				break;
+			}
+		}
 
 
 		ostringstream d;
-		d << dia << '-' << mes << "-2019";
+		d << "2019" << "-" << mes << '-' << dia;
 		string data(d.str());   // so para o caso de ser mais facil trabalhar c string, senao descartar
 
 		ostringstream h;
@@ -178,6 +371,17 @@ int Cliente::encomenda(Base* b) {
 		cout << "Confirmar e avançar para entrega? ('0' para sair)" << endl;
 		int conf;
 		cin >> conf;
+		while (1) {
+			if (cin.fail() || minuto < 0 || minuto > 60) {
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "You have entered wrong input" << endl;
+				cin >> conf;
+			}
+			else {
+				break;
+			}
+		}
 		if (conf == 0) {
 			exit(1);
 		}
@@ -190,7 +394,7 @@ int Cliente::encomenda(Base* b) {
 		}
 		encomenda.setpTotal();
 
-		Entrega entrega(encomenda, b->getEntreg(rand() % b->getEntregsS()));
+		Entrega entrega(encomenda, b.getEntreg(rand() % b.getEntregsS()), r.getNome(), this->getNIF());
 
 		cout << "A entrega foi bem sucedida?" << endl;
 		cout << "1 - Sim" << endl;
@@ -198,18 +402,57 @@ int Cliente::encomenda(Base* b) {
 
 		bool success;
 		cin >> success;
+		while (1) {
+			if (cin.fail() || minuto < 0 || minuto > 60) {
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "You have entered wrong input" << endl;
+				cin >> success;
+			}
+			else {
+				break;
+			}
+		}
 
 		entrega.setSuccess(success);
-		b->addEntrega(entrega);
+		b.addEntrega(entrega);
+		string e;
+		ostringstream strs;
+		strs << entrega.getCustoTotal();
+		string str = strs.str();
+		e = entrega.getNIF() + ";" + entrega.getRestaurante() + ";" + str + ";" + time;
+		b.addEntregaStr(e);
 	}
 	else if (option == 3) {
 		double p;
 		cout << "Maximum desired price: ";
 		cin >> p;
-		cout << b->printByPrice(p) << endl;
+		while (1) {
+			if (cin.fail()) {
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "You have entered wrong input" << endl;
+				cin >> p;
+			}
+			else {
+				break;
+			}
+		}
+		cout << b.printByPrice(p) << endl;
 		cin >> resOption;
+		while (1) {
+			if (cin.fail()) {
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "You have entered wrong input" << endl;
+				cin >> resOption;
+			}
+			else {
+				break;
+			}
+		}
 		vector<Produto> prods;
-		Restaurante r = b->getRes(resOption - 1);
+		Restaurante r = b.getRes(resOption - 1);
 		for (int i = 0; i < r.getProdS(); i++) {
 			int j = i + 1;
 			if (r.getProd(i).getPreco() <= p) {
@@ -222,25 +465,91 @@ int Cliente::encomenda(Base* b) {
 		cout << "Choose a product (Press '0' to escape): ";
 		int prodOption;
 		cin >> prodOption;
+		while (1) {
+			if (cin.fail()) {
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "You have entered wrong input" << endl;
+				cin >> prodOption;
+			}
+			else {
+				break;
+			}
+		}
 		while (prodOption != 0) {
 			int choice = prodOption - 1;
 			prods.push_back(r.getProd(choice));
 			cin >> prodOption;
+			while (1) {
+				if (cin.fail()) {
+					cin.clear();
+					cin.ignore(numeric_limits<streamsize>::max(), '\n');
+					cout << "You have entered wrong input" << endl;
+					cin >> prodOption;
+				}
+				else {
+					break;
+				}
+			}
 		}
 
 		int dia, mes, hora, minuto;
 
 		cout << "Month : "; cin >> mes;
+		while (1) {
+			if (cin.fail() || mes < 0 || mes > 12) {
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "You have entered wrong input" << endl;
+				cin >> mes;
+			}
+			else {
+				break;
+			}
+		}
 
 		cout << "Day : "; cin >> dia;
+		while (1) {
+			if (cin.fail() || dia < 0 || dia > 31) {
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "You have entered wrong input" << endl;
+				cin >> dia;
+			}
+			else {
+				break;
+			}
+		}
 
 		cout << "Hour : "; cin >> hora;
+		while (1) {
+			if (cin.fail() || hora < 0 || hora > 24) {
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "You have entered wrong input" << endl;
+				cin >> hora;
+			}
+			else {
+				break;
+			}
+		}
 
 		cout << "Minute : "; cin >> minuto;
+		while (1) {
+			if (cin.fail() || minuto < 0 || minuto > 60) {
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "You have entered wrong input" << endl;
+				cin >> minuto;
+			}
+			else {
+				break;
+			}
+		}
 
 
 		ostringstream d;
-		d << dia << '-' << mes << "-2019";
+		d << "2019" << "-" << mes << '-' << dia;
 		string data(d.str());   // so para o caso de ser mais facil trabalhar c string, senao descartar
 
 		ostringstream h;
@@ -254,6 +563,17 @@ int Cliente::encomenda(Base* b) {
 		cout << "Confirmar e avançar para entrega? ('0' para sair)" << endl;
 		int conf;
 		cin >> conf;
+		while (1) {
+			if (cin.fail() || minuto < 0 || minuto > 60) {
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "You have entered wrong input" << endl;
+				cin >> conf;
+			}
+			else {
+				break;
+			}
+		}
 		if (conf == 0) {
 			exit(1);
 		}
@@ -266,7 +586,7 @@ int Cliente::encomenda(Base* b) {
 		}
 		encomenda.setpTotal();
 
-		Entrega entrega(encomenda, b->getEntreg(rand() % b->getEntregsS()));
+		Entrega entrega(encomenda, b.getEntreg(rand() % b.getEntregsS()), r.getNome(), this->getNIF());
 
 		cout << "A entrega foi bem sucedida?" << endl;
 		cout << "1 - Sim" << endl;
@@ -274,9 +594,26 @@ int Cliente::encomenda(Base* b) {
 
 		bool success;
 		cin >> success;
+		while (1) {
+			if (cin.fail() || minuto < 0 || minuto > 60) {
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "You have entered wrong input" << endl;
+				cin >> success;
+			}
+			else {
+				break;
+			}
+		}
 
 		entrega.setSuccess(success);
-		b->addEntrega(entrega);
+		b.addEntrega(entrega);
+		string e;
+		ostringstream strs;
+		strs << entrega.getCustoTotal();
+		string str = strs.str();
+		e = entrega.getNIF() + ";" + entrega.getRestaurante() + ";" + str + ";" + time;
+		b.addEntregaStr(e);
 	}
 	else if (option == 4) {
 		string t;
@@ -284,10 +621,21 @@ int Cliente::encomenda(Base* b) {
 		cin.clear();
 		cin.ignore(numeric_limits<streamsize>::max(), '\n');
 		getline(cin, t);
-		cout << b->printByType(t) << endl;
+		cout << b.printByType(t) << endl;
 		cin >> resOption;
+		while (1) {
+			if (cin.fail()) {
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "You have entered wrong input" << endl;
+				cin >> resOption;
+			}
+			else {
+				break;
+			}
+		}
 		vector<Produto> prods;
-		Restaurante r = b->getRes(resOption - 1);
+		Restaurante r = b.getRes(resOption - 1);
 		for (int i = 0; i < r.getProdS(); i++) {
 			int j = i + 1;
 			if (r.getProd(i).getTipo() == t) {
@@ -300,25 +648,91 @@ int Cliente::encomenda(Base* b) {
 		cout << "Choose a product (Press '0' to escape): ";
 		int prodOption;
 		cin >> prodOption;
+		while (1) {
+			if (cin.fail()) {
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "You have entered wrong input" << endl;
+				cin >> prodOption;
+			}
+			else {
+				break;
+			}
+		}
 		while (prodOption != 0) {
 			int choice = prodOption - 1;
 			prods.push_back(r.getProd(choice));
 			cin >> prodOption;
+			while (1) {
+				if (cin.fail()) {
+					cin.clear();
+					cin.ignore(numeric_limits<streamsize>::max(), '\n');
+					cout << "You have entered wrong input" << endl;
+					cin >> prodOption;
+				}
+				else {
+					break;
+				}
+			}
 		}
 
 		int dia, mes, hora, minuto;
 
 		cout << "Month : "; cin >> mes;
+		while (1) {
+			if (cin.fail() || mes < 0 || mes > 12) {
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "You have entered wrong input" << endl;
+				cin >> mes;
+			}
+			else {
+				break;
+			}
+		}
 
 		cout << "Day : "; cin >> dia;
+		while (1) {
+			if (cin.fail() || dia < 0 || dia > 31) {
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "You have entered wrong input" << endl;
+				cin >> dia;
+			}
+			else {
+				break;
+			}
+		}
 
 		cout << "Hour : "; cin >> hora;
+		while (1) {
+			if (cin.fail() || hora < 0 || hora > 24) {
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "You have entered wrong input" << endl;
+				cin >> hora;
+			}
+			else {
+				break;
+			}
+		}
 
 		cout << "Minute : "; cin >> minuto;
+		while (1) {
+			if (cin.fail() || minuto < 0 || minuto > 60) {
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "You have entered wrong input" << endl;
+				cin >> minuto;
+			}
+			else {
+				break;
+			}
+		}
 
 
 		ostringstream d;
-		d << dia << '-' << mes << "-2019";
+		d << "2019" << "-" << mes << '-' << dia;
 		string data(d.str());   // so para o caso de ser mais facil trabalhar c string, senao descartar
 
 		ostringstream h;
@@ -332,6 +746,17 @@ int Cliente::encomenda(Base* b) {
 		cout << "Confirmar e avançar para entrega? ('0' para sair)" << endl;
 		int conf;
 		cin >> conf;
+		while (1) {
+			if (cin.fail() || minuto < 0 || minuto > 60) {
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "You have entered wrong input" << endl;
+				cin >> conf;
+			}
+			else {
+				break;
+			}
+		}
 		if (conf == 0) {
 			exit(1);
 		}
@@ -344,7 +769,7 @@ int Cliente::encomenda(Base* b) {
 		}
 		encomenda.setpTotal();
 
-		Entrega entrega(encomenda, b->getEntreg(rand() % b->getEntregsS()));
+		Entrega entrega(encomenda, b.getEntreg(rand() % b.getEntregsS()), r.getNome(), this->getNIF());
 
 		cout << "A entrega foi bem sucedida?" << endl;
 		cout << "1 - Sim" << endl;
@@ -352,9 +777,26 @@ int Cliente::encomenda(Base* b) {
 
 		bool success;
 		cin >> success;
+		while (1) {
+			if (cin.fail() || minuto < 0 || minuto > 60) {
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+				cout << "You have entered wrong input" << endl;
+				cin >> success;
+			}
+			else {
+				break;
+			}
+		}
 
 		entrega.setSuccess(success);
-		b->addEntrega(entrega);
+		b.addEntrega(entrega);
+		string e;
+		ostringstream strs;
+		strs << entrega.getCustoTotal();
+		string str = strs.str();
+		e = entrega.getNIF() + ";" + entrega.getRestaurante() + ";" + str + ";" + time;
+		b.addEntregaStr(e);
 	}
 	else {
 		cerr << "Erro no processamento da encomenda...\n";
@@ -367,6 +809,11 @@ int Cliente::encomenda(Base* b) {
 string Cliente::getMorada()
 {
 	return morada;
+}
+
+bool Cliente::operator == (const Cliente& c) const {
+	if (this->email == c.email) return true;
+	else return false;
 }
 
 Funcionario::Funcionario(string n, string nif, string dn, double s) : Pessoa(n, nif) {

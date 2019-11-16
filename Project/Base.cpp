@@ -47,6 +47,11 @@ int Base::getHisS()
 	return historial.size();
 }
 
+int Base::getEntregaStrS()
+{
+	return historialStr.size();
+}
+
 //GETTERS DOS MESMOS VETORES
 
 Administrativo Base::getAdmin(int i)
@@ -72,6 +77,11 @@ string Base::getFront(int i)
 Cliente Base::getBlack(int i)
 {
 	return lista_negra.at(i);
+}
+
+string Base::getEntregaStr(int i)
+{
+	return historialStr.at(i);
 }
 
 bool Base::addCliente(Cliente c) {
@@ -262,6 +272,18 @@ string Base::printByType(string t) {
 	return res;
 }
 
+void Base::deleteClient(Cliente cliente) {
+	for (unsigned int i = 0; i < clientes.size(); i++) {
+		if (clientes.at(i) == cliente) {
+			clientes.erase(clientes.begin() + i);
+		}
+	}
+}
+
+void Base::sortClientes() {
+	insertionSort(clientes);
+}
+
 void Base::addBlack(Cliente c)
 {
 	lista_negra.push_back(c);
@@ -275,6 +297,11 @@ void Base::addFront(string s)
 void Base::addEntrega(Entrega e)
 {
 	historial.push_back(e);
+}
+
+void Base::addEntregaStr(string e)
+{
+	historialStr.push_back(e);
 }
 
 

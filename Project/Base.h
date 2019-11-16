@@ -7,6 +7,7 @@
 #include "Pessoa.h" 
 #include "GPScoord.h"
 #include "Entrega.h"
+#include "Algorithms.h"
 
 class Cliente;
 class Administrativo;
@@ -29,6 +30,7 @@ private:
 	vector<string> concelhosFront;
 	vector<Cliente> lista_negra;
 	vector<Entrega> historial;
+	vector<string> historialStr;
 	// ter uma lista por base de restaurantes ?? ou associar o restaurante à base pela morada/coordenadas gps?
 	// ter uma lista de entregadores (so e apenas se tivermos tempo)
 public:
@@ -48,12 +50,14 @@ public:
 	int getFrontS();
 	int getBlackS();
 	int getHisS();
+	int getEntregaStrS();
 	Administrativo getAdmin(int i);
 	Entregador getEntreg(int i);
 	Restaurante getRes(int i);
 	vector<Restaurante> getRestaurantes();
 	string getFront(int i);
 	Cliente getBlack(int i);
+	string getEntregaStr(int i);
 	//adders
 	bool addCliente(Cliente);
 	bool addAdmin(Administrativo& ad);
@@ -62,11 +66,16 @@ public:
 	void addBlack(Cliente c);
 	void addFront(string s);
 	void addEntrega(Entrega e);
+	void addEntregaStr(string e);
 	//printers
 	string printByRes();
 	int printByZone(string);
 	string printByPrice(double);
 	string printByType(string);
+	//deleters
+	void deleteClient(Cliente cliente);
+	//sorter
+	void sortClientes();
 };
 
 

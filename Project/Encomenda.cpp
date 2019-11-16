@@ -46,3 +46,8 @@ double Encomenda::getpTotal()
 {
 	return pTotal;
 }
+
+string Encomenda::getData()
+{
+	return data;
+}

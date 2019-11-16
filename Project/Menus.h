@@ -67,7 +67,7 @@ bool is_digits(const string& str)
 	return str.find_first_not_of("0123456789") == string::npos;
 }
 
-bool inscricao(Base b) {
+bool inscricao(Base& b) {
 	
 	string nome;
 	string morada;
@@ -109,7 +109,7 @@ bool inscricao(Base b) {
 		isConcelho = true;
 	}
 	else {
-		for (int i = 0; i <= b.getFrontS(); i++) {
+		for (int i = 0; i < b.getFrontS(); i++) {
 			if (concelho == b.getFront(i)) {
 				isConcelho = true;
 			}
@@ -153,7 +153,7 @@ bool inscricao(Base b) {
 	return true; 
 }
 
-Cliente entrar(Base* base) { //posteriormente esta funçao retornará um cliente
+Cliente entrar(Base base) { //posteriormente esta funçao retornará um cliente
 	int option;
 
 	cout << "\nHow do you want do sign in?\n1 - Sign in email\n2 - Sign in with NIF\n\n";
@@ -177,9 +177,9 @@ Cliente entrar(Base* base) { //posteriormente esta funçao retornará um cliente
 			cin >> email;
 			cin.clear();
 			cin.ignore();
-			for (int i = 0; i < base->getClientesSize(); i++) {
-				if (base->getCliente(i).getEmail() == email) {
-					return base->getCliente(i);
+			for (int i = 0; i < base.getClientesSize(); i++) {
+				if (base.getCliente(i).getEmail() == email) {
+					return base.getCliente(i);
 				}
 			}
 			
@@ -194,10 +194,16 @@ Cliente entrar(Base* base) { //posteriormente esta funçao retornará um cliente
 		cout << "Please input your NIF: ";
 		cin >> nif;
 
-		for (int i = 0; i < base->getClientesSize(); i++) {
-			if (base->getCliente(i).getNIF() == nif) {
-				return base->getCliente(i);
-			}
+		int left = 0, right = base.getClientesSize() - 1;
+		while (left <= right)
+		{
+			int middle = (left + right) / 2;
+			if (base.getCliente(middle).getNIF() < nif)
+				left = middle + 1;
+			else if (base.getCliente(middle).getNIF() > nif)
+				right = middle - 1;
+			else
+				return base.getCliente(middle);
 		}
 
 		cerr << nif << " NOT FOUND" << endl;
@@ -205,33 +211,131 @@ Cliente entrar(Base* base) { //posteriormente esta funçao retornará um cliente
 	}
 }
 
-void clientPage(Cliente cliente, Base* b) {
+//void clientPage(Cliente cliente, Base& b) {
+//	int option;
+//
+//	cout << "Options (...)\n\n";
+//	cout << "1 - Order\n2 - Change email\n3 - Change address\n";
+//	cin >> option;
+//
+//	string email;
+//	string morada;
+//
+//	switch(option){
+//	case 1:
+//		cliente.encomenda(b);
+//		break;
+//	case 2:
+//		cout << "New email : ";
+//		getline(cin, email);
+//		cliente.setEmail(email);
+//		break;
+//	case 3:
+//		cout << "New address : ";
+//		getline(cin, morada);
+//		cliente.setMorada(morada);
+//		break;
+//	default:
+//		break;
+//	}
+//}
+
+int clientPage(Cliente cliente, Base &b) {
 	int option;
-
-	cout << "Options (...)\n\n";
-	cout << "1 - Order\n2 - Change email\n3 - Change address\n";
-	cin >> option;
-
 	string email;
 	string morada;
+	string concelho;
+	string deleteAccount;
 
-	switch(option){
-	case 1:
-		cliente.encomenda(b);
-		break;
-	case 2:
-		cout << "New email : ";
-		getline(cin, email);
-		cliente.setEmail(email);
-		break;
-	case 3:
-		cout << "New address : ";
-		getline(cin, morada);
-		cliente.setMorada(morada);
-		break;
-	default:
-		break;
+	//cliente.encomenda(base);
+
+	while (1) {
+
+		cout << "\nOptions (...)\n";
+		cout << "\n1 - Order\n2 - Check account\n3 - Change email\n4 - Change address\n5 - Delete Account\n0 - Log out\n";
+		cin >> option;
+		cin.clear();
+		cin.ignore();
+
+		switch (option) {
+		case 1:
+			cliente.encomenda(b);
+			continue;
+		case 2:
+			cout << "\n=============================" << endl;
+			cout << "==       Accout Info       ==" << endl;
+			cout << "=============================" << endl;
+			cout << "Nome : " << cliente.getNome() << endl;
+			cout << "Email : " << cliente.getEmail() << endl;
+			cout << "Morada : " << cliente.getMorada() << " ; " << cliente.getConcelho() << endl;
+			cout << "NIF : " << cliente.getNIF() << endl;
+			continue;
+		case 3:
+			while (1) {
+				cout << "New email : ";
+				cin >> email;
+				cin.clear();
+				cin.ignore();
+				if (validEmail(email)) {
+					b.deleteClient(cliente);
+					cliente.setEmail(email);
+					b.addCliente(cliente);
+					break;
+				}
+				else cout << "Please input a valid email...\n";
+			}
+			continue;
+		case 4:
+			cout << "New address : ";
+			while (1) {
+				cout << endl << "Concelho : ";
+				cin >> concelho;
+				cin.clear();
+				cin.ignore();
+				bool isConcelho = false;
+
+				if (concelho == b.getConcelho()) {
+					isConcelho = true;
+				}
+				else {
+					for (int i = 0; i < b.getFrontS(); i++) {
+						if (concelho == b.getFront(i)) {
+							isConcelho = true;
+						}
+					}
+				}
+
+				if (!isConcelho) {
+					cerr << "Concelho not valid!!!" << endl;
+				}
+				else break;
+			}
+			cout << "Morada : ";
+			getline(cin, morada);
+			b.deleteClient(cliente);
+			cliente.setConcelho(concelho);
+			cliente.setMorada(morada);
+			b.addCliente(cliente);
+			continue;
+		case 5:
+			while (1) {
+				cout << "Delete account? yes(y) or no(n)" << endl;
+				cin >> deleteAccount;
+				cin.clear();
+				cin.ignore();
+				if ("Y" == deleteAccount || "y" == deleteAccount) {
+					b.deleteClient(cliente);
+					return 0;
+				}
+				else if ("N" == deleteAccount || "n" == deleteAccount)
+					break;
+			}
+			continue;
+		case 0:
+			return 0;
+		default:
+			return 1;
+		}
 	}
 }
-
 

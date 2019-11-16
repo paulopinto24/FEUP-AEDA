@@ -8,6 +8,7 @@ Porto_func.txt
 Porto_cli.txt
 Porto_black.txt
 Porto_front.txt
+Porto_historial.txt
 ---
 Lisboa
 Lisboa; Rua do Sousa
@@ -17,6 +18,7 @@ Lisboa_func.txt
 Lisboa_cli.txt
 Lisboa_black.txt
 Lisboa_front.txt
+Lisboa_historial.txt
 ---
 Faro
 Faro; Rua de Espinho
@@ -26,4 +28,5 @@ Faro_func.txt
 Faro_cli.txt
 Faro_black.txt
 Faro_front.txt
+Faro_historial.txt
 ---

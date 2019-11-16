@@ -67,6 +67,7 @@ int saveApplication(UghEatsFD* p1) {
 		outFile << p1->getBase(i).getDistrito() << "_cli.txt" << endl;
 		outFile << p1->getBase(i).getDistrito() << "_black.txt" << endl;
 		outFile << p1->getBase(i).getDistrito() << "_front.txt" << endl;
+		outFile << p1->getBase(i).getDistrito() << "_historial.txt" << endl;
 
 		fstream outRes;
 		string s = p1->getBase(i).getDistrito() + "_res.txt";
@@ -174,10 +175,8 @@ int saveApplication(UghEatsFD* p1) {
 		s = p1->getBase(i).getDistrito() + "_historial.txt";
 		outHis.open(s, fstream::out);
 
-		for (int j = 0; j < p1->getBase(i).getHisS(); j++) {
-			outHis << p1->getBase(i).getHis(j).getEntregador().getNome() << ";"
-				<< p1->getBase(i).getHis(j).getEntregador().getNIF() << ";"
-				<< p1->getBase(i).getHis(j).getCustoTotal() << endl;
+		for (int j = 0; j < p1->getBase(i).getEntregaStrS(); j++) {
+			outHis << p1->getBase(i).getEntregaStr(j) << endl;
 		}
 
 		outHis.close();
@@ -358,15 +357,42 @@ Base parseBase(vector<string> vec) {
 		exit(-1);
 	}
 
-
 	while (getline(inFront, strg)) {
 		b.addFront(strg);
 	}
 
 	inFront.close();
 
+	//abre o ficheiro de texto com o historial
+	fstream inHis;
+	inHis.open(vec.at(8), fstream::in);
+
+	if (!(inHis.is_open())) {
+		cout << "Error loading history." << endl;
+		exit(-1);
+	}
+
+	while (getline(inHis, strg)) {
+		b.addEntregaStr(strg);
+	}
+
+	inHis.close();
+
+
 	cout << "Done." << endl;
 
 	return b;
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
