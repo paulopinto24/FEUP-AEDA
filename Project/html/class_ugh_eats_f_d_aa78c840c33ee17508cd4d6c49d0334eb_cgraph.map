@@ -1,0 +1,7 @@
+<map id="UghEatsFD::getProfit" name="UghEatsFD::getProfit">
+<area shape="rect" id="node1" title="Permite o utilizador verificar os lucros dos servicos da empresa." alt="" coords="5,81,151,108"/>
+<area shape="rect" id="node2" href="$class_base.html#a3b056cb5e3c09e6ba7ca3c8d357d3685" title="Getter do distrito." alt="" coords="214,5,333,32"/>
+<area shape="rect" id="node3" href="$class_base.html#a8f25c91dbd44ea3e91b78ffe33c9e245" title="Getter de uma entrega." alt="" coords="203,56,343,83"/>
+<area shape="rect" id="node4" href="$class_base.html#aaeae914de1416b4eb075f04ecbda27a2" title="Getter do tamanho do historial (string)" alt="" coords="199,107,348,133"/>
+<area shape="rect" id="node5" href="$_utils_8cpp.html#ad18a418ac3584aad8e272711bbfc5fb8" title="Separa os diferentes elementos de uma string separados por ponto e virgula." alt="" coords="207,157,340,184"/>
+</map>

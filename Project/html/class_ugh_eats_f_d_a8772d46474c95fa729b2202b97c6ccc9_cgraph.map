@@ -1,0 +1,10 @@
+<map id="UghEatsFD::banUser" name="UghEatsFD::banUser">
+<area shape="rect" id="node1" title="Permite o utilizador banir um cliente." alt="" coords="5,157,151,184"/>
+<area shape="rect" id="node2" href="$class_base.html#a38e5e57fd4ebee40a932147dd0ab4034" title="Adder de um cliente a lista negra." alt="" coords="217,5,331,32"/>
+<area shape="rect" id="node3" href="$class_base.html#a555b2f74b2f1de2fa385aabc042e32cf" title="Remove um cliente do vetor de clientes." alt="" coords="210,56,338,83"/>
+<area shape="rect" id="node4" href="$class_base.html#a03a84054f061b0741832190dbb185f2b" title="Getter do cliente de indice i." alt="" coords="215,107,333,133"/>
+<area shape="rect" id="node5" href="$class_base.html#a79706f5078ba16ccb1908cafcf1303e9" title="Getter do tamanho do vetor clientes." alt="" coords="199,157,349,184"/>
+<area shape="rect" id="node6" href="$class_pessoa.html#ae1cc59b702e5292fee75c6165f71e31a" title="Permite obter o NIF da pessoa." alt="" coords="218,208,330,235"/>
+<area shape="rect" id="node7" href="$class_base.html#ada2f9a617cbdbfb76c6f0ec97274ee22" title="Da sort a lista negra." alt="" coords="217,259,331,285"/>
+<area shape="rect" id="node8" href="$class_base.html#a49d0432d4ef67d4832214c59f9a247ae" title="Da sort aos clientes." alt="" coords="209,309,339,336"/>
+</map>

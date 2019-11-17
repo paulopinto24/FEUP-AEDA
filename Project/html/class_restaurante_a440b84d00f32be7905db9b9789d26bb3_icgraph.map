@@ -1,0 +1,8 @@
+<map id="Restaurante::getNome" name="Restaurante::getNome">
+<area shape="rect" id="node1" title="Getter do nome do restaurante." alt="" coords="473,56,625,83"/>
+<area shape="rect" id="node2" href="$class_cliente.html#a85585f1eea9bbc3f0008ee14a6666952" title=" " alt="" coords="276,5,413,32"/>
+<area shape="rect" id="node5" href="$class_encomenda.html#ace0dc3d4aedbb747f08b235499f83ee8" title="Imprime dados relativos a encomenda." alt="" coords="264,56,425,83"/>
+<area shape="rect" id="node6" href="$_utils_8h.html#ae7accc5ba838c1a908a6c5a75d9a604c" title="Salva a aplicacao escrevendo a info necessaria em documentos de texto." alt="" coords="104,81,216,108"/>
+<area shape="rect" id="node3" href="$_menus_8h.html#a2161b59ba4f36862cf85a3ed5af18d8c" title="Permite ao cliente realizar várias ações, como encomendar, verificar a sua conta e alterar as suas inform..." alt="" coords="119,19,201,45"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,51,56,77"/>
+</map>
