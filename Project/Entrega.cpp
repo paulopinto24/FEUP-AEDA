@@ -41,8 +41,3 @@ string Entrega::getTime()
 {
 	return time;
 }
-
-
-
-
-

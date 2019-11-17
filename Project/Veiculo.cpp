@@ -31,7 +31,7 @@ void Veiculo::setDataAquisicao(string ds) {
 }
 
 bool Veiculo::operator==(const Veiculo & v1) const {
-	if (this->marca == v1.marca && this->tipo == v1.tipo)
+	if (this->marca == v1.marca && this->tipo == v1.tipo && this->dataAquisicao == v1.dataAquisicao)
 		return true;
 	return false;
 }
