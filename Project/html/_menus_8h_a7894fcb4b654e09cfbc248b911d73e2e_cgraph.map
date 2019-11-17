@@ -1,0 +1,16 @@
+<map id="inscricao" name="inscricao">
+<area shape="rect" id="node1" title="Permite a um novo cliente inscrever&#45;se mostrando no ecrã todas as instruções." alt="" coords="5,309,80,336"/>
+<area shape="rect" id="node2" href="$class_base.html#a0ad51c049a15aa884aac28fdf5c4ac98" title="Adder de um cliente." alt="" coords="143,5,264,32"/>
+<area shape="rect" id="node3" href="$class_base.html#afe27763037e14acaee148fe29a78908d" title="Getter de um cliente banido." alt="" coords="148,56,259,83"/>
+<area shape="rect" id="node4" href="$class_base.html#a8c991927b8eed6dd18ed439a3be169c2" title="Getter do tamanho da lista negra." alt="" coords="143,107,263,133"/>
+<area shape="rect" id="node5" href="$class_base.html#a03a84054f061b0741832190dbb185f2b" title="Getter do cliente de indice i." alt="" coords="144,157,263,184"/>
+<area shape="rect" id="node6" href="$class_base.html#a79706f5078ba16ccb1908cafcf1303e9" title="Getter do tamanho do vetor clientes." alt="" coords="128,208,279,235"/>
+<area shape="rect" id="node7" href="$class_base.html#af7c0e12bbfc1587328225f9bc85b8ac0" title="Getter do concelho." alt="" coords="137,259,269,285"/>
+<area shape="rect" id="node8" href="$class_base.html#a3b056cb5e3c09e6ba7ca3c8d357d3685" title="Getter do distrito." alt="" coords="144,309,263,336"/>
+<area shape="rect" id="node9" href="$class_cliente.html#a0d8dec401bee741d99f0ed84b553a3f5" title="Permite obter o email do cliente." alt="" coords="143,360,264,387"/>
+<area shape="rect" id="node10" href="$class_base.html#aa141dd46cb14c86d1fc2c1fe1d987745" title="Getter de um concelho fronteira." alt="" coords="149,411,257,437"/>
+<area shape="rect" id="node11" href="$class_base.html#a7d81c47702ec7b96328cd60a3413f0e1" title="Getter do tamanho do vetor de concelhos fronteira." alt="" coords="145,461,262,488"/>
+<area shape="rect" id="node12" href="$class_pessoa.html#ae1cc59b702e5292fee75c6165f71e31a" title="Permite obter o NIF da pessoa." alt="" coords="147,512,259,539"/>
+<area shape="rect" id="node13" href="$_menus_8h.html#ac4a09258a3d01747f692bb9be6a2a4c5" title="Verifica se uma string é composta apenas por dígitos." alt="" coords="168,563,239,589"/>
+<area shape="rect" id="node14" href="$_menus_8h.html#a64090d5f471b1b376576dd41bbf06b3e" title="Verifica se um email é válido i.e. se tem formato de email." alt="" coords="163,613,243,640"/>
+</map>

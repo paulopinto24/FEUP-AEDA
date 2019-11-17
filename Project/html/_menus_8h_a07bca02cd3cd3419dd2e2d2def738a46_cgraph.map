@@ -1,0 +1,9 @@
+<map id="entrar" name="entrar">
+<area shape="rect" id="node1" title="Permite a um cliente entrar numa conta já criada." alt="" coords="5,132,60,159"/>
+<area shape="rect" id="node2" href="$class_base.html#afe27763037e14acaee148fe29a78908d" title="Getter de um cliente banido." alt="" coords="128,5,239,32"/>
+<area shape="rect" id="node3" href="$class_base.html#a8c991927b8eed6dd18ed439a3be169c2" title="Getter do tamanho da lista negra." alt="" coords="123,56,243,83"/>
+<area shape="rect" id="node4" href="$class_base.html#a03a84054f061b0741832190dbb185f2b" title="Getter do cliente de indice i." alt="" coords="124,107,243,133"/>
+<area shape="rect" id="node5" href="$class_base.html#a79706f5078ba16ccb1908cafcf1303e9" title="Getter do tamanho do vetor clientes." alt="" coords="108,157,259,184"/>
+<area shape="rect" id="node6" href="$class_cliente.html#a0d8dec401bee741d99f0ed84b553a3f5" title="Permite obter o email do cliente." alt="" coords="123,208,244,235"/>
+<area shape="rect" id="node7" href="$class_pessoa.html#ae1cc59b702e5292fee75c6165f71e31a" title="Permite obter o NIF da pessoa." alt="" coords="127,259,239,285"/>
+</map>
