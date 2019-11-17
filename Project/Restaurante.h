@@ -5,18 +5,47 @@
 
 using namespace std;
 
-
+/**
+ * Produtos fornecidos pelos restaurantes
+ */
 class Produto
 {
 private:
-	string nome;
-	string tipo;
-	double preco;
+	string nome; /**< nome do produto*/
+	string tipo; /**< tipo de produto*/
+	double preco; /**< preço do produto*/
 public:
-	Produto(string, string, double);
+	/**
+	 * @brief Construtor da classe Produto
+	 * @param n - nome do produto
+	 * @param t - tipo de produto
+	 * @param p - preço do produto
+	 */
+	Produto(string n, string t, double p);
+
+	/**
+	 * @brief Permite obter o nome do produto
+	 * @return Retorna o nome do produto
+	 */
 	string getNome();
+
+	/**
+	 * @brief Permite obter o preço do produto
+	 * @return Retorna o preço do produto
+	 */
 	double getPreco();
+
+	/**
+	 * @brief Permite obter o tipo do produto
+	 * @return Retorna o tipo do produto
+	 */
 	string getTipo();
+
+	/**
+	 * @brief Overload do operador de igualidade para a classe Produto
+	 * @param p - produto a ser comparado
+	 * @return Retorna verdadeiro se os produtos que são comparados são iguais, caso contrário retorna falso
+	 */
 	bool operator==(Produto& p);
 };
 

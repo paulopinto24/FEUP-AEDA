@@ -4,6 +4,9 @@
 
 using namespace std;
 
+/**
+ * @brief Mostra no ecrã uma mensagem inicial
+ */
 void welcomeMenu() {
 	cout << "===============================================================" << endl;
 	cout << "Welcome to UghEats! The application that copis UberEats in such" << endl;
@@ -14,6 +17,10 @@ void welcomeMenu() {
 	cout << endl;
 }
 
+/**
+ * @brief Permite selecionar entre fazer sign in, sign up ou sair da aplicação
+ * @return Retorna a opção escolhida
+ */
 string openingMenu() {
 	cout << "1 - Sign in" << endl;
 	cout << "2 - Sign up" << endl;
@@ -35,17 +42,17 @@ string openingMenu() {
 	return option;
 }
 
-// função testa se um email é válido i.e. tem formato de email
+/**
+ * @brief Verifica se um email é válido i.e. se tem formato de email
+ * @param email - email a ser verificado
+ * @return Retorna verdadeiro se o email for válido, caso contrário retorna falso
+ */
 bool validEmail(string const& email) {
-	string teste = "q";    // isto é so para nao ter q escrever um mail completo de cada vez que estou a testar o codigo (apagar antes de enviar para entrega)
+
 	string gmail = "@gmail.com";
 	string hotmail = "@hotmail.com";
 	string feup = "@fe.up.pt";
 
-	if (email.length() >= teste.length()) {
-		if (email.compare(email.length() - teste.length(), teste.length(), teste) == 0)
-			return true;
-	}
 	if (email.length() >= gmail.length()) {
 		if (email.compare(email.length() - gmail.length(), gmail.length(), gmail) == 0)
 			return true;
@@ -61,12 +68,21 @@ bool validEmail(string const& email) {
 	return false;
 }
 
-// função para ver se o NIF é composto apenas por dígitos
+/**
+ * @brief Verifica se uma string é composta apenas por dígitos
+ * @param str - string a ser verificada
+ * @return Retorna verdadeiro se a string for composta apenas por dígitos, caso contrário retorna falso
+ */
 bool is_digits(const string& str)
 {
 	return str.find_first_not_of("0123456789") == string::npos;
 }
 
+/**
+ * @brief Permite a um novo cliente inscrever-se mostrando no ecrã todas as instruções
+ * @param b - base em que o cliente se pretende inscrever
+ * @return Retorna verdadeiro se a inscrição for bem sucedida, caso contrário retorna falso
+ */
 bool inscricao(Base& b) {
 	
 	string nome;
@@ -170,6 +186,11 @@ bool inscricao(Base& b) {
 	return true; 
 }
 
+/**
+ * @brief Permite a um cliente entrar numa conta já criada
+ * @param base - base a que a conta pertence
+ * @return Retorna a conta do cliente
+ */
 Cliente entrar(Base base) { //posteriormente esta funçao retornará um cliente
 	int option;
 
@@ -259,6 +280,12 @@ Cliente entrar(Base base) { //posteriormente esta funçao retornará um cliente
 	}
 }
 
+/**
+ * @brief Permite ao cliente realizar várias ações, como encomendar, verificar a sua conta e alterar as suas informações
+ * @param cliente - cliente ao qual pertence a conta
+ * @param b - base onde o cliente está inscrito 
+ * @return Retorna 0 se o cliente saiu de forma normal da sua conta, caso contrário retorna 1
+ */
 int clientPage(Cliente cliente, Base &b) {
 	int option;
 	string email;
@@ -358,6 +385,10 @@ int clientPage(Cliente cliente, Base &b) {
 	}
 }
 
+/**
+ * @brief Permite ao administrador realizar ações de gerência da empresa
+ * @param app - aplicação que se pretenda correr
+ */
 void developerMenu(UghEatsFD* app) {
 
 	cout << endl;
