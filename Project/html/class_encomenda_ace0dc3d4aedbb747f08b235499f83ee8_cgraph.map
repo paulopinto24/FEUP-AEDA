@@ -1,0 +1,4 @@
+<map id="Encomenda::printDados" name="Encomenda::printDados">
+<area shape="rect" id="node1" title="Imprime dados relativos a encomenda." alt="" coords="5,5,167,32"/>
+<area shape="rect" id="node2" href="$class_restaurante.html#a440b84d00f32be7905db9b9789d26bb3" title="Getter do nome do restaurante." alt="" coords="215,5,367,32"/>
+</map>

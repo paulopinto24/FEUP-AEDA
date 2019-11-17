@@ -1,0 +1,6 @@
+<map id="Entrega::Entrega" name="Entrega::Entrega">
+<area shape="rect" id="node1" title="Construtor da classe entrega." alt="" coords="5,56,125,83"/>
+<area shape="rect" id="node2" href="$class_encomenda.html#aa6835f243d09d4c34b359c79449d51b5" title="Getter data." alt="" coords="177,5,321,32"/>
+<area shape="rect" id="node3" href="$class_encomenda.html#aa8d8f438de1fb21c33b08fb98c5b0409" title="Getter do preco fixo." alt="" coords="175,56,324,83"/>
+<area shape="rect" id="node4" href="$class_encomenda.html#ac4fe5e2f4c64a8c4aa821a68a43a1d52" title="Getter do preco total." alt="" coords="173,107,325,133"/>
+</map>
