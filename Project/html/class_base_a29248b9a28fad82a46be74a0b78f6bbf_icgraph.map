@@ -1,0 +1,8 @@
+<map id="Base::addEntregaStr" name="Base::addEntregaStr">
+<area shape="rect" id="node1" title="Adder de uma entrega." alt="" coords="448,31,591,57"/>
+<area shape="rect" id="node2" href="$class_cliente.html#a85585f1eea9bbc3f0008ee14a6666952" title=" " alt="" coords="263,5,400,32"/>
+<area shape="rect" id="node5" href="$_utils_8h.html#a0833212aa0bf987974952ffb9d824b23" title="Processa informacao de modo a criar uma base da empresa." alt="" coords="289,56,373,83"/>
+<area shape="rect" id="node3" href="$_menus_8h.html#a2161b59ba4f36862cf85a3ed5af18d8c" title="Permite ao cliente realizar várias ações, como encomendar, verificar a sua conta e alterar as suas inform..." alt="" coords="118,5,201,32"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,31,56,57"/>
+<area shape="rect" id="node6" href="$_utils_8h.html#af0caa6c9a77bc1c9733089c4126ee930" title="Carrega a aplicacao lendo a info necessaria de documentos de texto." alt="" coords="104,56,215,83"/>
+</map>
