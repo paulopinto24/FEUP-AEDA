@@ -1,0 +1,17 @@
+<map id="developerMenu" name="developerMenu">
+<area shape="rect" id="node1" title="Permite ao administrador realizar ações de gerência da empresa." alt="" coords="5,309,113,336"/>
+<area shape="rect" id="node2" href="$class_ugh_eats_f_d.html#a8772d46474c95fa729b2202b97c6ccc9" title="Permite o utilizador banir um cliente." alt="" coords="161,183,307,209"/>
+<area shape="rect" id="node10" href="$class_cliente_inexistente.html#afd87d49aaa754970f9fa7a94bae431cd" title=" " alt="" coords="171,302,297,343"/>
+<area shape="rect" id="node11" href="$class_ugh_eats_f_d.html#aa78c840c33ee17508cd4d6c49d0334eb" title="Permite o utilizador verificar os lucros dos servicos da empresa." alt="" coords="161,411,307,437"/>
+<area shape="rect" id="node3" href="$class_base.html#a38e5e57fd4ebee40a932147dd0ab4034" title="Adder de um cliente a lista negra." alt="" coords="373,5,487,32"/>
+<area shape="rect" id="node4" href="$class_base.html#a555b2f74b2f1de2fa385aabc042e32cf" title="Remove um cliente do vetor de clientes." alt="" coords="366,56,494,83"/>
+<area shape="rect" id="node5" href="$class_base.html#a03a84054f061b0741832190dbb185f2b" title="Getter do cliente de indice i." alt="" coords="371,107,489,133"/>
+<area shape="rect" id="node6" href="$class_base.html#a79706f5078ba16ccb1908cafcf1303e9" title="Getter do tamanho do vetor clientes." alt="" coords="355,157,505,184"/>
+<area shape="rect" id="node7" href="$class_pessoa.html#ae1cc59b702e5292fee75c6165f71e31a" title="Permite obter o NIF da pessoa." alt="" coords="374,208,486,235"/>
+<area shape="rect" id="node8" href="$class_base.html#ada2f9a617cbdbfb76c6f0ec97274ee22" title="Da sort a lista negra." alt="" coords="373,259,487,285"/>
+<area shape="rect" id="node9" href="$class_base.html#a49d0432d4ef67d4832214c59f9a247ae" title="Da sort aos clientes." alt="" coords="365,309,495,336"/>
+<area shape="rect" id="node12" href="$class_base.html#a3b056cb5e3c09e6ba7ca3c8d357d3685" title="Getter do distrito." alt="" coords="371,360,489,387"/>
+<area shape="rect" id="node13" href="$class_base.html#a8f25c91dbd44ea3e91b78ffe33c9e245" title="Getter de uma entrega." alt="" coords="360,411,500,437"/>
+<area shape="rect" id="node14" href="$class_base.html#aaeae914de1416b4eb075f04ecbda27a2" title="Getter do tamanho do historial (string)" alt="" coords="355,461,505,488"/>
+<area shape="rect" id="node15" href="$_utils_8cpp.html#ad18a418ac3584aad8e272711bbfc5fb8" title="Separa os diferentes elementos de uma string separados por ponto e virgula." alt="" coords="363,512,497,539"/>
+</map>
