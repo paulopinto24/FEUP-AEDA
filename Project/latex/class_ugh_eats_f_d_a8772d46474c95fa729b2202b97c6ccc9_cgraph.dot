@@ -1,0 +1,22 @@
+digraph "UghEatsFD::banUser"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="UghEatsFD::banUser",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Permite o utilizador banir um cliente."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="Base::addBlack",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_base.html#a38e5e57fd4ebee40a932147dd0ab4034",tooltip="Adder de um cliente a lista negra."];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="Base::deleteClient",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_base.html#a555b2f74b2f1de2fa385aabc042e32cf",tooltip="Remove um cliente do vetor de clientes."];
+  Node1 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="Base::getCliente",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_base.html#a03a84054f061b0741832190dbb185f2b",tooltip="Getter do cliente de indice i."];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="Base::getClientesSize",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_base.html#a79706f5078ba16ccb1908cafcf1303e9",tooltip="Getter do tamanho do vetor clientes."];
+  Node1 -> Node6 [color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="Pessoa::getNIF",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_pessoa.html#ae1cc59b702e5292fee75c6165f71e31a",tooltip="Permite obter o NIF da pessoa."];
+  Node1 -> Node7 [color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="Base::sortBlack",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_base.html#ada2f9a617cbdbfb76c6f0ec97274ee22",tooltip="Da sort a lista negra."];
+  Node1 -> Node8 [color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="Base::sortClientes",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_base.html#a49d0432d4ef67d4832214c59f9a247ae",tooltip="Da sort aos clientes."];
+}

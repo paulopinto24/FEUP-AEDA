@@ -1,0 +1,383 @@
+\hypertarget{class_restaurante}{}\doxysection{Restaurante Class Reference}
+\label{class_restaurante}\index{Restaurante@{Restaurante}}
+
+
+{\ttfamily \#include $<$Restaurante.\+h$>$}
+
+
+
+Collaboration diagram for Restaurante\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=169pt]{class_restaurante__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_restaurante_ae96329273fb6568baa886d469a4b82f4}{Restaurante}} ()
+\begin{DoxyCompactList}\small\item\em Construtor da classe restaurante. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_restaurante_a79818417070aa2842f38033b98369ec0}{Restaurante}} (string n, string m, string c, vector$<$ string $>$ \&t, bool a)
+\begin{DoxyCompactList}\small\item\em Construtor da classe restaurante. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_restaurante_ac6d76217065b8905ac47e6b8a30a4b5e}{is\+Available}} ()
+\begin{DoxyCompactList}\small\item\em Getter da disponibilidade. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_restaurante_a5c58554d02d50e87e4edf366d0cd59fc}{operator==}} (\mbox{\hyperlink{class_restaurante}{Restaurante}} \&r)
+\begin{DoxyCompactList}\small\item\em Sobrecarga do operador de comparacao. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_restaurante_a440b84d00f32be7905db9b9789d26bb3}{get\+Nome}} ()
+\begin{DoxyCompactList}\small\item\em Getter do nome do restaurante. \end{DoxyCompactList}\item 
+vector$<$ \mbox{\hyperlink{class_produto}{Produto}} $>$ \mbox{\hyperlink{class_restaurante_ad35950e9a67a5ae1b4fac631fa346b50}{get\+Produtos}} ()
+\begin{DoxyCompactList}\small\item\em Getter dos produtos do restaurante. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_restaurante_a13fa3f7e25d4a303d78ad5187fc53de3}{get\+Morada}} ()
+\begin{DoxyCompactList}\small\item\em Getter da morada do restaurante. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_restaurante_a0013cfaaaf2e63cbaa35ad679144f89d}{get\+Concelho}} ()
+\begin{DoxyCompactList}\small\item\em Getter do concelho do restaurante. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_restaurante_a22bda10254a3459f0a963e4b6128ed9a}{print\+Products}} ()
+\begin{DoxyCompactList}\small\item\em Cria string com info dos produtos de um restaurante no ecra. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_restaurante_ad00a98b4482eab31a2cafe07f4148787}{add\+Produto}} (\mbox{\hyperlink{class_produto}{Produto}} p)
+\begin{DoxyCompactList}\small\item\em Adiciona um produto ao vetor de produtos. \end{DoxyCompactList}\item 
+vector$<$ \mbox{\hyperlink{class_produto}{Produto}} $>$ \mbox{\hyperlink{class_restaurante_a3d972c10b49516709c0162c2c866d73c}{get\+Prod\+By\+Price}} (double p)
+\begin{DoxyCompactList}\small\item\em Retorna vetor com produtos abaixo de um certo preco. \end{DoxyCompactList}\item 
+vector$<$ string $>$ \mbox{\hyperlink{class_restaurante_a6b0203b2c53f3153387a05f0b0dd9547}{get\+Type}} (string t)
+\begin{DoxyCompactList}\small\item\em Getter dos tipos de culinaria do restaurante. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_restaurante_a99c1dc809814d3910032c40b6306fc50}{get\+Available}} ()
+\begin{DoxyCompactList}\small\item\em Getter da disponibilidade. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{class_restaurante_af8c95e8bc65ac5b571ff3d11caef50ea}{get\+Tp\+Cul}} (int i)
+\begin{DoxyCompactList}\small\item\em Getter de um tipo de culinaria. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_restaurante_a508e334a3cd9d48534aeba8c3741406e}{get\+Tp\+CulS}} ()
+\begin{DoxyCompactList}\small\item\em Getter do tamanho do vetor dos tipos de culinaria. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_restaurante_aa1b14ee49e198331026d89fb722a0a95}{get\+ProdS}} ()
+\begin{DoxyCompactList}\small\item\em Getter do tamanho do vetor dos produtos do restaurante. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_produto}{Produto}} \mbox{\hyperlink{class_restaurante_adbf3a0432a7e40f45c1656f5abb8e128}{get\+Prod}} (int i)
+\begin{DoxyCompactList}\small\item\em Getter de um produto. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_restaurante}{Restaurante}} integrante da empresa 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_restaurante_ae96329273fb6568baa886d469a4b82f4}\label{class_restaurante_ae96329273fb6568baa886d469a4b82f4}} 
+\index{Restaurante@{Restaurante}!Restaurante@{Restaurante}}
+\index{Restaurante@{Restaurante}!Restaurante@{Restaurante}}
+\doxysubsubsection{\texorpdfstring{Restaurante()}{Restaurante()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Restaurante\+::\+Restaurante (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construtor da classe restaurante. 
+
+\mbox{\Hypertarget{class_restaurante_a79818417070aa2842f38033b98369ec0}\label{class_restaurante_a79818417070aa2842f38033b98369ec0}} 
+\index{Restaurante@{Restaurante}!Restaurante@{Restaurante}}
+\index{Restaurante@{Restaurante}!Restaurante@{Restaurante}}
+\doxysubsubsection{\texorpdfstring{Restaurante()}{Restaurante()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Restaurante\+::\+Restaurante (\begin{DoxyParamCaption}\item[{string}]{n,  }\item[{string}]{m,  }\item[{string}]{c,  }\item[{vector$<$ string $>$ \&}]{t,  }\item[{bool}]{a }\end{DoxyParamCaption})}
+
+
+
+Construtor da classe restaurante. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & -\/ nome do restaurante \\
+\hline
+{\em m} & -\/ morada do restaurante \\
+\hline
+{\em t} & -\/ vetor com os tipos de culinaria do restaurante \\
+\hline
+{\em a} & -\/ disponibilidade do restaurante \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_restaurante_ad00a98b4482eab31a2cafe07f4148787}\label{class_restaurante_ad00a98b4482eab31a2cafe07f4148787}} 
+\index{Restaurante@{Restaurante}!addProduto@{addProduto}}
+\index{addProduto@{addProduto}!Restaurante@{Restaurante}}
+\doxysubsubsection{\texorpdfstring{addProduto()}{addProduto()}}
+{\footnotesize\ttfamily bool Restaurante\+::add\+Produto (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_produto}{Produto}}}]{p }\end{DoxyParamCaption})}
+
+
+
+Adiciona um produto ao vetor de produtos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & -\/ produto a ser adicionado \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna true se for bem sucedido e false ca 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_restaurante_a99c1dc809814d3910032c40b6306fc50}\label{class_restaurante_a99c1dc809814d3910032c40b6306fc50}} 
+\index{Restaurante@{Restaurante}!getAvailable@{getAvailable}}
+\index{getAvailable@{getAvailable}!Restaurante@{Restaurante}}
+\doxysubsubsection{\texorpdfstring{getAvailable()}{getAvailable()}}
+{\footnotesize\ttfamily bool Restaurante\+::get\+Available (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter da disponibilidade. 
+
+\begin{DoxyReturn}{Returns}
+Retorna true se o restaurante se encontra disponivel, falso caso contrario 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_restaurante_a99c1dc809814d3910032c40b6306fc50_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_restaurante_a0013cfaaaf2e63cbaa35ad679144f89d}\label{class_restaurante_a0013cfaaaf2e63cbaa35ad679144f89d}} 
+\index{Restaurante@{Restaurante}!getConcelho@{getConcelho}}
+\index{getConcelho@{getConcelho}!Restaurante@{Restaurante}}
+\doxysubsubsection{\texorpdfstring{getConcelho()}{getConcelho()}}
+{\footnotesize\ttfamily string Restaurante\+::get\+Concelho (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter do concelho do restaurante. 
+
+\begin{DoxyReturn}{Returns}
+Retorna uma string com o concelho do restaurante 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_restaurante_a0013cfaaaf2e63cbaa35ad679144f89d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_restaurante_a13fa3f7e25d4a303d78ad5187fc53de3}\label{class_restaurante_a13fa3f7e25d4a303d78ad5187fc53de3}} 
+\index{Restaurante@{Restaurante}!getMorada@{getMorada}}
+\index{getMorada@{getMorada}!Restaurante@{Restaurante}}
+\doxysubsubsection{\texorpdfstring{getMorada()}{getMorada()}}
+{\footnotesize\ttfamily string Restaurante\+::get\+Morada (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter da morada do restaurante. 
+
+\begin{DoxyReturn}{Returns}
+Retorna uma string com a morada do restaurante 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_restaurante_a13fa3f7e25d4a303d78ad5187fc53de3_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_restaurante_a440b84d00f32be7905db9b9789d26bb3}\label{class_restaurante_a440b84d00f32be7905db9b9789d26bb3}} 
+\index{Restaurante@{Restaurante}!getNome@{getNome}}
+\index{getNome@{getNome}!Restaurante@{Restaurante}}
+\doxysubsubsection{\texorpdfstring{getNome()}{getNome()}}
+{\footnotesize\ttfamily string Restaurante\+::get\+Nome (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter do nome do restaurante. 
+
+\begin{DoxyReturn}{Returns}
+Retorna uma string com o nome do restaurante 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_restaurante_a440b84d00f32be7905db9b9789d26bb3_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_restaurante_adbf3a0432a7e40f45c1656f5abb8e128}\label{class_restaurante_adbf3a0432a7e40f45c1656f5abb8e128}} 
+\index{Restaurante@{Restaurante}!getProd@{getProd}}
+\index{getProd@{getProd}!Restaurante@{Restaurante}}
+\doxysubsubsection{\texorpdfstring{getProd()}{getProd()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_produto}{Produto}} Restaurante\+::get\+Prod (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+Getter de um produto. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & -\/ indicie do produto \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna o produto desejado 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_restaurante_adbf3a0432a7e40f45c1656f5abb8e128_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_restaurante_a3d972c10b49516709c0162c2c866d73c}\label{class_restaurante_a3d972c10b49516709c0162c2c866d73c}} 
+\index{Restaurante@{Restaurante}!getProdByPrice@{getProdByPrice}}
+\index{getProdByPrice@{getProdByPrice}!Restaurante@{Restaurante}}
+\doxysubsubsection{\texorpdfstring{getProdByPrice()}{getProdByPrice()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{class_produto}{Produto}} $>$ Restaurante\+::get\+Prod\+By\+Price (\begin{DoxyParamCaption}\item[{double}]{p }\end{DoxyParamCaption})}
+
+
+
+Retorna vetor com produtos abaixo de um certo preco. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & -\/ preco maximo \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna o vetor com os produtos 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_restaurante_aa1b14ee49e198331026d89fb722a0a95}\label{class_restaurante_aa1b14ee49e198331026d89fb722a0a95}} 
+\index{Restaurante@{Restaurante}!getProdS@{getProdS}}
+\index{getProdS@{getProdS}!Restaurante@{Restaurante}}
+\doxysubsubsection{\texorpdfstring{getProdS()}{getProdS()}}
+{\footnotesize\ttfamily int Restaurante\+::get\+ProdS (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter do tamanho do vetor dos produtos do restaurante. 
+
+\begin{DoxyReturn}{Returns}
+Retorna o tamanho do vetor dos produtos do restaurante 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_restaurante_aa1b14ee49e198331026d89fb722a0a95_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_restaurante_ad35950e9a67a5ae1b4fac631fa346b50}\label{class_restaurante_ad35950e9a67a5ae1b4fac631fa346b50}} 
+\index{Restaurante@{Restaurante}!getProdutos@{getProdutos}}
+\index{getProdutos@{getProdutos}!Restaurante@{Restaurante}}
+\doxysubsubsection{\texorpdfstring{getProdutos()}{getProdutos()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{class_produto}{Produto}} $>$ Restaurante\+::get\+Produtos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter dos produtos do restaurante. 
+
+\begin{DoxyReturn}{Returns}
+Retorna um vetor com os produtos oferecidos por um restaurante 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_restaurante_af8c95e8bc65ac5b571ff3d11caef50ea}\label{class_restaurante_af8c95e8bc65ac5b571ff3d11caef50ea}} 
+\index{Restaurante@{Restaurante}!getTpCul@{getTpCul}}
+\index{getTpCul@{getTpCul}!Restaurante@{Restaurante}}
+\doxysubsubsection{\texorpdfstring{getTpCul()}{getTpCul()}}
+{\footnotesize\ttfamily string Restaurante\+::get\+Tp\+Cul (\begin{DoxyParamCaption}\item[{int}]{i }\end{DoxyParamCaption})}
+
+
+
+Getter de um tipo de culinaria. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & -\/ indicie do tipo de culinaria \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna uma string com o tipo de culinaria desejado 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_restaurante_af8c95e8bc65ac5b571ff3d11caef50ea_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_restaurante_a508e334a3cd9d48534aeba8c3741406e}\label{class_restaurante_a508e334a3cd9d48534aeba8c3741406e}} 
+\index{Restaurante@{Restaurante}!getTpCulS@{getTpCulS}}
+\index{getTpCulS@{getTpCulS}!Restaurante@{Restaurante}}
+\doxysubsubsection{\texorpdfstring{getTpCulS()}{getTpCulS()}}
+{\footnotesize\ttfamily int Restaurante\+::get\+Tp\+CulS (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter do tamanho do vetor dos tipos de culinaria. 
+
+\begin{DoxyReturn}{Returns}
+Retorna o tamanho do vetor dos tipos de culinaria 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_restaurante_a508e334a3cd9d48534aeba8c3741406e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_restaurante_a6b0203b2c53f3153387a05f0b0dd9547}\label{class_restaurante_a6b0203b2c53f3153387a05f0b0dd9547}} 
+\index{Restaurante@{Restaurante}!getType@{getType}}
+\index{getType@{getType}!Restaurante@{Restaurante}}
+\doxysubsubsection{\texorpdfstring{getType()}{getType()}}
+{\footnotesize\ttfamily vector$<$ string $>$ Restaurante\+::get\+Type (\begin{DoxyParamCaption}\item[{string}]{t }\end{DoxyParamCaption})}
+
+
+
+Getter dos tipos de culinaria do restaurante. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em t} & -\/ tipo de culinaria \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna o vetor com os tipos de culinaria 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_restaurante_ac6d76217065b8905ac47e6b8a30a4b5e}\label{class_restaurante_ac6d76217065b8905ac47e6b8a30a4b5e}} 
+\index{Restaurante@{Restaurante}!isAvailable@{isAvailable}}
+\index{isAvailable@{isAvailable}!Restaurante@{Restaurante}}
+\doxysubsubsection{\texorpdfstring{isAvailable()}{isAvailable()}}
+{\footnotesize\ttfamily bool Restaurante\+::is\+Available (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Getter da disponibilidade. 
+
+\begin{DoxyReturn}{Returns}
+Retorna true se o restaurante se encontra disponivel, falso caso contrario 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_restaurante_a5c58554d02d50e87e4edf366d0cd59fc}\label{class_restaurante_a5c58554d02d50e87e4edf366d0cd59fc}} 
+\index{Restaurante@{Restaurante}!operator==@{operator==}}
+\index{operator==@{operator==}!Restaurante@{Restaurante}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily bool Restaurante\+::operator== (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_restaurante}{Restaurante}} \&}]{r }\end{DoxyParamCaption})}
+
+
+
+Sobrecarga do operador de comparacao. 
+
+\begin{DoxyReturn}{Returns}
+Retorna true se os restaurantes comparados possuem a mesma morada 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_restaurante_a22bda10254a3459f0a963e4b6128ed9a}\label{class_restaurante_a22bda10254a3459f0a963e4b6128ed9a}} 
+\index{Restaurante@{Restaurante}!printProducts@{printProducts}}
+\index{printProducts@{printProducts}!Restaurante@{Restaurante}}
+\doxysubsubsection{\texorpdfstring{printProducts()}{printProducts()}}
+{\footnotesize\ttfamily string Restaurante\+::print\+Products (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Cria string com info dos produtos de um restaurante no ecra. 
+
+\begin{DoxyReturn}{Returns}
+Retorna uma string a ser imprimida 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_restaurante_8h}{Restaurante.\+h}}\item 
+\mbox{\hyperlink{_restaurante_8cpp}{Restaurante.\+cpp}}\end{DoxyCompactItemize}
