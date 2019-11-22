@@ -1,0 +1,181 @@
+\hypertarget{_utils_8cpp}{}\doxysection{Utils.\+cpp File Reference}
+\label{_utils_8cpp}\index{Utils.cpp@{Utils.cpp}}
+{\ttfamily \#include \char`\"{}Utils.\+h\char`\"{}}\newline
+Include dependency graph for Utils.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_utils_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{_utils_8cpp_af0caa6c9a77bc1c9733089c4126ee930}{load\+Application}} (\mbox{\hyperlink{class_ugh_eats_f_d}{Ugh\+Eats\+FD}} $\ast$p1)
+\begin{DoxyCompactList}\small\item\em Carrega a aplicacao lendo a info necessaria de documentos de texto. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_utils_8cpp_ae7accc5ba838c1a908a6c5a75d9a604c}{save\+Application}} (\mbox{\hyperlink{class_ugh_eats_f_d}{Ugh\+Eats\+FD}} $\ast$p1)
+\begin{DoxyCompactList}\small\item\em Salva a aplicacao escrevendo a info necessaria em documentos de texto. \end{DoxyCompactList}\item 
+vector$<$ string $>$ \mbox{\hyperlink{_utils_8cpp_ad18a418ac3584aad8e272711bbfc5fb8}{parse\+By\+Semi\+Colon}} (string line)
+\begin{DoxyCompactList}\small\item\em Separa os diferentes elementos de uma string separados por ponto e virgula. \end{DoxyCompactList}\item 
+vector$<$ string $>$ \mbox{\hyperlink{_utils_8cpp_a0e9bfe79fe6df98794888c29ae60d87c}{parse\+By\+Slash}} (string line)
+\begin{DoxyCompactList}\small\item\em Separa os diferentes elementos de uma string separados por barra. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_base}{Base}} \mbox{\hyperlink{_utils_8cpp_a0833212aa0bf987974952ffb9d824b23}{parse\+Base}} (vector$<$ string $>$ vec)
+\begin{DoxyCompactList}\small\item\em Processa informacao de modo a criar uma base da empresa. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_utils_8cpp_af0caa6c9a77bc1c9733089c4126ee930}\label{_utils_8cpp_af0caa6c9a77bc1c9733089c4126ee930}} 
+\index{Utils.cpp@{Utils.cpp}!loadApplication@{loadApplication}}
+\index{loadApplication@{loadApplication}!Utils.cpp@{Utils.cpp}}
+\doxysubsubsection{\texorpdfstring{loadApplication()}{loadApplication()}}
+{\footnotesize\ttfamily int load\+Application (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_ugh_eats_f_d}{Ugh\+Eats\+FD}} $\ast$}]{p1 }\end{DoxyParamCaption})}
+
+
+
+Carrega a aplicacao lendo a info necessaria de documentos de texto. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p1} & -\/ pointer para aplicacao a ser carregada \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna 0 se bem sucedido, outro valor quando nao e bem sucedido 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_utils_8cpp_af0caa6c9a77bc1c9733089c4126ee930_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=237pt]{_utils_8cpp_af0caa6c9a77bc1c9733089c4126ee930_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_utils_8cpp_a0833212aa0bf987974952ffb9d824b23}\label{_utils_8cpp_a0833212aa0bf987974952ffb9d824b23}} 
+\index{Utils.cpp@{Utils.cpp}!parseBase@{parseBase}}
+\index{parseBase@{parseBase}!Utils.cpp@{Utils.cpp}}
+\doxysubsubsection{\texorpdfstring{parseBase()}{parseBase()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_base}{Base}} parse\+Base (\begin{DoxyParamCaption}\item[{vector$<$ string $>$}]{vec }\end{DoxyParamCaption})}
+
+
+
+Processa informacao de modo a criar uma base da empresa. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vec} & -\/ vetor com elementos necessarios a criacao da base \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna a base criada com a informacao contida em vec 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=292pt]{_utils_8cpp_a0833212aa0bf987974952ffb9d824b23_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{_utils_8cpp_a0833212aa0bf987974952ffb9d824b23_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_utils_8cpp_ad18a418ac3584aad8e272711bbfc5fb8}\label{_utils_8cpp_ad18a418ac3584aad8e272711bbfc5fb8}} 
+\index{Utils.cpp@{Utils.cpp}!parseBySemiColon@{parseBySemiColon}}
+\index{parseBySemiColon@{parseBySemiColon}!Utils.cpp@{Utils.cpp}}
+\doxysubsubsection{\texorpdfstring{parseBySemiColon()}{parseBySemiColon()}}
+{\footnotesize\ttfamily vector$<$string$>$ parse\+By\+Semi\+Colon (\begin{DoxyParamCaption}\item[{string}]{line }\end{DoxyParamCaption})}
+
+
+
+Separa os diferentes elementos de uma string separados por ponto e virgula. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & -\/ linha a ser processada \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna vetor com os elementos processados 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_utils_8cpp_ad18a418ac3584aad8e272711bbfc5fb8_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_utils_8cpp_a0e9bfe79fe6df98794888c29ae60d87c}\label{_utils_8cpp_a0e9bfe79fe6df98794888c29ae60d87c}} 
+\index{Utils.cpp@{Utils.cpp}!parseBySlash@{parseBySlash}}
+\index{parseBySlash@{parseBySlash}!Utils.cpp@{Utils.cpp}}
+\doxysubsubsection{\texorpdfstring{parseBySlash()}{parseBySlash()}}
+{\footnotesize\ttfamily vector$<$string$>$ parse\+By\+Slash (\begin{DoxyParamCaption}\item[{string}]{line }\end{DoxyParamCaption})}
+
+
+
+Separa os diferentes elementos de uma string separados por barra. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em line} & -\/ linha a ser processada \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna vetor com os elementos processados 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_utils_8cpp_a0e9bfe79fe6df98794888c29ae60d87c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_utils_8cpp_ae7accc5ba838c1a908a6c5a75d9a604c}\label{_utils_8cpp_ae7accc5ba838c1a908a6c5a75d9a604c}} 
+\index{Utils.cpp@{Utils.cpp}!saveApplication@{saveApplication}}
+\index{saveApplication@{saveApplication}!Utils.cpp@{Utils.cpp}}
+\doxysubsubsection{\texorpdfstring{saveApplication()}{saveApplication()}}
+{\footnotesize\ttfamily int save\+Application (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_ugh_eats_f_d}{Ugh\+Eats\+FD}} $\ast$}]{p1 }\end{DoxyParamCaption})}
+
+
+
+Salva a aplicacao escrevendo a info necessaria em documentos de texto. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p1} & -\/ pointer para aplicacao a ser salvada \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna 0 se bem sucedido, outro valor quando nao e bem sucedido 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{_utils_8cpp_ae7accc5ba838c1a908a6c5a75d9a604c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=238pt]{_utils_8cpp_ae7accc5ba838c1a908a6c5a75d9a604c_icgraph}
+\end{center}
+\end{figure}
