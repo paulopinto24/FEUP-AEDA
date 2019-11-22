@@ -1,0 +1,267 @@
+\hypertarget{_menus_8h}{}\doxysection{Menus.\+h File Reference}
+\label{_menus_8h}\index{Menus.h@{Menus.h}}
+{\ttfamily \#include \char`\"{}Base.\+h\char`\"{}}\newline
+Include dependency graph for Menus.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_menus_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=136pt]{_menus_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_menus_8h_a4c3d78477d720b1ac0f1b66cb8021ce3}{welcome\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Mostra no ecrã uma mensagem inicial. \end{DoxyCompactList}\item 
+string \mbox{\hyperlink{_menus_8h_a24ff40842e1155d7a0d7703bd5838a4e}{opening\+Menu}} ()
+\begin{DoxyCompactList}\small\item\em Permite selecionar entre fazer sign in, sign up ou sair da aplicação \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_menus_8h_a64090d5f471b1b376576dd41bbf06b3e}{valid\+Email}} (string const \&email)
+\begin{DoxyCompactList}\small\item\em Verifica se um email é válido i.\+e. se tem formato de email. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_menus_8h_ac4a09258a3d01747f692bb9be6a2a4c5}{is\+\_\+digits}} (const string \&str)
+\begin{DoxyCompactList}\small\item\em Verifica se uma string é composta apenas por dígitos. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_menus_8h_a7894fcb4b654e09cfbc248b911d73e2e}{inscricao}} (\mbox{\hyperlink{class_base}{Base}} \&b)
+\begin{DoxyCompactList}\small\item\em Permite a um novo cliente inscrever-\/se mostrando no ecrã todas as instruções. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_cliente}{Cliente}} \mbox{\hyperlink{_menus_8h_a07bca02cd3cd3419dd2e2d2def738a46}{entrar}} (\mbox{\hyperlink{class_base}{Base}} base)
+\begin{DoxyCompactList}\small\item\em Permite a um cliente entrar numa conta já criada. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{_menus_8h_a2161b59ba4f36862cf85a3ed5af18d8c}{client\+Page}} (\mbox{\hyperlink{class_cliente}{Cliente}} cliente, \mbox{\hyperlink{class_base}{Base}} \&b)
+\begin{DoxyCompactList}\small\item\em Permite ao cliente realizar várias ações, como encomendar, verificar a sua conta e alterar as suas informações. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_menus_8h_ad71874142fc75f4d283da6e3d4d5b966}{developer\+Menu}} (\mbox{\hyperlink{class_ugh_eats_f_d}{Ugh\+Eats\+FD}} $\ast$app)
+\begin{DoxyCompactList}\small\item\em Permite ao administrador realizar ações de gerência da empresa. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_menus_8h_a2161b59ba4f36862cf85a3ed5af18d8c}\label{_menus_8h_a2161b59ba4f36862cf85a3ed5af18d8c}} 
+\index{Menus.h@{Menus.h}!clientPage@{clientPage}}
+\index{clientPage@{clientPage}!Menus.h@{Menus.h}}
+\doxysubsubsection{\texorpdfstring{clientPage()}{clientPage()}}
+{\footnotesize\ttfamily int client\+Page (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_cliente}{Cliente}}}]{cliente,  }\item[{\mbox{\hyperlink{class_base}{Base}} \&}]{b }\end{DoxyParamCaption})}
+
+
+
+Permite ao cliente realizar várias ações, como encomendar, verificar a sua conta e alterar as suas informações. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cliente} & -\/ cliente ao qual pertence a conta \\
+\hline
+{\em b} & -\/ base onde o cliente está inscrito \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna 0 se o cliente saiu de forma normal da sua conta, caso contrário retorna 1 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{_menus_8h_a2161b59ba4f36862cf85a3ed5af18d8c_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{_menus_8h_a2161b59ba4f36862cf85a3ed5af18d8c_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_menus_8h_ad71874142fc75f4d283da6e3d4d5b966}\label{_menus_8h_ad71874142fc75f4d283da6e3d4d5b966}} 
+\index{Menus.h@{Menus.h}!developerMenu@{developerMenu}}
+\index{developerMenu@{developerMenu}!Menus.h@{Menus.h}}
+\doxysubsubsection{\texorpdfstring{developerMenu()}{developerMenu()}}
+{\footnotesize\ttfamily void developer\+Menu (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_ugh_eats_f_d}{Ugh\+Eats\+FD}} $\ast$}]{app }\end{DoxyParamCaption})}
+
+
+
+Permite ao administrador realizar ações de gerência da empresa. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em app} & -\/ aplicação que se pretenda correr \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_menus_8h_ad71874142fc75f4d283da6e3d4d5b966_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=235pt]{_menus_8h_ad71874142fc75f4d283da6e3d4d5b966_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_menus_8h_a07bca02cd3cd3419dd2e2d2def738a46}\label{_menus_8h_a07bca02cd3cd3419dd2e2d2def738a46}} 
+\index{Menus.h@{Menus.h}!entrar@{entrar}}
+\index{entrar@{entrar}!Menus.h@{Menus.h}}
+\doxysubsubsection{\texorpdfstring{entrar()}{entrar()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_cliente}{Cliente}} entrar (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_base}{Base}}}]{base }\end{DoxyParamCaption})}
+
+
+
+Permite a um cliente entrar numa conta já criada. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em base} & -\/ base a que a conta pertence \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna a conta do cliente 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{_menus_8h_a07bca02cd3cd3419dd2e2d2def738a46_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=195pt]{_menus_8h_a07bca02cd3cd3419dd2e2d2def738a46_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_menus_8h_a7894fcb4b654e09cfbc248b911d73e2e}\label{_menus_8h_a7894fcb4b654e09cfbc248b911d73e2e}} 
+\index{Menus.h@{Menus.h}!inscricao@{inscricao}}
+\index{inscricao@{inscricao}!Menus.h@{Menus.h}}
+\doxysubsubsection{\texorpdfstring{inscricao()}{inscricao()}}
+{\footnotesize\ttfamily bool inscricao (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_base}{Base}} \&}]{b }\end{DoxyParamCaption})}
+
+
+
+Permite a um novo cliente inscrever-\/se mostrando no ecrã todas as instruções. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & -\/ base em que o cliente se pretende inscrever \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna verdadeiro se a inscrição for bem sucedida, caso contrário retorna falso 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{_menus_8h_a7894fcb4b654e09cfbc248b911d73e2e_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{_menus_8h_a7894fcb4b654e09cfbc248b911d73e2e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_menus_8h_ac4a09258a3d01747f692bb9be6a2a4c5}\label{_menus_8h_ac4a09258a3d01747f692bb9be6a2a4c5}} 
+\index{Menus.h@{Menus.h}!is\_digits@{is\_digits}}
+\index{is\_digits@{is\_digits}!Menus.h@{Menus.h}}
+\doxysubsubsection{\texorpdfstring{is\_digits()}{is\_digits()}}
+{\footnotesize\ttfamily bool is\+\_\+digits (\begin{DoxyParamCaption}\item[{const string \&}]{str }\end{DoxyParamCaption})}
+
+
+
+Verifica se uma string é composta apenas por dígitos. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & -\/ string a ser verificada \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna verdadeiro se a string for composta apenas por dígitos, caso contrário retorna falso 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=299pt]{_menus_8h_ac4a09258a3d01747f692bb9be6a2a4c5_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_menus_8h_a24ff40842e1155d7a0d7703bd5838a4e}\label{_menus_8h_a24ff40842e1155d7a0d7703bd5838a4e}} 
+\index{Menus.h@{Menus.h}!openingMenu@{openingMenu}}
+\index{openingMenu@{openingMenu}!Menus.h@{Menus.h}}
+\doxysubsubsection{\texorpdfstring{openingMenu()}{openingMenu()}}
+{\footnotesize\ttfamily string opening\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Permite selecionar entre fazer sign in, sign up ou sair da aplicação 
+
+\begin{DoxyReturn}{Returns}
+Retorna a opção escolhida 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=228pt]{_menus_8h_a24ff40842e1155d7a0d7703bd5838a4e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_menus_8h_a64090d5f471b1b376576dd41bbf06b3e}\label{_menus_8h_a64090d5f471b1b376576dd41bbf06b3e}} 
+\index{Menus.h@{Menus.h}!validEmail@{validEmail}}
+\index{validEmail@{validEmail}!Menus.h@{Menus.h}}
+\doxysubsubsection{\texorpdfstring{validEmail()}{validEmail()}}
+{\footnotesize\ttfamily bool valid\+Email (\begin{DoxyParamCaption}\item[{string const \&}]{email }\end{DoxyParamCaption})}
+
+
+
+Verifica se um email é válido i.\+e. se tem formato de email. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & -\/ email a ser verificado \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Retorna verdadeiro se o email for válido, caso contrário retorna falso 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=312pt]{_menus_8h_a64090d5f471b1b376576dd41bbf06b3e_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_menus_8h_a4c3d78477d720b1ac0f1b66cb8021ce3}\label{_menus_8h_a4c3d78477d720b1ac0f1b66cb8021ce3}} 
+\index{Menus.h@{Menus.h}!welcomeMenu@{welcomeMenu}}
+\index{welcomeMenu@{welcomeMenu}!Menus.h@{Menus.h}}
+\doxysubsubsection{\texorpdfstring{welcomeMenu()}{welcomeMenu()}}
+{\footnotesize\ttfamily void welcome\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Mostra no ecrã uma mensagem inicial. 
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=233pt]{_menus_8h_a4c3d78477d720b1ac0f1b66cb8021ce3_icgraph}
+\end{center}
+\end{figure}
