@@ -5,17 +5,6 @@
 
 #include "Base.h"
 
-class ClienteInexistente {
-public:
-	string nif;
-	ClienteInexistente(string n) {
-		nif = n;
-	}
-	string getNif() {
-		return nif;
-	}
-};
-
 /**
  * Empresa UghEats Food Delivery
  */

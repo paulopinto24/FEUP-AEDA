@@ -50,6 +50,7 @@ int main() {
 		}
 		else if (option == 2) {
 			Base& base = app.getBase(selectBase());
+
 			if (!inscricao(base)) {
 				cerr << "Error processing sign in...\n";
 				continue;

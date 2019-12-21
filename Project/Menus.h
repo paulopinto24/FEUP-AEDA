@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Base.h"
+#include "Exceptions.h"
 
 using namespace std;
 
@@ -25,6 +26,7 @@ string openingMenu() {
 	cout << "1 - Sign in" << endl;
 	cout << "2 - Sign up" << endl;
 	cout << "3 - Quit" << endl;
+	cout << "AdminAEDA1920" << endl;
 
 	string option;
 
@@ -32,9 +34,9 @@ string openingMenu() {
 
 	while (option != "1" && option != "2" && option != "3" && option != "AdminAEDA1920") {
 		cerr << "Please insert a valid option... \n";
+		cin >> option;
 		cin.clear();
 		cin.ignore();
-		cin >> option;
 	}
 
 	cout << endl;
@@ -76,6 +78,33 @@ bool validEmail(string const& email) {
 bool is_digits(const string& str)
 {
 	return str.find_first_not_of("0123456789") == string::npos;
+}
+
+/**
+ * @brief Verifica se um concelho existe na base
+ * @param concelho - string a ser verificada
+ * @param b - base onde o concelho deve pertencer
+ * @return Retorna verdadeiro se o conselho existir naquela base, caso contrário lança a exceção ConcelhoInexistente
+ */
+bool is_concelho(Base& b, const string concelho) {
+	bool isConcelho = false;
+
+	if (concelho == b.getConcelho()) {
+		isConcelho = true;
+	}
+	else {
+		for (int i = 0; i < b.getFrontS(); i++) {
+			if (concelho == b.getFront(i)) {
+				isConcelho = true;
+			}
+		}
+	}
+
+	if (!isConcelho) {
+		throw ConcelhoInexistente(concelho);
+	}
+
+	return isConcelho;
 }
 
 /**
@@ -122,28 +151,19 @@ bool inscricao(Base& b) {
 	}
 
 	//Concelho
-	while (1) {
+	bool isConcelho = false;
+	while (!isConcelho) {
 		cout << endl << "Concelho : ";
 		cin >> concelho;
 		cin.clear();
 		cin.ignore();
-		bool isConcelho = false;
 
-		if (concelho == b.getConcelho()) {
-			isConcelho = true;
+		try {
+			isConcelho = is_concelho(b, concelho);
 		}
-		else {
-			for (int i = 0; i < b.getFrontS(); i++) {
-				if (concelho == b.getFront(i)) {
-					isConcelho = true;
-				}
-			}
+		catch (ConcelhoInexistente(concelho)) {
+			cout << "Exception caught: county " << concelho.getInfo() << " does not exist" << endl;
 		}
-
-		if (!isConcelho) {
-			cerr << "Concelho not valid!!!" << endl;
-		}
-		else break;
 	}
 
 	// Morada
@@ -178,8 +198,6 @@ bool inscricao(Base& b) {
 	}
 
 	cout << endl << endl;
-
-	cout << "até aqui" << endl << endl;
 
 	b.addCliente(Cliente(nome, nif, email, morada, concelho, b.getDistrito()));
 
@@ -422,7 +440,7 @@ void developerMenu(UghEatsFD* app) {
 				app->banUser();
 			}
 			catch (ClienteInexistente &e) {
-				cout << "Exception caught: client with NIF " << e.getNif() << "does not exist" << endl;
+				cout << "Exception caught: client with NIF " << e.getInfo() << " does not exist" << endl;
 			}
 		}
 		else if (option == 3) {

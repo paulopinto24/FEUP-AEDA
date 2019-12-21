@@ -1,6 +1,7 @@
 
 #include "UghEatsFD.h"
 #include "Utils.h"
+#include "Exceptions.h"
 
 using namespace std;
 
@@ -31,10 +32,10 @@ void UghEatsFD::getProfit() {
 		int option;
 		cin >> option;
 		if (option == 1) {
-			for (int i = 0; i < bases.size(); i++) {
+			for (unsigned int i = 0; i < bases.size(); i++) {
 				Base b = bases.at(i);
 				cout << b.getDistrito() << "   ";
-				for (int j = 0; j < b.getEntregaStrS(); j++) {
+				for (unsigned int j = 0; j < b.getEntregaStrS(); j++) {
 					string e = b.getEntregaStr(j);
 					vector<string> evec;
 					evec = parseBySemiColon(e);
@@ -48,14 +49,14 @@ void UghEatsFD::getProfit() {
 			vector<string> rest;
 			vector<double> prof;
 
-			for (int i = 0; i < bases.size(); i++) {
+			for (unsigned int i = 0; i < bases.size(); i++) {
 				Base b = bases.at(i);
-				for (int j = 0; j < b.getEntregaStrS(); j++) {
+				for (unsigned int j = 0; j < b.getEntregaStrS(); j++) {
 					string e = b.getEntregaStr(j);
 					vector<string> evec;
 					evec = parseBySemiColon(e);
 					bool found = false;
-					for (int k = 0; k < rest.size(); k++) {
+					for (unsigned int k = 0; k < rest.size(); k++) {
 						if (rest.at(k) == evec.at(1)) {
 							prof.at(k) += stod(evec.at(2));
 							found = true;
@@ -72,7 +73,7 @@ void UghEatsFD::getProfit() {
 
 
 
-			for (int i = 0; i < rest.size(); i++) {
+			for (unsigned int i = 0; i < rest.size(); i++) {
 				cout << rest.at(i) << "   " << prof.at(i) << endl;
 			}
 		}
@@ -80,14 +81,14 @@ void UghEatsFD::getProfit() {
 			vector<string> cli;
 			vector<double> prof;
 
-			for (int i = 0; i < bases.size(); i++) {
+			for (unsigned int i = 0; i < bases.size(); i++) {
 				Base b = bases.at(i);
-				for (int j = 0; j < b.getEntregaStrS(); j++) {
+				for (unsigned int j = 0; j < b.getEntregaStrS(); j++) {
 					string e = b.getEntregaStr(j);
 					vector<string> evec;
 					evec = parseBySemiColon(e);
 					bool found = false;
-					for (int k = 0; k < cli.size(); k++) {
+					for (unsigned int k = 0; k < cli.size(); k++) {
 						if (cli.at(k) == evec.at(0)) {
 							prof.at(k) += stod(evec.at(2));
 							found = true;
@@ -102,7 +103,7 @@ void UghEatsFD::getProfit() {
 				}
 			}
 
-			for (int i = 0; i < cli.size(); i++) {
+			for (unsigned int i = 0; i < cli.size(); i++) {
 				cout << cli.at(i) << "   " << prof.at(i) << endl;
 			}
 		}
@@ -115,10 +116,10 @@ void UghEatsFD::getProfit() {
 			cout << "End(aaaa-mm-dd|hh:mm): ";
 			cin >> end;
 
-			for (int i = 0; i < bases.size(); i++) {
+			for (unsigned int i = 0; i < bases.size(); i++) {
 				Base b = bases.at(i);
 				cout << b.getDistrito() << endl;
-				for (int j = 0; j < b.getEntregaStrS(); j++) {
+				for (unsigned int j = 0; j < b.getEntregaStrS(); j++) {
 					string e = b.getEntregaStr(j);
 					vector<string> evec;
 					evec = parseBySemiColon(e);
@@ -163,7 +164,7 @@ void UghEatsFD::banUser() {
 
 	bool found = false;
 
-	for (int i = 0; i < b->getClientesSize(); i++) {
+	for (unsigned int i = 0; i < b->getClientesSize(); i++) {
 		if (b->getCliente(i).getNIF() == nif) {
 			found = true;
 			b->addBlack(b->getCliente(i));
