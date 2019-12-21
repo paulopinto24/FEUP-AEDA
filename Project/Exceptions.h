@@ -9,6 +9,7 @@ class Excecao {
 private:
 	string info;
 public:
+	Excecao() {};
 	Excecao(const string info) {
 		this->info = info;
 	}
@@ -30,6 +31,7 @@ public:
 
 class NifEmUso : public Excecao {
 public:
+	NifEmUso() {};
 	NifEmUso(const string info) : Excecao(info){}
 };
 
@@ -46,5 +48,15 @@ public:
 class EmailEmUso : public Excecao {
 public:
 	EmailEmUso(const string info) : Excecao(info) {}
+};
+
+class ConcelhoInexistente : public Excecao {
+public:
+	ConcelhoInexistente(const string info) : Excecao(info) {}
+};
+
+class BannedAccount : public Excecao {
+public:
+	BannedAccount(const string info) : Excecao(info) {}
 };
 

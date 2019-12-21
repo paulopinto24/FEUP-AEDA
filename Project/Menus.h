@@ -40,7 +40,7 @@ string openingMenu() {
 	}
 
 	cout << endl;
-	
+
 	return option;
 }
 
@@ -107,13 +107,59 @@ bool is_concelho(Base& b, const string concelho) {
 	return isConcelho;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+int encontraNif(Base base, string nif) {
+	int pos = -1;
+
+	int left = 0, right = base.getBlackS() - 1;
+	while (left <= right)
+	{
+		int middle = (left + right) / 2;
+		if (base.getBlack(middle).getNIF() < nif)
+			left = middle + 1;
+		else if (base.getBlack(middle).getNIF() > nif)
+			right = middle - 1;
+		else {
+			pos = -2;
+			break;
+		}
+	}
+
+	left = 0, right = base.getClientesSize() - 1;
+	while (left <= right)
+	{
+		int middle = (left + right) / 2;
+		if (base.getCliente(middle).getNIF() < nif)
+			left = middle + 1;
+		else if (base.getCliente(middle).getNIF() > nif)
+			right = middle - 1;
+		else {
+			pos = middle;
+			break;
+		}
+	}
+
+	return pos;
+}
+
 /**
  * @brief Permite a um novo cliente inscrever-se mostrando no ecrã todas as instruções
  * @param b - base em que o cliente se pretende inscrever
  * @return Retorna verdadeiro se a inscrição for bem sucedida, caso contrário retorna falso
  */
 bool inscricao(Base& b) {
-	
+
 	string nome;
 	string morada;
 	string nif;
@@ -175,33 +221,21 @@ bool inscricao(Base& b) {
 	cin >> nif;
 	cin.clear();
 	cin.ignore();
-	
+
 	while (nif.length() != 9 || !is_digits(nif)) {
 		cerr << "Please insert a valid NIF : ";
 		cin >> nif;
 		cin.clear();
 		cin.ignore();
 	}
-	
-	for (int i = 0; i < b.getBlackS(); i++) {
-		if (nif == b.getBlack(i).getNIF()) {
-			cerr << "This NIF is already in use...\n";
-			return false;
-		}
-	}
-
-	for (int i = 0; i < b.getClientesSize(); i++) {
-		if (nif == b.getCliente(i).getNIF()) {
-			cerr << "This NIF is already in use...\n";
-			return false;
-		}
-	}
 
 	cout << endl << endl;
 
-	b.addCliente(Cliente(nome, nif, email, morada, concelho, b.getDistrito()));
-
-	return true; 
+	if (encontraNif(b, nif) != -1) throw NifEmUso(nif);
+	else {
+		b.addCliente(Cliente(nome, nif, email, morada, concelho, b.getDistrito()));
+		return true;
+	}
 }
 
 /**
@@ -261,35 +295,13 @@ Cliente entrar(Base base) { //posteriormente esta funçao retornará um cliente
 		while (1) {
 			cout << "Please input your NIF: ";
 			cin >> nif;
+			cin.clear();
+			cin.ignore();
+			int pos;
 
-			// binnary search
-
-			int left = 0, right = base.getBlackS() - 1;
-			while (left <= right)
-			{
-				int middle = (left + right) / 2;
-				if (base.getBlack(middle).getNIF() < nif)
-					left = middle + 1;
-				else if (base.getBlack(middle).getNIF() > nif)
-					right = middle - 1;
-				else {
-					isBlack = true;
-					cerr << "Your account has been banned..." << endl;
-					break;
-				}
-			}
-
-			left = 0, right = base.getClientesSize() - 1;
-			while (left <= right)
-			{
-				int middle = (left + right) / 2;
-				if (base.getCliente(middle).getNIF() < nif)
-					left = middle + 1;
-				else if (base.getCliente(middle).getNIF() > nif)
-					right = middle - 1;
-				else
-					return base.getCliente(middle);
-			}
+			if ((pos = encontraNif(base, nif)) == -1) throw NifInexistente(nif);
+			else if (pos == -2) throw BannedAccount(nif);
+			else return base.getCliente(pos);
 
 			if (!isBlack) {
 				cerr << nif << " NOT FOUND" << endl;
@@ -301,10 +313,10 @@ Cliente entrar(Base base) { //posteriormente esta funçao retornará um cliente
 /**
  * @brief Permite ao cliente realizar várias ações, como encomendar, verificar a sua conta e alterar as suas informações
  * @param cliente - cliente ao qual pertence a conta
- * @param b - base onde o cliente está inscrito 
+ * @param b - base onde o cliente está inscrito
  * @return Retorna 0 se o cliente saiu de forma normal da sua conta, caso contrário retorna 1
  */
-int clientPage(Cliente cliente, Base &b) {
+int clientPage(Cliente cliente, Base& b) {
 	int option;
 	string email;
 	string morada;
@@ -435,11 +447,11 @@ void developerMenu(UghEatsFD* app) {
 		if (option == 1) {
 			app->getProfit();
 		}
-		else if(option == 2){
+		else if (option == 2) {
 			try {
 				app->banUser();
 			}
-			catch (ClienteInexistente &e) {
+			catch (ClienteInexistente & e) {
 				cout << "Exception caught: client with NIF " << e.getInfo() << " does not exist" << endl;
 			}
 		}

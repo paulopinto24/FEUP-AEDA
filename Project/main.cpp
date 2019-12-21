@@ -45,14 +45,34 @@ int main() {
 	
 		if (option == 1) {
 			Base &base = app.getBase(selectBase());
-			clientPage(entrar(base), base);
+
+			try {
+				clientPage(entrar(base), base);
+			}
+			catch (NifInexistente(nif)) {
+				cout << "Exception caught: account " << nif.getInfo() << " does not exist" << endl << endl;
+			}
+			catch (BannedAccount(nif)) {
+				cout << "Exception caught: account " << nif.getInfo() << " has been banned" << endl << endl;
+			}
+
 			continue;
 		}
 		else if (option == 2) {
 			Base& base = app.getBase(selectBase());
 
-			if (!inscricao(base)) {
-				cerr << "Error processing sign in...\n";
+			try {
+				if (!inscricao(base)) {
+					cerr << "Error processing sign in...\n";
+					continue;
+				}
+			}
+			catch (NifEmUso(nif)) {
+				cout << "Exception caught: " << nif.getInfo() << " already in use" << endl;
+				continue;
+			}
+			catch (EmailEmUso(email)) {
+				cout << "Exception caught: " << email.getInfo() << " already in use" << endl;
 				continue;
 			}
 
