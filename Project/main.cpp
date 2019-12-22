@@ -52,8 +52,11 @@ int main() {
 			catch (NifInexistente(nif)) {
 				cout << "Exception caught: account " << nif.getInfo() << " does not exist" << endl << endl;
 			}
-			catch (BannedAccount(nif)) {
-				cout << "Exception caught: account " << nif.getInfo() << " has been banned" << endl << endl;
+			catch (EmailInexistente(email)) {
+				cout << "Exception caught: account " << email.getInfo() << " does not exist" << endl << endl;
+			}
+			catch (BannedAccount(info)) {
+				cout << "Exception caught: account " << info.getInfo() << " has been banned" << endl << endl;
 			}
 
 			continue;

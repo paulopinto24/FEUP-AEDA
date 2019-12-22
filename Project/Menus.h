@@ -108,15 +108,23 @@ bool is_concelho(Base& b, const string concelho) {
 }
 
 
+int encontraEmail(Base base, string email) {
+	int pos = -1;
 
+	for (int i = 0; i < base.getBlackS(); i++) {
+		if (email == base.getBlack(i).getEmail()) {
+			pos = -2;
+		}
+	}
 
+	for (int i = 0; i < base.getClientesSize(); i++) {
+		if (email == base.getCliente(i).getEmail()) {
+			pos = i;
+		}
+	}
 
-
-
-
-
-
-
+	return pos;
+}
 
 
 int encontraNif(Base base, string nif) {
@@ -182,19 +190,7 @@ bool inscricao(Base& b) {
 		cin.ignore();
 	}
 
-	for (int i = 0; i < b.getBlackS(); i++) {
-		if (email == b.getBlack(i).getEmail()) {
-			cerr << "This email is already in use...\n";
-			return false;
-		}
-	}
-
-	for (int i = 0; i < b.getClientesSize(); i++) {
-		if (email == b.getCliente(i).getEmail()) {
-			cerr << "This email is already in use...\n";
-			return false;
-		}
-	}
+	if (encontraEmail(b, email) != -1) throw EmailEmUso(email);
 
 	//Concelho
 	bool isConcelho = false;
@@ -232,10 +228,9 @@ bool inscricao(Base& b) {
 	cout << endl << endl;
 
 	if (encontraNif(b, nif) != -1) throw NifEmUso(nif);
-	else {
-		b.addCliente(Cliente(nome, nif, email, morada, concelho, b.getDistrito()));
-		return true;
-	}
+
+	b.addCliente(Cliente(nome, nif, email, morada, concelho, b.getDistrito()));
+	return true;
 }
 
 /**
@@ -266,26 +261,13 @@ Cliente entrar(Base base) { //posteriormente esta funçao retornará um cliente
 
 			cout << "Please input your email: ";
 			cin >> email;
+			cin.clear();
+			cin.ignore();
+			int pos = -1;
 
-			// sequential search
-
-			for (int i = 0; i < base.getBlackS(); i++) {
-				if (base.getBlack(i).getEmail() == email) {
-					isBlack = true;
-					cerr << "Your account has been banned..." << endl;
-					break;
-				}
-			}
-
-			for (int i = 0; i < base.getClientesSize(); i++) {
-				if (base.getCliente(i).getEmail() == email) {
-					return base.getCliente(i);
-				}
-			}
-
-			if (!isBlack) {
-				cerr << email << " NOT FOUND" << endl;
-			}
+			if ((pos = encontraEmail(base, email)) == -1) throw NifInexistente(email);
+			else if (pos == -2) throw BannedAccount(email);
+			else return base.getCliente(pos);
 		}
 	}
 	else {
@@ -302,10 +284,6 @@ Cliente entrar(Base base) { //posteriormente esta funçao retornará um cliente
 			if ((pos = encontraNif(base, nif)) == -1) throw NifInexistente(nif);
 			else if (pos == -2) throw BannedAccount(nif);
 			else return base.getCliente(pos);
-
-			if (!isBlack) {
-				cerr << nif << " NOT FOUND" << endl;
-			}
 		}
 	}
 }
