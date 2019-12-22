@@ -2,6 +2,7 @@
 
 #include "Base.h"
 #include "Exceptions.h"
+#include <conio.h>
 
 using namespace std;
 
@@ -9,12 +10,12 @@ using namespace std;
  * @brief Mostra no ecrã uma mensagem inicial
  */
 void welcomeMenu() {
-	cout << "===============================================================" << endl;
-	cout << "Welcome to UghEats! The application that copis UberEats in such" << endl;
-	cout << "a shameless way we're surprised we haven't been sued yet!" << endl;
-	cout << "Start by signing in! If you you're not a registered client," << endl;
-	cout << "sign up now!" << endl;
-	cout << "===============================================================" << endl;
+	cout << "=================================================================" << endl;
+	cout << " Welcome to UghEats! The application that copis UberEats in such" << endl;
+	cout << " a shameless way we're surprised we haven't been sued yet!" << endl;
+	cout << " Start by signing in! If you you're not a registered client," << endl;
+	cout << " sign up now!" << endl;
+	cout << "=================================================================" << endl;
 	cout << endl;
 }
 
@@ -321,8 +322,9 @@ int clientPage(Cliente cliente, Base& b) {
 			cout << "=============================" << endl;
 			cout << "Nome : " << cliente.getNome() << endl;
 			cout << "Email : " << cliente.getEmail() << endl;
-			cout << "Morada : " << cliente.getMorada() << " ; " << cliente.getConcelho() << endl;
+			cout << "Address : " << cliente.getMorada() << " ; " << cliente.getConcelho() << endl;
 			cout << "NIF : " << cliente.getNIF() << endl;
+			_getch();
 			continue;
 		case 3:
 			while (1) {
@@ -360,11 +362,11 @@ int clientPage(Cliente cliente, Base& b) {
 				}
 
 				if (!isConcelho) {
-					cerr << "Concelho not valid!!!" << endl;
+					cerr << "Conty not valid!!!" << endl;
 				}
 				else break;
 			}
-			cout << "Morada : ";
+			cout << "Address : ";
 			getline(cin, morada);
 			b.deleteClient(cliente);
 			cliente.setConcelho(concelho);
@@ -431,6 +433,7 @@ void developerMenu(UghEatsFD* app) {
 			}
 			catch (ClienteInexistente & e) {
 				cout << "Exception caught: client with NIF " << e.getInfo() << " does not exist" << endl;
+				_getch();
 			}
 		}
 		else if (option == 3) {

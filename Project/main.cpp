@@ -51,12 +51,15 @@ int main() {
 			}
 			catch (NifInexistente(nif)) {
 				cout << "Exception caught: account " << nif.getInfo() << " does not exist" << endl << endl;
+				_getch();
 			}
 			catch (EmailInexistente(email)) {
 				cout << "Exception caught: account " << email.getInfo() << " does not exist" << endl << endl;
+				_getch();
 			}
 			catch (BannedAccount(info)) {
 				cout << "Exception caught: account " << info.getInfo() << " has been banned" << endl << endl;
+				_getch();
 			}
 
 			continue;
@@ -72,10 +75,12 @@ int main() {
 			}
 			catch (NifEmUso(nif)) {
 				cout << "Exception caught: " << nif.getInfo() << " already in use" << endl;
+				_getch();
 				continue;
 			}
 			catch (EmailEmUso(email)) {
 				cout << "Exception caught: " << email.getInfo() << " already in use" << endl;
+				_getch();
 				continue;
 			}
 

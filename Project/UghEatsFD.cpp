@@ -2,6 +2,8 @@
 #include "UghEatsFD.h"
 #include "Utils.h"
 #include "Exceptions.h"
+#include <iostream>
+#include <conio.h>
 
 using namespace std;
 
@@ -20,14 +22,14 @@ void UghEatsFD::addBase(Base b) {
 }
 
 void UghEatsFD::getProfit() {
-	cout << "Choose an option: " << endl;
-	cout << "1 - See profit by Base" << endl;
-	cout << "2 - See profit by Restaurante" << endl;
-	cout << "3 - See profit by Cliente" << endl;
-	cout << "4 - See profit over time" << endl;
-	cout << "5 - Quit" << endl;
-
 	while (1) {
+		cout << "Choose an option: " << endl;
+		cout << "1 - See profit by Base" << endl;
+		cout << "2 - See profit by Restaurante" << endl;
+		cout << "3 - See profit by Cliente" << endl;
+		cout << "4 - See profit over time" << endl;
+		cout << "5 - Quit" << endl;
+
 		double res = 0.0;
 		int option;
 		cin >> option;
@@ -44,6 +46,8 @@ void UghEatsFD::getProfit() {
 				cout << res << endl;
 				res = 0.0;
 			}
+
+			_getch();
 		}
 		if (option == 2) {
 			vector<string> rest;
@@ -76,6 +80,8 @@ void UghEatsFD::getProfit() {
 			for (unsigned int i = 0; i < rest.size(); i++) {
 				cout << rest.at(i) << "   " << prof.at(i) << endl;
 			}
+
+			_getch();
 		}
 		if (option == 3) {
 			vector<string> cli;
@@ -106,6 +112,8 @@ void UghEatsFD::getProfit() {
 			for (unsigned int i = 0; i < cli.size(); i++) {
 				cout << cli.at(i) << "   " << prof.at(i) << endl;
 			}
+
+			_getch();
 		}
 
 		if (option == 4) {
@@ -130,9 +138,7 @@ void UghEatsFD::getProfit() {
 				}
 			}
 
-
-
-
+			_getch();
 		}
 		if (option == 5) {
 			return;
@@ -142,9 +148,10 @@ void UghEatsFD::getProfit() {
 
 void UghEatsFD::banUser() {
 	int base;
-	cout << "\nSelect base:\n1 - Porto\n2 - Lisboa\n3 - Faro\n";
-	cin >> base;
+
 	while (1) {
+		cout << "\nSelect base:\n1 - Porto\n2 - Lisboa\n3 - Faro\n";
+		cin >> base;
 		if (cin.fail()) {
 			cin.clear();
 			cin.ignore(numeric_limits<streamsize>::max(), '\n');
