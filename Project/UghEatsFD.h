@@ -42,8 +42,7 @@ class UghEatsFD
 {
 private:
 	vector<Base> bases; /**< Vetor que contem as tres diferentes bases da empresa */
-	unordered_set<string> funcionario_tab; /**< Tabela de dispersao que contem os funcionarios da empresa  */
-	unordered_set<Funcionario, funcHash, funcHash> func;
+	unordered_set<Funcionario, funcHash, funcHash> func; /**< Tabela de dispersao que contem os funcionarios da empresa  */
 public:
 
 	/**
@@ -74,18 +73,19 @@ public:
 	void banUser();
 
 	/**
-	 * @brief Permite inserir um funcionario na tabela de dispersao de funcionarios
+	 * @brief Permite ver os NIFs de todos os funcionarios da empresa
 	 */
-	/*void insert_func(Funcionario fnif);*/
-
-	
 	void show_func();
 
-
-	int funcionario_tabS();
-
+	/**
+	 * @brief Permite inserir um funcionario na tabela de dispersao de funcionarios da empresa
+	 * @param f - Funcioanrio a adicionar
+	 */
 	void ins_func(Funcionario f);
 
+	/**
+	 * @brief Permite ver de forma estruturada os funcionarios da empresa
+	 */
 	void check_func_records();
 };
 

@@ -41,4 +41,9 @@ vector<string> parseBySlash(string line);
 */
 Base parseBase(vector<string> vec, UghEatsFD* p1);
 
+/**
+* @brief Ve se uma determinada opcao e valida mediante a opcao menor e maior possivel
+* @param inf - menor opcao possivel
+* @param inf - maior opcao possivel
+*/
 void valid_option(string opt, int inf, int sup);
