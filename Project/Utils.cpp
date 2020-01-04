@@ -23,7 +23,7 @@ int loadApplication(UghEatsFD* p1) {
 		else {
 			if (str == "---") {
 				if (strVec.size() != 0) {
-					Base b = parseBase(strVec);
+					Base b = parseBase(strVec, p1);
 					p1->addBase(b);
 					strVec.clear();
 					continue;
@@ -212,7 +212,7 @@ vector<string> parseBySlash(string line) {
 	return ret;
 }
 
-Base parseBase(vector<string> vec) {
+Base parseBase(vector<string> vec, UghEatsFD* p1) {
 
 	string distrito;
 	string morada;
@@ -302,11 +302,17 @@ Base parseBase(vector<string> vec) {
 			Entregador e(tmp.at(0), tmp.at(1), tmp.at(2), stod(tmp.at(3)), v);
 			e.setCom(stod(tmp.at(5)));
 			b.addEntregador(e);
+			e.setAtual(0);
+			e.setAdmin(0);
+			p1->ins_func(e);
 		}
 		else {
 			tmp = parseBySemiColon(strg);
 			Administrativo admin(tmp.at(0), tmp.at(1), tmp.at(2), stod(tmp.at(3)), tmp.at(4));
 			b.addAdmin(admin);
+			admin.setAtual(1);
+			admin.setAdmin(1);
+			p1->ins_func(admin);
 		}
 	}
 
@@ -385,7 +391,13 @@ Base parseBase(vector<string> vec) {
 
 }
 
+void valid_option(string opt, int inf, int sup) {
+	if (stoi(opt) < inf || stoi(opt) > sup) {
+		cout << "hey" << endl;
+		throw OffBounds(opt);
+	}
 
+}
 
 
 
