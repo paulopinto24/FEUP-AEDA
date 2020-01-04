@@ -27,11 +27,11 @@ bool Pessoa::operator < (const Pessoa& p) const {
 	else return false;
 }
 
-string Pessoa::getNIF() const{
+string Pessoa::getNIF() {
 	return this->NIF;
 }
 
-string Pessoa::getNome() const{
+string Pessoa::getNome() {
 	return nome;
 }
 
@@ -89,6 +89,7 @@ int Cliente::encomenda(Base& b) {
 				cin >> resOption;
 			}
 			else {
+				cout << endl;
 				break;
 			}
 		}
@@ -98,10 +99,10 @@ int Cliente::encomenda(Base& b) {
 			int j = i + 1;
 			cout << j << "- " << r.getProd(i).getNome() << " - " 
 				<< r.getProd(i).getPreco() << "€ -"
-				<< r.getProd(i).getTipo() << endl;
+				<< r.getProd(i).getTipo() << endl << endl;
 		}
 		
-		cout << "Choose a product (Press '0' to escape): ";
+		cout << "Choose the products (Press '0' when finished): ";
 		int prodOption;
 		cin >> prodOption;
 		while (1) {
@@ -189,17 +190,17 @@ int Cliente::encomenda(Base& b) {
 
 		ostringstream d;
 		d << "2019" << "-" << mes << '-' << dia;
-		string data(d.str());   // so para o caso de ser mais facil trabalhar c string, senao descartar
+		string data(d.str());  
 
 		ostringstream h;
 		h << hora << ':' << minuto;
-		string horas(h.str());   // so para o caso de ser mais facil trabalhar c string, senao descartar
+		string horas(h.str());   
 
 		string time = data + "|" + horas;
 
 		Encomenda encomenda(r, time, prods);
 		encomenda.printDados();
-		cout << "Confirmar e avançar para entrega? ('0' para sair)" << endl;
+		cout << "Confirmar e avançar para entrega? yes(1) or no(0)?" << endl;
 		int conf;
 		cin >> conf;
 		while (1) {
@@ -225,7 +226,9 @@ int Cliente::encomenda(Base& b) {
 		}
 		encomenda.setpTotal();
 
-		Entrega entrega(encomenda, b.getEntreg(rand() % b.getEntregsS()), r.getNome(), this->getNIF());
+		int randEntreg = rand() % b.getEntregsS();
+
+		Entrega entrega(encomenda, b.getEntreg(randEntreg), r.getNome(), this->getNIF());
 
 		cout << "A entrega foi bem sucedida?" << endl;
 		cout << "1 - Sim" << endl;
@@ -246,6 +249,7 @@ int Cliente::encomenda(Base& b) {
 		}
 
 		entrega.setSuccess(success);
+		b.getEntreg(randEntreg).doEntrega();
 		b.addEntrega(entrega);
 		string e;
 		ostringstream strs;
@@ -253,6 +257,7 @@ int Cliente::encomenda(Base& b) {
 		string str = strs.str();
 		e = entrega.getNIF() + ";" + entrega.getRestaurante() + ";" + str + ";" + time;
 		b.addEntregaStr(e);
+		b.updateVeiculos();
 	}
 	else if(option == 2) {
 		string zona;
@@ -265,8 +270,8 @@ int Cliente::encomenda(Base& b) {
 		Restaurante r = b.getRes(resOption);
 		for (int i = 0; i < r.getProdS(); i++) {
 			int j = i + 1;
-			cout << j << "- " << r.getProd(i).getNome() << " - "
-				<< r.getProd(i).getPreco() << "€ -"
+			cout << j << " - " << r.getProd(i).getNome() << " - "
+				<< r.getProd(i).getPreco() << "€ - "
 				<< r.getProd(i).getTipo() << endl;
 		}
 
@@ -358,11 +363,11 @@ int Cliente::encomenda(Base& b) {
 
 		ostringstream d;
 		d << "2019" << "-" << mes << '-' << dia;
-		string data(d.str());   // so para o caso de ser mais facil trabalhar c string, senao descartar
+		string data(d.str()); 
 
 		ostringstream h;
 		h << hora << ':' << minuto;
-		string horas(h.str());   // so para o caso de ser mais facil trabalhar c string, senao descartar
+		string horas(h.str()); 
 
 		string time = data + "|" + horas;
 
@@ -394,7 +399,9 @@ int Cliente::encomenda(Base& b) {
 		}
 		encomenda.setpTotal();
 
-		Entrega entrega(encomenda, b.getEntreg(rand() % b.getEntregsS()), r.getNome(), this->getNIF());
+		int randEntreg = rand() % b.getEntregsS();
+
+		Entrega entrega(encomenda, b.getEntreg(randEntreg), r.getNome(), this->getNIF());
 
 		cout << "A entrega foi bem sucedida?" << endl;
 		cout << "1 - Sim" << endl;
@@ -415,6 +422,7 @@ int Cliente::encomenda(Base& b) {
 		}
 
 		entrega.setSuccess(success);
+		b.getEntreg(randEntreg).doEntrega();
 		b.addEntrega(entrega);
 		string e;
 		ostringstream strs;
@@ -422,6 +430,7 @@ int Cliente::encomenda(Base& b) {
 		string str = strs.str();
 		e = entrega.getNIF() + ";" + entrega.getRestaurante() + ";" + str + ";" + time;
 		b.addEntregaStr(e);
+		b.updateVeiculos();
 	}
 	else if (option == 3) {
 		double p;
@@ -586,7 +595,9 @@ int Cliente::encomenda(Base& b) {
 		}
 		encomenda.setpTotal();
 
-		Entrega entrega(encomenda, b.getEntreg(rand() % b.getEntregsS()), r.getNome(), this->getNIF());
+		int randEntreg = rand() % b.getEntregsS();
+
+		Entrega entrega(encomenda, b.getEntreg(randEntreg), r.getNome(), this->getNIF());
 
 		cout << "A entrega foi bem sucedida?" << endl;
 		cout << "1 - Sim" << endl;
@@ -607,6 +618,7 @@ int Cliente::encomenda(Base& b) {
 		}
 
 		entrega.setSuccess(success);
+		b.getEntreg(randEntreg).doEntrega();
 		b.addEntrega(entrega);
 		string e;
 		ostringstream strs;
@@ -614,6 +626,7 @@ int Cliente::encomenda(Base& b) {
 		string str = strs.str();
 		e = entrega.getNIF() + ";" + entrega.getRestaurante() + ";" + str + ";" + time;
 		b.addEntregaStr(e);
+		b.updateVeiculos();
 	}
 	else if (option == 4) {
 		string t;
@@ -769,7 +782,9 @@ int Cliente::encomenda(Base& b) {
 		}
 		encomenda.setpTotal();
 
-		Entrega entrega(encomenda, b.getEntreg(rand() % b.getEntregsS()), r.getNome(), this->getNIF());
+		int randEntreg = rand() % b.getEntregsS();
+
+		Entrega entrega(encomenda, b.getEntreg(randEntreg), r.getNome(), this->getNIF());
 
 		cout << "A entrega foi bem sucedida?" << endl;
 		cout << "1 - Sim" << endl;
@@ -790,6 +805,7 @@ int Cliente::encomenda(Base& b) {
 		}
 
 		entrega.setSuccess(success);
+		b.getEntreg(randEntreg).doEntrega();
 		b.addEntrega(entrega);
 		string e;
 		ostringstream strs;
@@ -797,6 +813,7 @@ int Cliente::encomenda(Base& b) {
 		string str = strs.str();
 		e = entrega.getNIF() + ";" + entrega.getRestaurante() + ";" + str + ";" + time;
 		b.addEntregaStr(e);
+		b.updateVeiculos();
 	}
 	else {
 		cerr << "Erro no processamento da encomenda...\n";
@@ -816,57 +833,19 @@ bool Cliente::operator == (const Cliente& c) const {
 	else return false;
 }
 
-Funcionario::Funcionario(){}
-
 Funcionario::Funcionario(string n, string nif, string dn, double s) : Pessoa(n, nif) {
 	dataNasc = dn;
 	salario = s;
 }
 
-string Funcionario::getDataNasc() const
+string Funcionario::getDataNasc()
 {
 	return dataNasc;
 }
 
-double Funcionario::getSalario() const
+double Funcionario::getSalario()
 {
 	return salario;
-}
-
-void Funcionario::setAtual(bool b) {
-	atual = b;
-}
-
-string Funcionario::getAtual() const{
-	if (atual) {
-		return "Y";
-	}
-	else {
-		return "N";
-	}
-}
-
-void Funcionario::setAdmin(bool b)
-{
-	admin = b;
-}
-
-string Funcionario::getAdmin() const
-{
-	if (admin) {
-		return "ADMIN";
-	}
-	else {
-		return "ENTREG";
-	}
-}
-
-string Funcionario::getsSalario() const {
-	ostringstream strs;
-	strs << salario;
-	string str = strs.str();
-
-	return str;
 }
 
 Administrativo::Administrativo(string n, string nif, string dn, double s, string f) : Funcionario(n, nif, dn, s) {

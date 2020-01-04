@@ -16,6 +16,7 @@ class Entrega
 	string restaurante;/**< Restaurante que envia os produtos */
 	string nif;/**< NIF do cliente que efetua a entrega */
 	string time;/**< Data da entrega */
+	float kms;/**< kms percorridos na entrega*/
 public:
 	
 	/**

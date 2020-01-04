@@ -2,5 +2,5 @@ Jose Sofa;123456789;18-03-1992;2500;Gerente
 Daniel Rua;123456987;22-11-1982;500;Varre Chao
 Matilde Nabais;111555999;30-06-2000;1000;Contabilista
 ---
-Josefino Josefao;111444777;12-02-1990;300;Renault/Carrinha/20-10-2019;20
-Raquel Pauzinhos;123123369;28-04-1989;700;Mercedes/Mota/14-06-2019;70
+Josefino Josefao;111444777;12-02-1990;300;Renault/Carrinha/20-10-2019/12-UV-34/5/78.3;20
+Raquel Pauzinhos;123123369;28-04-1989;700;Mercedes/Mota/14-06-2019/AT-23-88/3/54.9;70
