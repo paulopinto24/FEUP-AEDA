@@ -7,7 +7,6 @@
 #include "Pessoa.h" 
 #include "GPScoord.h"
 #include "Entrega.h"
-#include "bst.h"
 
 class Cliente;
 class Administrativo;
@@ -34,13 +33,11 @@ private:
 	vector<Cliente> lista_negra; /**< lista negra da base */
 	vector<Entrega> historial; /**< historial de entregas da base */
 	vector<string> historialStr; /**< historial de entregas da base em formato string */
-
-	BST<Veiculo> veiculos; /**< veículos da base*/
 public:
 	/**
 	 * @brief Construtor da classe Base
 	 */
-	Base() : veiculos(Veiculo()) {};
+	Base();
 
 	/**
 	 * @brief Construtor da classe Base com parametros
@@ -49,7 +46,7 @@ public:
 	 * @param c - concelho da base
 	 * @param gpscoord - coordenadas GPS da base
 	 */
-	Base(const string d, const string m, const string c, GPScoord& gpscoord) : veiculos(Veiculo()) {};
+	Base(const string d, const string m, const string c, GPScoord& gpscoord);
 
 	//getters
 
@@ -151,7 +148,7 @@ public:
 	 * @param i - indice do entregador no vetor de entregadores
 	 * @return Retorna o entregador desejado
 	 */
-	Entregador &getEntreg(int i);
+	Entregador getEntreg(int i);
 
 	/**
 	 * @brief Getter de um restaurante
@@ -289,21 +286,6 @@ public:
 	 * @brief Da sort a lista negra
 	 */
 	void sortBlack();
-
-	/**
-	 * @brief Mostra no ecrã as informações sobre os veículos das determinadas bases
-	 */
-	void printVeiculos();
-
-	/**
-	 * @brief Adiciona um veículo à árvore de pesquinária de veículos
-	 */
-	void addVeiculo(Veiculo v);
-
-	/**
-	 * @brief Atualiza a árvore de pesquisa binária de veículos
-	 */
-	void updateVeiculos();
 };
 
 
