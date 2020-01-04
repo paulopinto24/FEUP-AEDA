@@ -1,13 +1,56 @@
 #include "Base.h"
 
 
-Base::Base(){}
+//Base::Base(){}
 
-Base::Base(const string d, const string m, const string c, GPScoord&gpscoord) {
+/*Base::Base(const string d, const string m, const string c, GPScoord&gpscoord) {
 	this->distrito = d;
 	this->morada = m;
 	this->concelho = c;
 	gps = gpscoord;
+}*/
+
+void Base::addVeiculo(Veiculo v) {
+	veiculos.insert(v);
+}
+
+void Base::printVeiculos() {
+	iteratorBST<Veiculo> it = veiculos.begin();
+
+	cout << "LICENCE PLATE====BRAND===============TYPE================AQUISITION DATE====DELIVERIES====KMS====" << endl;
+
+	while (it != veiculos.end()) {
+
+		size_t size1 = 9;
+		size_t size2 = 20 - (*it).getMarca().size();
+		size_t size3 = 20 - (*it).getTipo().size();
+
+		size_t size4;
+
+		if (((*it).getEntregas() / 10) == 0) size4 = 13;
+		else if (((*it).getEntregas() / 100) == 0) size4 = 14;
+		else size4 = 15;
+
+		string space1(size1, ' ');
+		string space2(size2, ' ');
+		string space3(size3, ' ');
+		string space4(size4, ' ');
+
+		cout << (*it).getMatricula() << space1 
+			<< (*it).getMarca() << space2 
+			<< (*it).getTipo() << space3 
+			<< (*it).getDataAquisicao() << space1 
+			<< (*it).getEntregas() << space4
+			<< (*it).getKms() << endl;
+		it++;
+	}
+}
+
+void Base::updateVeiculos() {
+	veiculos.makeEmpty();
+	for (int j = 0; j < this->getEntregsS(); j++) {
+		this->addVeiculo(this->getEntreg(j).getVeiculo());
+	}
 }
 
 //OBTER TAMANHOS DE VETORES DAS COISAS DA BASE
@@ -59,7 +102,7 @@ Administrativo Base::getAdmin(int i)
 	return admins.at(i);
 }
 
-Entregador Base::getEntreg(int i)
+Entregador& Base::getEntreg(int i)
 {
 	return entregs.at(i);
 }
@@ -94,7 +137,7 @@ bool Base::addCliente(Cliente c) {
 }
 
 string Base::getDistrito() {
-	return distrito;
+	return this->distrito;
 }
 
 string Base::getMorada()

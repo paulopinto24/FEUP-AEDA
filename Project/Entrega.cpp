@@ -41,3 +41,7 @@ string Entrega::getTime()
 {
 	return time;
 }
+
+void kmsPercorridos() {
+	
+}
