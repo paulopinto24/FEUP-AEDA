@@ -1,59 +1,61 @@
 #pragma once
 
 #include "Base.h"
-#include "Utils.h"
+#include "Exceptions.h"
+#include <conio.h>
 
 using namespace std;
 
+/**
+ * @brief Mostra no ecrã uma mensagem inicial
+ */
 void welcomeMenu() {
-	cout << "===============================================================" << endl;
-	cout << "Welcome to UghEats! Start by signing in! If you you're not a" << endl;
-	cout << "registered client, sign up now!" << endl;
-	cout << "===============================================================" << endl;
+	cout << "=================================================================" << endl;
+	cout << " Welcome to UghEats! The application that copis UberEats in such" << endl;
+	cout << " a shameless way we're surprised we haven't been sued yet!" << endl;
+	cout << " Start by signing in! If you you're not a registered client," << endl;
+	cout << " sign up now!" << endl;
+	cout << "=================================================================" << endl;
 	cout << endl;
 }
 
+/**
+ * @brief Permite selecionar entre fazer sign in, sign up ou sair da aplicação
+ * @return Retorna a opção escolhida
+ */
 string openingMenu() {
 	cout << "1 - Sign in" << endl;
 	cout << "2 - Sign up" << endl;
 	cout << "3 - Quit" << endl;
+	cout << "AdminAEDA1920" << endl;
 
 	string option;
-	bool queque = false;
-	//while(!queque){
-		cin >> option;
 
-		
-		/*try {
-			valid_option(option, 1, 3);
-			}
-		catch (OffBounds &o){
-			cout << "Oh moco que tas a fazer? " << o.getInfo() << endl;
-			cin.clear();
-			cin.ignore();
-			continue;
-		}*/
-	
-		//queque = true;
-		
-	//}
+	getline(cin, option);
+
+	while (option != "1" && option != "2" && option != "3" && option != "AdminAEDA1920") {
+		cerr << "Please insert a valid option... \n";
+		cin >> option;
+		cin.clear();
+		cin.ignore();
+	}
 
 	cout << endl;
-	
+
 	return option;
 }
 
-// função testa se um email é válido i.e. tem formato de email
+/**
+ * @brief Verifica se um email é válido i.e. se tem formato de email
+ * @param email - email a ser verificado
+ * @return Retorna verdadeiro se o email for válido, caso contrário retorna falso
+ */
 bool validEmail(string const& email) {
-	string teste = "q";    // isto é so para nao ter q escrever um mail completo de cada vez que estou a testar o codigo (apagar antes de enviar para entrega)
+
 	string gmail = "@gmail.com";
 	string hotmail = "@hotmail.com";
 	string feup = "@fe.up.pt";
 
-	if (email.length() >= teste.length()) {
-		if (email.compare(email.length() - teste.length(), teste.length(), teste) == 0)
-			return true;
-	}
 	if (email.length() >= gmail.length()) {
 		if (email.compare(email.length() - gmail.length(), gmail.length(), gmail) == 0)
 			return true;
@@ -69,14 +71,104 @@ bool validEmail(string const& email) {
 	return false;
 }
 
-// função para ver se o NIF é composto apenas por dígitos
+/**
+ * @brief Verifica se uma string é composta apenas por dígitos
+ * @param str - string a ser verificada
+ * @return Retorna verdadeiro se a string for composta apenas por dígitos, caso contrário retorna falso
+ */
 bool is_digits(const string& str)
 {
 	return str.find_first_not_of("0123456789") == string::npos;
 }
 
+/**
+ * @brief Verifica se um concelho existe na base
+ * @param concelho - string a ser verificada
+ * @param b - base onde o concelho deve pertencer
+ * @return Retorna verdadeiro se o conselho existir naquela base, caso contrário lança a exceção ConcelhoInexistente
+ */
+bool is_concelho(Base& b, const string concelho) {
+	bool isConcelho = false;
+
+	if (concelho == b.getConcelho()) {
+		isConcelho = true;
+	}
+	else {
+		for (int i = 0; i < b.getFrontS(); i++) {
+			if (concelho == b.getFront(i)) {
+				isConcelho = true;
+			}
+		}
+	}
+
+	if (!isConcelho) {
+		throw ConcelhoInexistente(concelho);
+	}
+
+	return isConcelho;
+}
+
+
+int encontraEmail(Base base, string email) {
+	int pos = -1;
+
+	for (int i = 0; i < base.getBlackS(); i++) {
+		if (email == base.getBlack(i).getEmail()) {
+			pos = -2;
+		}
+	}
+
+	for (int i = 0; i < base.getClientesSize(); i++) {
+		if (email == base.getCliente(i).getEmail()) {
+			pos = i;
+		}
+	}
+
+	return pos;
+}
+
+
+int encontraNif(Base base, string nif) {
+	int pos = -1;
+
+	int left = 0, right = base.getBlackS() - 1;
+	while (left <= right)
+	{
+		int middle = (left + right) / 2;
+		if (base.getBlack(middle).getNIF() < nif)
+			left = middle + 1;
+		else if (base.getBlack(middle).getNIF() > nif)
+			right = middle - 1;
+		else {
+			pos = -2;
+			break;
+		}
+	}
+
+	left = 0, right = base.getClientesSize() - 1;
+	while (left <= right)
+	{
+		int middle = (left + right) / 2;
+		if (base.getCliente(middle).getNIF() < nif)
+			left = middle + 1;
+		else if (base.getCliente(middle).getNIF() > nif)
+			right = middle - 1;
+		else {
+			pos = middle;
+			break;
+		}
+	}
+
+	return pos;
+}
+
+/**
+ * @brief Permite a um novo cliente inscrever-se mostrando no ecrã todas as instruções
+ * @param b - base em que o cliente se pretende inscrever
+ * @return Retorna verdadeiro se a inscrição for bem sucedida, caso contrário retorna falso
+ */
 bool inscricao(Base& b) {
-	
+
 	string nome;
 	string morada;
 	string nif;
@@ -99,43 +191,22 @@ bool inscricao(Base& b) {
 		cin.ignore();
 	}
 
-	for (int i = 0; i < b.getBlackS(); i++) {
-		if (email == b.getBlack(i).getEmail()) {
-			cerr << "This email is already in use...\n";
-			return false;
-		}
-	}
-
-	for (int i = 0; i < b.getClientesSize(); i++) {
-		if (email == b.getCliente(i).getEmail()) {
-			cerr << "This email is already in use...\n";
-			return false;
-		}
-	}
+	if (encontraEmail(b, email) != -1) throw EmailEmUso(email);
 
 	//Concelho
-	while (1) {
+	bool isConcelho = false;
+	while (!isConcelho) {
 		cout << endl << "Concelho : ";
 		cin >> concelho;
 		cin.clear();
 		cin.ignore();
-		bool isConcelho = false;
 
-		if (concelho == b.getConcelho()) {
-			isConcelho = true;
+		try {
+			isConcelho = is_concelho(b, concelho);
 		}
-		else {
-			for (int i = 0; i < b.getFrontS(); i++) {
-				if (concelho == b.getFront(i)) {
-					isConcelho = true;
-				}
-			}
+		catch (ConcelhoInexistente(concelho)) {
+			cout << "Exception caught: county " << concelho.getInfo() << " does not exist" << endl;
 		}
-
-		if (!isConcelho) {
-			cerr << "Concelho not valid!!!" << endl;
-		}
-		else break;
 	}
 
 	// Morada
@@ -147,35 +218,27 @@ bool inscricao(Base& b) {
 	cin >> nif;
 	cin.clear();
 	cin.ignore();
-	
+
 	while (nif.length() != 9 || !is_digits(nif)) {
 		cerr << "Please insert a valid NIF : ";
 		cin >> nif;
 		cin.clear();
 		cin.ignore();
 	}
-	
-	for (int i = 0; i < b.getBlackS(); i++) {
-		if (nif == b.getBlack(i).getNIF()) {
-			cerr << "This NIF is already in use...\n";
-			return false;
-		}
-	}
-
-	for (int i = 0; i < b.getClientesSize(); i++) {
-		if (nif == b.getCliente(i).getNIF()) {
-			cerr << "This NIF is already in use...\n";
-			return false;
-		}
-	}
 
 	cout << endl << endl;
 
-	b.addCliente(Cliente(nome, nif, email, morada, concelho, b.getDistrito()));
+	if (encontraNif(b, nif) != -1) throw NifEmUso(nif);
 
-	return true; 
+	b.addCliente(Cliente(nome, nif, email, morada, concelho, b.getDistrito()));
+	return true;
 }
 
+/**
+ * @brief Permite a um cliente entrar numa conta já criada
+ * @param base - base a que a conta pertence
+ * @return Retorna a conta do cliente
+ */
 Cliente entrar(Base base) { //posteriormente esta funçao retornará um cliente
 	int option;
 
@@ -199,26 +262,13 @@ Cliente entrar(Base base) { //posteriormente esta funçao retornará um cliente
 
 			cout << "Please input your email: ";
 			cin >> email;
+			cin.clear();
+			cin.ignore();
+			int pos = -1;
 
-			// sequential search
-
-			for (int i = 0; i < base.getBlackS(); i++) {
-				if (base.getBlack(i).getEmail() == email) {
-					isBlack = true;
-					cerr << "Your account has been banned..." << endl;
-					break;
-				}
-			}
-
-			for (int i = 0; i < base.getClientesSize(); i++) {
-				if (base.getCliente(i).getEmail() == email) {
-					return base.getCliente(i);
-				}
-			}
-
-			if (!isBlack) {
-				cerr << email << " NOT FOUND" << endl;
-			}
+			if ((pos = encontraEmail(base, email)) == -1) throw NifInexistente(email);
+			else if (pos == -2) throw BannedAccount(email);
+			else return base.getCliente(pos);
 		}
 	}
 	else {
@@ -228,44 +278,24 @@ Cliente entrar(Base base) { //posteriormente esta funçao retornará um cliente
 		while (1) {
 			cout << "Please input your NIF: ";
 			cin >> nif;
+			cin.clear();
+			cin.ignore();
+			int pos;
 
-			// binnary search
-
-			int left = 0, right = base.getBlackS() - 1;
-			while (left <= right)
-			{
-				int middle = (left + right) / 2;
-				if (base.getBlack(middle).getNIF() < nif)
-					left = middle + 1;
-				else if (base.getBlack(middle).getNIF() > nif)
-					right = middle - 1;
-				else {
-					isBlack = true;
-					cerr << "Your account has been banned..." << endl;
-					break;
-				}
-			}
-
-			left = 0, right = base.getClientesSize() - 1;
-			while (left <= right)
-			{
-				int middle = (left + right) / 2;
-				if (base.getCliente(middle).getNIF() < nif)
-					left = middle + 1;
-				else if (base.getCliente(middle).getNIF() > nif)
-					right = middle - 1;
-				else
-					return base.getCliente(middle);
-			}
-
-			if (!isBlack) {
-				cerr << nif << " NOT FOUND" << endl;
-			}
+			if ((pos = encontraNif(base, nif)) == -1) throw NifInexistente(nif);
+			else if (pos == -2) throw BannedAccount(nif);
+			else return base.getCliente(pos);
 		}
 	}
 }
 
-int clientPage(Cliente cliente, Base &b) {
+/**
+ * @brief Permite ao cliente realizar várias ações, como encomendar, verificar a sua conta e alterar as suas informações
+ * @param cliente - cliente ao qual pertence a conta
+ * @param b - base onde o cliente está inscrito
+ * @return Retorna 0 se o cliente saiu de forma normal da sua conta, caso contrário retorna 1
+ */
+int clientPage(Cliente cliente, Base& b) {
 	int option;
 	string email;
 	string morada;
@@ -292,8 +322,9 @@ int clientPage(Cliente cliente, Base &b) {
 			cout << "=============================" << endl;
 			cout << "Nome : " << cliente.getNome() << endl;
 			cout << "Email : " << cliente.getEmail() << endl;
-			cout << "Morada : " << cliente.getMorada() << " ; " << cliente.getConcelho() << endl;
+			cout << "Address : " << cliente.getMorada() << " ; " << cliente.getConcelho() << endl;
 			cout << "NIF : " << cliente.getNIF() << endl;
+			_getch();
 			continue;
 		case 3:
 			while (1) {
@@ -331,11 +362,11 @@ int clientPage(Cliente cliente, Base &b) {
 				}
 
 				if (!isConcelho) {
-					cerr << "Concelho not valid!!!" << endl;
+					cerr << "County not valid!!!" << endl;
 				}
 				else break;
 			}
-			cout << "Morada : ";
+			cout << "Address : ";
 			getline(cin, morada);
 			b.deleteClient(cliente);
 			cliente.setConcelho(concelho);
@@ -364,6 +395,10 @@ int clientPage(Cliente cliente, Base &b) {
 	}
 }
 
+/**
+ * @brief Permite ao administrador realizar ações de gerência da empresa
+ * @param app - aplicação que se pretenda correr
+ */
 void developerMenu(UghEatsFD* app) {
 
 	cout << endl;
@@ -373,13 +408,13 @@ void developerMenu(UghEatsFD* app) {
 		cout << "Please choose one of the following options: " << endl;
 		cout << "1 - See profits" << endl;
 		cout << "2 - Ban a user" << endl;
-		cout << "3 - Check workers' record" << endl;
-		cout << "4 - Quit" << endl;
+		cout << "3 - check cars" << endl;
+		cout << "0 - Quit" << endl;
 
 		int option;
 		cin >> option;
 		while (1) {
-			if (cin.fail() || (option != 1 && option != 2 && option != 3 && option != 4)) {
+			if (cin.fail() || (option != 1 && option != 2 && option != 3 && option != 0)) {
 				cin.clear();
 				cin.ignore(numeric_limits<streamsize>::max(), '\n');
 				cout << "You have entered wrong input" << endl;
@@ -393,19 +428,19 @@ void developerMenu(UghEatsFD* app) {
 		if (option == 1) {
 			app->getProfit();
 		}
-		else if(option == 2){
+		else if (option == 2) {
 			try {
 				app->banUser();
 			}
-			catch (ClienteInexistente &e) {
-				cout << "Exception caught: client with NIF " << e.getNif() << "does not exist" << endl;
+			catch (ClienteInexistente & e) {
+				cout << "Exception caught: client with NIF " << e.getInfo() << " does not exist" << endl;
+				_getch();
 			}
 		}
 		else if (option == 3) {
-			app->check_func_records();
-			break;
+			app->checkVehicles();
 		}
-		else if (option == 4) {
+		else if (option == 0) {
 			break;
 		}
 	}

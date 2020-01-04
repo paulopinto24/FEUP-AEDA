@@ -1,7 +1,6 @@
 #pragma once
 
 #include "UghEatsFD.h"
-#include "Exceptions.h"
 #include <fstream>
 
 using namespace std;
@@ -39,11 +38,6 @@ vector<string> parseBySlash(string line);
 * @param vec - vetor com elementos necessarios a criacao da base
 * @return Retorna a base criada com a informacao contida em vec
 */
-Base parseBase(vector<string> vec, UghEatsFD* p1);
+Base parseBase(vector<string> vec);
 
-/**
-* @brief Ve se uma determinada opcao e valida mediante a opcao menor e maior possivel
-* @param inf - menor opcao possivel
-* @param inf - maior opcao possivel
-*/
-void valid_option(string opt, int inf, int sup);
+

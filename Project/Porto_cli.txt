@@ -1,1 +1,2 @@
-Daniel Dani;258369741;q;Gondomar;Rua do vai-te embora 22
+Daniel Dani;258369741;ola@gmail.com;Gondomar;Rua do vai-te embora 22
+Ant¢nio Costa;584765123;ant_costa@gmail.com;Gondomar;Rua das Planta‡äes
