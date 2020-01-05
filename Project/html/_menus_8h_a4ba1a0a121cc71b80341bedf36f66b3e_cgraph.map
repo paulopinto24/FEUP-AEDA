@@ -1,0 +1,6 @@
+<map id="is_concelho" name="is_concelho">
+<area shape="rect" id="node1" title="Verifica se um concelho existe na base." alt="" coords="5,56,96,83"/>
+<area shape="rect" id="node2" href="$class_base.html#af7c0e12bbfc1587328225f9bc85b8ac0" title="Getter do concelho." alt="" coords="144,5,276,32"/>
+<area shape="rect" id="node3" href="$class_base.html#aa141dd46cb14c86d1fc2c1fe1d987745" title="Getter de um concelho fronteira." alt="" coords="156,56,264,83"/>
+<area shape="rect" id="node4" href="$class_base.html#a7d81c47702ec7b96328cd60a3413f0e1" title="Getter do tamanho do vetor de concelhos fronteira." alt="" coords="151,107,269,133"/>
+</map>

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['loadapplication_251',['loadApplication',['../_utils_8cpp.html#af0caa6c9a77bc1c9733089c4126ee930',1,'loadApplication(UghEatsFD *p1):&#160;Utils.cpp'],['../_utils_8h.html#af0caa6c9a77bc1c9733089c4126ee930',1,'loadApplication(UghEatsFD *p1):&#160;Utils.cpp']]]
+  ['kmspercorridos_371',['kmsPercorridos',['../_entrega_8cpp.html#a659a1087f5699b8eb22f60116cb60eb2',1,'Entrega.cpp']]]
 ];

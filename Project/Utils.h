@@ -2,6 +2,7 @@
 
 #include "UghEatsFD.h"
 #include <fstream>
+#include "Exceptions.h"
 
 using namespace std;
 
@@ -38,6 +39,6 @@ vector<string> parseBySlash(string line);
 * @param vec - vetor com elementos necessarios a criacao da base
 * @return Retorna a base criada com a informacao contida em vec
 */
-Base parseBase(vector<string> vec);
+Base parseBase(vector<string> vec, UghEatsFD* p1);
 
 

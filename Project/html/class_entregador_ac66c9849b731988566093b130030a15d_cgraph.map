@@ -1,0 +1,4 @@
+<map id="Entregador::doEntrega" name="Entregador::doEntrega">
+<area shape="rect" id="node1" title="Realiza a função doEntrega() da classe veículo." alt="" coords="5,5,157,32"/>
+<area shape="rect" id="node2" href="$class_veiculo.html#a71e2a9e892de23de9eb6a85ceec348af" title="Adiciona ao veículo o número de kms percorridos numa entrega e íncrementa em 1 o número de entregas." alt="" coords="205,5,337,32"/>
+</map>

@@ -1,0 +1,13 @@
+<map id="Pessoa::getNIF" name="Pessoa::getNIF">
+<area shape="rect" id="node1" title="Permite obter o NIF da pessoa." alt="" coords="457,132,569,159"/>
+<area shape="rect" id="node2" href="$class_ugh_eats_f_d.html#a8772d46474c95fa729b2202b97c6ccc9" title="Permite o utilizador banir um cliente." alt="" coords="264,5,409,32"/>
+<area shape="rect" id="node5" href="$_menus_8h.html#a2161b59ba4f36862cf85a3ed5af18d8c" title="Permite ao cliente realizar várias ações, como encomendar, verificar a sua conta e alterar as suas inform..." alt="" coords="119,95,201,121"/>
+<area shape="rect" id="node6" href="$class_cliente.html#a85585f1eea9bbc3f0008ee14a6666952" title=" " alt="" coords="268,107,405,133"/>
+<area shape="rect" id="node7" href="$_menus_8h.html#ac782f2e2a70bdea011dc4c504e641135" title="Procura um nif numa base." alt="" coords="293,157,380,184"/>
+<area shape="rect" id="node10" href="$structfunc_hash.html#a55505a7738267844c4af0f5556d11282" title=" " alt="" coords="267,208,406,235"/>
+<area shape="rect" id="node11" href="$_utils_8h.html#ae7accc5ba838c1a908a6c5a75d9a604c" title="Salva a aplicacao escrevendo a info necessaria em documentos de texto." alt="" coords="104,247,216,273"/>
+<area shape="rect" id="node3" href="$_menus_8h.html#ad71874142fc75f4d283da6e3d4d5b966" title="Permite ao administrador realizar ações de gerência da empresa." alt="" coords="106,19,214,45"/>
+<area shape="rect" id="node4" href="$main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,145,56,172"/>
+<area shape="rect" id="node8" href="$_menus_8h.html#a07bca02cd3cd3419dd2e2d2def738a46" title="Permite a um cliente entrar numa conta já criada." alt="" coords="133,145,187,172"/>
+<area shape="rect" id="node9" href="$_menus_8h.html#a7894fcb4b654e09cfbc248b911d73e2e" title="Permite a um novo cliente inscrever&#45;se mostrando no ecrã todas as instruções." alt="" coords="123,196,197,223"/>
+</map>

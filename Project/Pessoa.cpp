@@ -27,11 +27,11 @@ bool Pessoa::operator < (const Pessoa& p) const {
 	else return false;
 }
 
-string Pessoa::getNIF() {
+string Pessoa::getNIF() const{
 	return this->NIF;
 }
 
-string Pessoa::getNome() {
+string Pessoa::getNome() const{
 	return nome;
 }
 
@@ -838,15 +838,52 @@ Funcionario::Funcionario(string n, string nif, string dn, double s) : Pessoa(n, 
 	salario = s;
 }
 
-string Funcionario::getDataNasc()
+string Funcionario::getDataNasc() const
 {
 	return dataNasc;
 }
 
-double Funcionario::getSalario()
+double Funcionario::getSalario() const
 {
 	return salario;
 }
+
+void Funcionario::setAtual(bool b) {
+	atual = b;
+}
+
+string Funcionario::getAtual() const {
+	if (atual) {
+		return "Y";
+	}
+	else {
+		return "N";
+	}
+}
+
+void Funcionario::setAdmin(bool b)
+{
+	admin = b;
+}
+
+string Funcionario::getAdmin() const
+{
+	if (admin) {
+		return "ADMIN";
+	}
+	else {
+		return "ENTREG";
+	}
+}
+
+string Funcionario::getsSalario() const {
+	ostringstream strs;
+	strs << salario;
+	string str = strs.str();
+
+	return str;
+}
+
 
 Administrativo::Administrativo(string n, string nif, string dn, double s, string f) : Funcionario(n, nif, dn, s) {
 	funcao = f;
@@ -872,7 +909,7 @@ Veiculo Entregador::getVeiculo()
 	return veiculo;
 }
 
-double Entregador::getComissao()
+double Entregador::getComissao() const
 {
 	return comissao;
 }

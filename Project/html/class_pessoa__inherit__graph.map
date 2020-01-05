@@ -1,7 +1,7 @@
 <map id="Pessoa" name="Pessoa">
 <area shape="rect" id="node1" title=" " alt="" coords="77,5,187,171"/>
 <area shape="rect" id="node2" href="$class_cliente.html" title=" " alt="" coords="5,219,120,413"/>
-<area shape="rect" id="node3" href="$class_funcionario.html" title=" " alt="" coords="144,263,261,369"/>
-<area shape="rect" id="node4" href="$class_administrativo.html" title=" " alt="" coords="69,476,192,568"/>
-<area shape="rect" id="node5" href="$class_entregador.html" title=" " alt="" coords="217,461,335,583"/>
+<area shape="rect" id="node3" href="$class_funcionario.html" title=" " alt="" coords="144,226,261,406"/>
+<area shape="rect" id="node4" href="$class_administrativo.html" title=" " alt="" coords="69,483,192,575"/>
+<area shape="rect" id="node5" href="$class_entregador.html" title=" " alt="" coords="217,461,335,597"/>
 </map>

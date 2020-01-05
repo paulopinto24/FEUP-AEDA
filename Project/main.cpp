@@ -12,7 +12,7 @@ int selectBase() {
 	cin.clear();
 	cin.ignore();
 
-	while (base < 1 || base > 3) {
+	while (base < 1 || base > 3 || cin.fail()) {
 		cerr << "Please input a valid base:\n -> Porto(1)\n -> Lisboa(2)\n -> Faro(3)\n";
 		cin >> base;
 		cin.clear();

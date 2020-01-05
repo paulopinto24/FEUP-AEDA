@@ -37,13 +37,13 @@ public:
 	 * @brief Permite obter o NIF da pessoa
 	 * @return Retorna o NIF da pessoa
 	 */
-	string getNIF();
+	string getNIF() const;
 
 	/**
 	 * @brief Permite obter o Nome da pessoa
 	 * @return Retorna o Nome da pessoa
 	 */
-	string getNome();
+	string getNome() const;
 
 	/**
 	 * @brief Overload do operador de igualdade para a classe Pessoa
@@ -138,6 +138,8 @@ class Funcionario : public Pessoa
 private:
 	string dataNasc; /**< data de nascimento do funcionário*/
 	double salario; /**< salario do funcionário*/
+	bool atual;
+	bool admin;
 public:
 	/**
 	 * @brief Construtor da classe Funcionario
@@ -152,13 +154,19 @@ public:
 	 * @brief Permite obter a data de nascimento do funcionário
 	 * @return Retorna a data de nascimento do funcionário
 	 */
-	string getDataNasc();
+	string getDataNasc() const;
 
 	/**
 	 * @brief Permite obter o salário do funcionário
 	 * @return Retorna o salário do funcionário
 	 */
-	double getSalario();
+	double getSalario() const;
+
+	string getsSalario() const;
+	void setAtual(bool b);
+	string getAtual() const;
+	void setAdmin(bool b);
+	string getAdmin() const;
 };
 
 /**
@@ -220,7 +228,7 @@ public:
 	 * @brief Permite obter a comissão do funcionário do tipo entregador
 	 * @return Retorna a comissão do funcionário do tipo entregador
 	 */
-	double getComissao();
+	double getComissao() const;
 
 	/**
 	 * @brief Realiza a função doEntrega() da classe veículo

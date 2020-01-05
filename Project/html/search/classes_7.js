@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['restaurante_149',['Restaurante',['../class_restaurante.html',1,'']]]
+  ['nifemuso_228',['NifEmUso',['../class_nif_em_uso.html',1,'']]],
+  ['nifinexistente_229',['NifInexistente',['../class_nif_inexistente.html',1,'']]]
 ];

@@ -10,12 +10,10 @@ using namespace std;
  * @brief Mostra no ecrã uma mensagem inicial
  */
 void welcomeMenu() {
-	cout << "=================================================================" << endl;
-	cout << " Welcome to UghEats! The application that copis UberEats in such" << endl;
-	cout << " a shameless way we're surprised we haven't been sued yet!" << endl;
-	cout << " Start by signing in! If you you're not a registered client," << endl;
-	cout << " sign up now!" << endl;
-	cout << "=================================================================" << endl;
+	cout << "===============================================================" << endl;
+	cout << "Welcome to UghEats! Start by signing in! If you you're not a" << endl;
+	cout << "registered client, sign up now!" << endl;
+	cout << "===============================================================" << endl;
 	cout << endl;
 }
 
@@ -328,9 +326,9 @@ int clientPage(Cliente cliente, Base& b) {
 			continue;
 		case 2:
 			cout << "\n=============================" << endl;
-			cout << "==       Accout Info       ==" << endl;
+			cout << "==       Account Info       ==" << endl;
 			cout << "=============================" << endl;
-			cout << "Nome : " << cliente.getNome() << endl;
+			cout << "Name : " << cliente.getNome() << endl;
 			cout << "Email : " << cliente.getEmail() << endl;
 			cout << "Address : " << cliente.getMorada() << " ; " << cliente.getConcelho() << endl;
 			cout << "NIF : " << cliente.getNIF() << endl;
@@ -418,13 +416,14 @@ void developerMenu(UghEatsFD* app) {
 		cout << "Please choose one of the following options: " << endl;
 		cout << "1 - See profits" << endl;
 		cout << "2 - Ban a user" << endl;
-		cout << "3 - check cars" << endl;
+		cout << "3 - Check vehicles" << endl;
+		cout << "4 - Check workers' record" << endl;
 		cout << "0 - Quit" << endl;
 
 		int option;
 		cin >> option;
 		while (1) {
-			if (cin.fail() || (option != 1 && option != 2 && option != 3 && option != 0)) {
+			if (cin.fail() || (option != 1 && option != 2 && option != 3 && option != 4 && option != 0)) {
 				cin.clear();
 				cin.ignore(numeric_limits<streamsize>::max(), '\n');
 				cout << "You have entered wrong input" << endl;
@@ -449,6 +448,9 @@ void developerMenu(UghEatsFD* app) {
 		}
 		else if (option == 3) {
 			app->checkVehicles();
+		}
+		else if (option == 4) {
+			app->check_func_records();
 		}
 		else if (option == 0) {
 			break;

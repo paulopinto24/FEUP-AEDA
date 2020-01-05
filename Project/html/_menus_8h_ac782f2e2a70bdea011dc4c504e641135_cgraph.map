@@ -1,0 +1,8 @@
+<map id="encontraNif" name="encontraNif">
+<area shape="rect" id="node1" title="Procura um nif numa base." alt="" coords="5,107,92,133"/>
+<area shape="rect" id="node2" href="$class_base.html#afe27763037e14acaee148fe29a78908d" title="Getter de um cliente banido." alt="" coords="160,5,271,32"/>
+<area shape="rect" id="node3" href="$class_base.html#a8c991927b8eed6dd18ed439a3be169c2" title="Getter do tamanho da lista negra." alt="" coords="155,56,275,83"/>
+<area shape="rect" id="node4" href="$class_base.html#a03a84054f061b0741832190dbb185f2b" title="Getter do cliente de indice i." alt="" coords="156,107,275,133"/>
+<area shape="rect" id="node5" href="$class_base.html#a79706f5078ba16ccb1908cafcf1303e9" title="Getter do tamanho do vetor clientes." alt="" coords="140,157,291,184"/>
+<area shape="rect" id="node6" href="$class_pessoa.html#a4f18fa80707eb641ab07b92eabeac725" title="Permite obter o NIF da pessoa." alt="" coords="159,208,271,235"/>
+</map>

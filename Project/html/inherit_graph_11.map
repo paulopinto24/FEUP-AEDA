@@ -1,0 +1,11 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$class_excecao.html" title=" " alt="" coords="5,183,79,209"/>
+<area shape="rect" id="node2" href="$class_banned_account.html" title=" " alt="" coords="139,5,253,32"/>
+<area shape="rect" id="node3" href="$class_cliente_inexistente.html" title=" " alt="" coords="133,56,259,83"/>
+<area shape="rect" id="node4" href="$class_concelho_inexistente.html" title=" " alt="" coords="127,107,265,133"/>
+<area shape="rect" id="node5" href="$class_email_em_uso.html" title=" " alt="" coords="147,157,245,184"/>
+<area shape="rect" id="node6" href="$class_email_inexistente.html" title=" " alt="" coords="137,208,255,235"/>
+<area shape="rect" id="node7" href="$class_nif_em_uso.html" title=" " alt="" coords="156,259,236,285"/>
+<area shape="rect" id="node8" href="$class_nif_inexistente.html" title=" " alt="" coords="146,309,246,336"/>
+<area shape="rect" id="node9" href="$class_opcao_invalida.html" title=" " alt="" coords="145,360,247,387"/>
+</map>

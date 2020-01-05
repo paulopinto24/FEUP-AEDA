@@ -210,6 +210,179 @@ void UghEatsFD::banUser() {
 	}
 }
 
+//void UghEatsFD::insert_func(string fnif) {
+//	funcionario_tab.insert(fnif);
+//}
 
+void UghEatsFD::show_func() {
+	for (const auto& elem : func) {
+		cout << elem.getNIF() << endl;
+	}
+}
+
+int UghEatsFD::funcionario_tabS() {
+	return funcionario_tab.size();
+}
+
+void UghEatsFD::ins_func(Funcionario f) {
+	func.insert(f);
+}
+
+void UghEatsFD::check_func_records() {
+	cout << "==========================================" << endl;
+	cout << "================W. RECORDS================" << endl;
+	cout << "==========================================" << endl;
+	cout << "Choose one of the following options:" << endl;
+	cout << "1 - Check all listings of Funcionarios" << endl;
+	cout << "2 - Check all listings of current Funcionarios" << endl;
+	cout << "3 - Check all listings of past Funcionarios" << endl;
+	cout << "4 - Check all listings of Administradores (in development)" << endl;
+	cout << "5 - Check all listings of Entregadores (in development)" << endl;
+	cout << "6 - Quit" << endl;
+
+	while (1) {
+		cout << "-> ";
+
+		int option;
+		cin >> option;
+
+
+		if (cin.fail()) {
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			cout << "You have entered wrong input" << endl;
+			continue;
+		}
+
+		if (option != 1 && option != 2 && option != 3 && option != 4 && option != 5 && option != 6) {
+			cout << "Please choose a valid option" << endl;
+			continue;
+		}
+
+		if (option == 1) {
+			cout << "=========================================================================================" << endl;
+			cout << "NAME================NIF==========BIRTHDATE=====SALARY====CURRENT WORKER=======TYPE=======" << endl;
+
+			for (auto itr = func.begin(); itr != func.end(); ++itr) {
+
+				size_t size1 = 20 - itr->getNome().size();
+				string space1(size1, ' ');
+
+				size_t size2 = 13 - itr->getNIF().size();
+				string space2(size2, ' ');
+
+				size_t size3 = 14 - itr->getDataNasc().size();
+				string space3(size3, ' ');
+
+				size_t size4 = 10 - itr->getsSalario().size();
+				string space4(size4, ' ');
+
+				size_t size5 = 21 - itr->getAtual().size();
+				string space5(size5, ' ');
+
+				cout << itr->getNome() << space1 << itr->getNIF() << space2 << itr->getDataNasc() <<
+					space3 << itr->getsSalario() << space4 << itr->getAtual() << space5 << itr->getAdmin() << endl;
+			}
+		}
+		else if (option == 2) {
+			cout << "=======================================================================" << endl;
+			cout << "NAME================NIF==========BIRTHDATE=====SALARY====TYPE==========" << endl;
+
+			for (auto itr = func.begin(); itr != func.end(); ++itr) {
+				if (itr->getAtual() == "Y") {
+					size_t size1 = 20 - itr->getNome().size();
+					string space1(size1, ' ');
+
+					size_t size2 = 13 - itr->getNIF().size();
+					string space2(size2, ' ');
+
+					size_t size3 = 14 - itr->getDataNasc().size();
+					string space3(size3, ' ');
+
+					size_t size5 = 10 - itr->getsSalario().size();
+					string space5(size5, ' ');
+
+					cout << itr->getNome() << space1 << itr->getNIF() << space2 << itr->getDataNasc() <<
+						space3 << itr->getsSalario() << space5 << itr->getAdmin() << endl;
+				}
+			}
+		}
+		else if (option == 3) {
+			cout << "=======================================================================" << endl;
+			cout << "NAME================NIF==========BIRTHDATE=====SALARY====TYPE==========" << endl;
+
+			for (auto itr = func.begin(); itr != func.end(); ++itr) {
+				if (itr->getAtual() == "N") {
+					size_t size1 = 20 - itr->getNome().size();
+					string space1(size1, ' ');
+
+					size_t size2 = 13 - itr->getNIF().size();
+					string space2(size2, ' ');
+
+					size_t size3 = 14 - itr->getDataNasc().size();
+					string space3(size3, ' ');
+
+					size_t size5 = 10 - itr->getsSalario().size();
+					string space5(size5, ' ');
+
+					cout << itr->getNome() << space1 << itr->getNIF() << space2 << itr->getDataNasc() <<
+						space3 << itr->getsSalario() << space5 << itr->getAdmin() << endl;
+				}
+			}
+		}
+		else if (option == 4) {
+			cout << "==============================================================================" << endl;
+			cout << "NAME================NIF==========BIRTHDATE=====SALARY====CURRENT WORKER=======" << endl;
+
+			for (auto itr = func.begin(); itr != func.end(); ++itr) {
+				if (itr->getAdmin() == "ADMIN") {
+					size_t size1 = 20 - itr->getNome().size();
+					string space1(size1, ' ');
+
+					size_t size2 = 13 - itr->getNIF().size();
+					string space2(size2, ' ');
+
+					size_t size3 = 14 - itr->getDataNasc().size();
+					string space3(size3, ' ');
+
+					size_t size4 = 10 - itr->getsSalario().size();
+					string space4(size4, ' ');
+
+					cout << itr->getNome() << space1 << itr->getNIF() << space2 << itr->getDataNasc() <<
+						space3 << itr->getsSalario() << space4 << itr->getAtual() << endl;
+				}
+			}
+		}
+		else if (option == 5) {
+			cout << "==============================================================================" << endl;
+			cout << "NAME================NIF==========BIRTHDATE=====SALARY====CURRENT WORKER=======" << endl;
+
+			for (auto itr = func.begin(); itr != func.end(); ++itr) {
+				if (itr->getAdmin() == "ENTREG") {
+					size_t size1 = 20 - itr->getNome().size();
+					string space1(size1, ' ');
+
+					size_t size2 = 13 - itr->getNIF().size();
+					string space2(size2, ' ');
+
+					size_t size3 = 14 - itr->getDataNasc().size();
+					string space3(size3, ' ');
+
+					size_t size4 = 10 - itr->getsSalario().size();
+					string space4(size4, ' ');
+
+					cout << itr->getNome() << space1 << itr->getNIF() << space2 << itr->getDataNasc() <<
+						space3 << itr->getsSalario() << space4 << itr->getAtual() << endl;
+				}
+			}
+		}
+		else if (option == 6) {
+			break;
+		}
+
+	}
+
+
+}
 
 

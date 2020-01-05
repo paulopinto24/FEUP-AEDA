@@ -1,0 +1,8 @@
+<map id="encontraEmail" name="encontraEmail">
+<area shape="rect" id="node1" title="Procura um email numa base." alt="" coords="5,107,111,133"/>
+<area shape="rect" id="node2" href="$class_base.html#afe27763037e14acaee148fe29a78908d" title="Getter de um cliente banido." alt="" coords="179,5,289,32"/>
+<area shape="rect" id="node3" href="$class_base.html#a8c991927b8eed6dd18ed439a3be169c2" title="Getter do tamanho da lista negra." alt="" coords="174,56,294,83"/>
+<area shape="rect" id="node4" href="$class_base.html#a03a84054f061b0741832190dbb185f2b" title="Getter do cliente de indice i." alt="" coords="175,107,293,133"/>
+<area shape="rect" id="node5" href="$class_base.html#a79706f5078ba16ccb1908cafcf1303e9" title="Getter do tamanho do vetor clientes." alt="" coords="159,157,309,184"/>
+<area shape="rect" id="node6" href="$class_cliente.html#a0d8dec401bee741d99f0ed84b553a3f5" title="Permite obter o email do cliente." alt="" coords="173,208,295,235"/>
+</map>

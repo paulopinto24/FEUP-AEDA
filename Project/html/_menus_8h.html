@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.16"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AEDA1920_1: Menus.h File Reference</title>
+<title>AEDA Project 2: Menus.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">AEDA1920_1
+   <div id="projectname">AEDA Project 2
    </div>
   </td>
  </tr>
@@ -68,23 +68,30 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="_base_8h_source.html">Base.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_exceptions_8h_source.html">Exceptions.h</a>&quot;</code><br />
+<code>#include &lt;conio.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for Menus.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="_menus_8h__incl.png" border="0" usemap="#_menus_8h" alt=""/></div>
 <map name="_menus_8h" id="_menus_8h">
-<area shape="rect" title=" " alt="" coords="175,5,247,32"/>
-<area shape="rect" href="_base_8h.html" title=" " alt="" coords="180,80,243,107"/>
-<area shape="rect" href="_pessoa_8h.html" title=" " alt="" coords="125,229,202,256"/>
-<area shape="rect" href="_g_p_scoord_8h.html" title=" " alt="" coords="213,155,306,181"/>
-<area shape="rect" href="_entrega_8h.html" title=" " alt="" coords="331,155,409,181"/>
-<area shape="rect" title=" " alt="" coords="122,379,194,405"/>
-<area shape="rect" href="_veiculo_8h.html" title=" " alt="" coords="5,304,81,331"/>
-<area shape="rect" href="_restaurante_8h.html" title=" " alt="" coords="232,379,335,405"/>
-<area shape="rect" href="_encomenda_8h.html" title=" " alt="" coords="157,304,260,331"/>
-<area shape="rect" title=" " alt="" coords="16,379,71,405"/>
-<area shape="rect" title=" " alt="" coords="213,453,269,480"/>
-<area shape="rect" title=" " alt="" coords="293,453,362,480"/>
+<area shape="rect" title=" " alt="" coords="423,5,495,32"/>
+<area shape="rect" href="_base_8h.html" title=" " alt="" coords="217,80,279,107"/>
+<area shape="rect" href="_exceptions_8h.html" title=" " alt="" coords="385,304,484,331"/>
+<area shape="rect" title=" " alt="" coords="496,80,560,107"/>
+<area shape="rect" href="_pessoa_8h.html" title=" " alt="" coords="68,229,145,256"/>
+<area shape="rect" href="_g_p_scoord_8h.html" title=" " alt="" coords="145,155,239,181"/>
+<area shape="rect" href="_entrega_8h.html" title=" " alt="" coords="263,155,342,181"/>
+<area shape="rect" href="bst_8h.html" title=" " alt="" coords="367,155,417,181"/>
+<area shape="rect" title=" " alt="" coords="185,379,257,405"/>
+<area shape="rect" href="_veiculo_8h.html" title=" " alt="" coords="285,304,361,331"/>
+<area shape="rect" href="_restaurante_8h.html" title=" " alt="" coords="25,379,127,405"/>
+<area shape="rect" href="_encomenda_8h.html" title=" " alt="" coords="55,304,158,331"/>
+<area shape="rect" title=" " alt="" coords="351,379,406,405"/>
+<area shape="rect" title=" " alt="" coords="5,453,61,480"/>
+<area shape="rect" title=" " alt="" coords="85,453,155,480"/>
+<area shape="rect" title=" " alt="" coords="285,229,339,256"/>
+<area shape="rect" title=" " alt="" coords="363,229,421,256"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -113,6 +120,15 @@ Functions</h2></td></tr>
 <tr class="memitem:ac4a09258a3d01747f692bb9be6a2a4c5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menus_8h.html#ac4a09258a3d01747f692bb9be6a2a4c5">is_digits</a> (const string &amp;str)</td></tr>
 <tr class="memdesc:ac4a09258a3d01747f692bb9be6a2a4c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se uma string é composta apenas por dígitos.  <a href="_menus_8h.html#ac4a09258a3d01747f692bb9be6a2a4c5">More...</a><br /></td></tr>
 <tr class="separator:ac4a09258a3d01747f692bb9be6a2a4c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ba1a0a121cc71b80341bedf36f66b3e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menus_8h.html#a4ba1a0a121cc71b80341bedf36f66b3e">is_concelho</a> (<a class="el" href="class_base.html">Base</a> &amp;b, const string concelho)</td></tr>
+<tr class="memdesc:a4ba1a0a121cc71b80341bedf36f66b3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se um concelho existe na base.  <a href="_menus_8h.html#a4ba1a0a121cc71b80341bedf36f66b3e">More...</a><br /></td></tr>
+<tr class="separator:a4ba1a0a121cc71b80341bedf36f66b3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38f906ef8a2c83945effcdc7e1513dc7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menus_8h.html#a38f906ef8a2c83945effcdc7e1513dc7">encontraEmail</a> (<a class="el" href="class_base.html">Base</a> base, string email)</td></tr>
+<tr class="memdesc:a38f906ef8a2c83945effcdc7e1513dc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Procura um email numa base.  <a href="_menus_8h.html#a38f906ef8a2c83945effcdc7e1513dc7">More...</a><br /></td></tr>
+<tr class="separator:a38f906ef8a2c83945effcdc7e1513dc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac782f2e2a70bdea011dc4c504e641135"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menus_8h.html#ac782f2e2a70bdea011dc4c504e641135">encontraNif</a> (<a class="el" href="class_base.html">Base</a> base, string nif)</td></tr>
+<tr class="memdesc:ac782f2e2a70bdea011dc4c504e641135"><td class="mdescLeft">&#160;</td><td class="mdescRight">Procura um nif numa base.  <a href="_menus_8h.html#ac782f2e2a70bdea011dc4c504e641135">More...</a><br /></td></tr>
+<tr class="separator:ac782f2e2a70bdea011dc4c504e641135"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7894fcb4b654e09cfbc248b911d73e2e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_menus_8h.html#a7894fcb4b654e09cfbc248b911d73e2e">inscricao</a> (<a class="el" href="class_base.html">Base</a> &amp;b)</td></tr>
 <tr class="memdesc:a7894fcb4b654e09cfbc248b911d73e2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Permite a um novo cliente inscrever-se mostrando no ecrã todas as instruções.  <a href="_menus_8h.html#a7894fcb4b654e09cfbc248b911d73e2e">More...</a><br /></td></tr>
 <tr class="separator:a7894fcb4b654e09cfbc248b911d73e2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -167,40 +183,46 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="_menus_8h_a2161b59ba4f36862cf85a3ed5af18d8c_cgraph.png" border="0" usemap="#_menus_8h_a2161b59ba4f36862cf85a3ed5af18d8c_cgraph" alt=""/></div>
 <map name="_menus_8h_a2161b59ba4f36862cf85a3ed5af18d8c_cgraph" id="_menus_8h_a2161b59ba4f36862cf85a3ed5af18d8c_cgraph">
-<area shape="rect" title="Permite ao cliente realizar várias ações, como encomendar, verificar a sua conta e alterar as suas inform..." alt="" coords="5,639,88,665"/>
-<area shape="rect" href="class_base.html#a0ad51c049a15aa884aac28fdf5c4ac98" title="Adder de um cliente." alt="" coords="147,284,268,311"/>
-<area shape="rect" href="class_base.html#a555b2f74b2f1de2fa385aabc042e32cf" title="Remove um cliente do vetor de clientes." alt="" coords="143,335,271,361"/>
-<area shape="rect" href="class_cliente.html#a85585f1eea9bbc3f0008ee14a6666952" title=" " alt="" coords="139,436,276,463"/>
-<area shape="rect" href="class_pessoa.html#ae1cc59b702e5292fee75c6165f71e31a" title="Permite obter o NIF da pessoa." alt="" coords="357,5,469,32"/>
-<area shape="rect" href="class_base.html#af7c0e12bbfc1587328225f9bc85b8ac0" title="Getter do concelho." alt="" coords="141,487,273,513"/>
-<area shape="rect" href="class_cliente.html#a630974bc63ad86d7cd1287f8763de8c5" title="Permite obter o concelho de residencia do cliente." alt="" coords="136,537,279,564"/>
-<area shape="rect" href="class_cliente.html#a0d8dec401bee741d99f0ed84b553a3f5" title="Permite obter o email do cliente." alt="" coords="147,588,268,615"/>
-<area shape="rect" href="class_base.html#aa141dd46cb14c86d1fc2c1fe1d987745" title="Getter de um concelho fronteira." alt="" coords="153,639,261,665"/>
-<area shape="rect" href="class_base.html#a7d81c47702ec7b96328cd60a3413f0e1" title="Getter do tamanho do vetor de concelhos fronteira." alt="" coords="149,689,266,716"/>
-<area shape="rect" href="class_cliente.html#a9346d32a8a949608cd98bce5423ce514" title="Permite obter a morada do cliente." alt="" coords="142,740,273,767"/>
-<area shape="rect" href="class_pessoa.html#aedeca9c83ea13db9c487ceb48ac37da7" title="Permite obter o Nome da pessoa." alt="" coords="144,791,271,817"/>
-<area shape="rect" href="class_cliente.html#a869115ae965837de98ca319f1a312c9c" title="Permite alterar o concelho onde reside o cliente." alt="" coords="136,841,279,868"/>
-<area shape="rect" href="class_cliente.html#a2c44b0f11f5d58b3f5b793a073ed1ac9" title="Permite alterar o email do cliente." alt="" coords="147,892,268,919"/>
-<area shape="rect" href="class_cliente.html#acc609f89f747216e1f5db4877f44dfb1" title="Permite alterar a morada do cliente." alt="" coords="142,943,273,969"/>
-<area shape="rect" href="_menus_8h.html#a64090d5f471b1b376576dd41bbf06b3e" title="Verifica se um email é válido i.e. se tem formato de email." alt="" coords="167,993,247,1020"/>
+<area shape="rect" title="Permite ao cliente realizar várias ações, como encomendar, verificar a sua conta e alterar as suas inform..." alt="" coords="5,689,88,716"/>
+<area shape="rect" href="class_base.html#a0ad51c049a15aa884aac28fdf5c4ac98" title="Adder de um cliente." alt="" coords="147,335,268,361"/>
+<area shape="rect" href="class_base.html#a555b2f74b2f1de2fa385aabc042e32cf" title="Remove um cliente do vetor de clientes." alt="" coords="143,385,271,412"/>
+<area shape="rect" href="class_cliente.html#a85585f1eea9bbc3f0008ee14a6666952" title=" " alt="" coords="139,487,276,513"/>
+<area shape="rect" href="class_pessoa.html#a4f18fa80707eb641ab07b92eabeac725" title="Permite obter o NIF da pessoa." alt="" coords="357,5,469,32"/>
+<area shape="rect" href="class_base.html#af7c0e12bbfc1587328225f9bc85b8ac0" title="Getter do concelho." alt="" coords="141,537,273,564"/>
+<area shape="rect" href="class_cliente.html#a630974bc63ad86d7cd1287f8763de8c5" title="Permite obter o concelho de residencia do cliente." alt="" coords="136,588,279,615"/>
+<area shape="rect" href="class_cliente.html#a0d8dec401bee741d99f0ed84b553a3f5" title="Permite obter o email do cliente." alt="" coords="147,639,268,665"/>
+<area shape="rect" href="class_base.html#aa141dd46cb14c86d1fc2c1fe1d987745" title="Getter de um concelho fronteira." alt="" coords="153,689,261,716"/>
+<area shape="rect" href="class_base.html#a7d81c47702ec7b96328cd60a3413f0e1" title="Getter do tamanho do vetor de concelhos fronteira." alt="" coords="149,740,266,767"/>
+<area shape="rect" href="class_cliente.html#a9346d32a8a949608cd98bce5423ce514" title="Permite obter a morada do cliente." alt="" coords="142,791,273,817"/>
+<area shape="rect" href="class_pessoa.html#a8d551db3b19e1f07022adb3793cb8ed7" title="Permite obter o Nome da pessoa." alt="" coords="144,841,271,868"/>
+<area shape="rect" href="class_cliente.html#a869115ae965837de98ca319f1a312c9c" title="Permite alterar o concelho onde reside o cliente." alt="" coords="136,892,279,919"/>
+<area shape="rect" href="class_cliente.html#a2c44b0f11f5d58b3f5b793a073ed1ac9" title="Permite alterar o email do cliente." alt="" coords="147,943,268,969"/>
+<area shape="rect" href="class_cliente.html#acc609f89f747216e1f5db4877f44dfb1" title="Permite alterar a morada do cliente." alt="" coords="142,993,273,1020"/>
+<area shape="rect" href="_menus_8h.html#a64090d5f471b1b376576dd41bbf06b3e" title="Verifica se um email é válido i.e. se tem formato de email." alt="" coords="167,1044,247,1071"/>
 <area shape="rect" href="class_base.html#a9b3aad103e3834cf9b14cb3ff588f113" title="Adder de uma entrega." alt="" coords="349,56,476,83"/>
 <area shape="rect" href="class_base.html#a29248b9a28fad82a46be74a0b78f6bbf" title="Adder de uma entrega." alt="" coords="341,107,484,133"/>
-<area shape="rect" href="class_pessoa.html#a6756faef1bee341004182254b75e8094" title=" " alt="" coords="342,157,483,184"/>
-<area shape="rect" href="class_restaurante.html#a0013cfaaaf2e63cbaa35ad679144f89d" title="Getter do concelho do restaurante." alt="" coords="327,208,499,235"/>
-<area shape="rect" href="class_base.html#a1ebc9c96ef176a13209d607ee7585383" title="Getter de um entregador." alt="" coords="355,259,471,285"/>
-<area shape="rect" href="class_base.html#a1682452f9644bc479485fd280cfb7cfa" title="Getter do tamanho do vetor de entregadores." alt="" coords="347,309,479,336"/>
-<area shape="rect" href="class_produto.html#ab85f6765ddb66a6100c7aa7d7ba379e6" title="Permite obter o nome do produto." alt="" coords="349,360,476,387"/>
-<area shape="rect" href="class_restaurante.html#a440b84d00f32be7905db9b9789d26bb3" title="Getter do nome do restaurante." alt="" coords="337,411,489,437"/>
-<area shape="rect" href="class_produto.html#a53548783d7fad3ea6d5e000fa2227dcf" title="Permite obter o preço do produto." alt="" coords="349,461,476,488"/>
-<area shape="rect" href="class_restaurante.html#adbf3a0432a7e40f45c1656f5abb8e128" title="Getter de um produto." alt="" coords="340,512,485,539"/>
-<area shape="rect" href="class_restaurante.html#aa1b14ee49e198331026d89fb722a0a95" title="Getter do tamanho do vetor dos produtos do restaurante." alt="" coords="335,563,490,589"/>
-<area shape="rect" href="class_base.html#a80a8c189933c9158b2ffd3f71d56d04d" title="Getter de um restaurante." alt="" coords="362,613,463,640"/>
-<area shape="rect" href="class_produto.html#aa89735e598487c5e3f611e82273af13b" title="Permite obter o tipo do produto." alt="" coords="354,664,471,691"/>
-<area shape="rect" href="class_base.html#a2ef469f9e4c29783741ae0d585555a45" title="Cria string com os diferentes restaurantes da base que oferecem produtos de custo inferior a um deter..." alt="" coords="347,715,478,741"/>
-<area shape="rect" href="class_base.html#abc37a9c67f92884e41b9aa1c05f5412a" title="Crias string com os diferentes restaurantes da base." alt="" coords="351,765,475,792"/>
-<area shape="rect" href="class_base.html#a327f2816a76d7a8fd54dcd8ff34d6f53" title="Cria string com os diferentes restaurantes da base que oferecem produtos de um determinado tipo." alt="" coords="348,816,477,843"/>
-<area shape="rect" href="class_base.html#a6a15335204141c2e1c61f7399cb2a23d" title="Cria e imprime string com os diferentes restaurantes da base de uma determinada zona." alt="" coords="348,867,477,893"/>
-<area shape="rect" href="class_entrega.html#a9db09d8180865c8000f762389060bce0" title="Setter do sucesso da entrega." alt="" coords="341,917,485,944"/>
+<area shape="rect" href="class_entregador.html#ac66c9849b731988566093b130030a15d" title="Realiza a função doEntrega() da classe veículo." alt="" coords="337,157,489,184"/>
+<area shape="rect" href="class_pessoa.html#a6756faef1bee341004182254b75e8094" title=" " alt="" coords="342,208,483,235"/>
+<area shape="rect" href="class_restaurante.html#a0013cfaaaf2e63cbaa35ad679144f89d" title="Getter do concelho do restaurante." alt="" coords="327,259,499,285"/>
+<area shape="rect" href="class_base.html#a44c69b6497e63663e8b0adbe83c28539" title="Getter de um entregador." alt="" coords="555,284,671,311"/>
+<area shape="rect" href="class_base.html#a1682452f9644bc479485fd280cfb7cfa" title="Getter do tamanho do vetor de entregadores." alt="" coords="547,436,679,463"/>
+<area shape="rect" href="class_produto.html#ab85f6765ddb66a6100c7aa7d7ba379e6" title="Permite obter o nome do produto." alt="" coords="349,461,476,488"/>
+<area shape="rect" href="class_restaurante.html#a440b84d00f32be7905db9b9789d26bb3" title="Getter do nome do restaurante." alt="" coords="337,512,489,539"/>
+<area shape="rect" href="class_produto.html#a53548783d7fad3ea6d5e000fa2227dcf" title="Permite obter o preço do produto." alt="" coords="349,563,476,589"/>
+<area shape="rect" href="class_restaurante.html#adbf3a0432a7e40f45c1656f5abb8e128" title="Getter de um produto." alt="" coords="340,613,485,640"/>
+<area shape="rect" href="class_restaurante.html#aa1b14ee49e198331026d89fb722a0a95" title="Getter do tamanho do vetor dos produtos do restaurante." alt="" coords="335,664,490,691"/>
+<area shape="rect" href="class_base.html#a80a8c189933c9158b2ffd3f71d56d04d" title="Getter de um restaurante." alt="" coords="362,715,463,741"/>
+<area shape="rect" href="class_produto.html#aa89735e598487c5e3f611e82273af13b" title="Permite obter o tipo do produto." alt="" coords="354,765,471,792"/>
+<area shape="rect" href="class_base.html#a2ef469f9e4c29783741ae0d585555a45" title="Cria string com os diferentes restaurantes da base que oferecem produtos de custo inferior a um deter..." alt="" coords="347,816,478,843"/>
+<area shape="rect" href="class_base.html#abc37a9c67f92884e41b9aa1c05f5412a" title="Crias string com os diferentes restaurantes da base." alt="" coords="351,867,475,893"/>
+<area shape="rect" href="class_base.html#a327f2816a76d7a8fd54dcd8ff34d6f53" title="Cria string com os diferentes restaurantes da base que oferecem produtos de um determinado tipo." alt="" coords="348,917,477,944"/>
+<area shape="rect" href="class_base.html#a6a15335204141c2e1c61f7399cb2a23d" title="Cria e imprime string com os diferentes restaurantes da base de uma determinada zona." alt="" coords="348,968,477,995"/>
+<area shape="rect" href="class_entrega.html#a9db09d8180865c8000f762389060bce0" title="Setter do sucesso da entrega." alt="" coords="341,1019,485,1045"/>
+<area shape="rect" href="class_base.html#a7a2a4161d30d788f1edb6e422eeec583" title="Atualiza a árvore de pesquisa binária de veículos." alt="" coords="338,360,487,387"/>
+<area shape="rect" href="class_veiculo.html#a71e2a9e892de23de9eb6a85ceec348af" title="Adiciona ao veículo o número de kms percorridos numa entrega e íncrementa em 1 o número de entregas." alt="" coords="547,157,679,184"/>
+<area shape="rect" href="class_base.html#ac02fbeb0f0abc6cce038f7675b67849c" title="Adiciona um veículo à árvore de pesquinária de veículos." alt="" coords="551,335,675,361"/>
+<area shape="rect" href="class_b_s_t.html#a050d829503a88714c4ad0773cf6d3af6" title=" " alt="" coords="550,385,675,412"/>
+<area shape="rect" href="class_b_s_t.html#aea895bc48c9533dfcd2e01d227e01f33" title=" " alt="" coords="727,335,813,361"/>
 </map>
 </div>
 <div class="dynheader">
@@ -243,21 +265,23 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="_menus_8h_ad71874142fc75f4d283da6e3d4d5b966_cgraph.png" border="0" usemap="#_menus_8h_ad71874142fc75f4d283da6e3d4d5b966_cgraph" alt=""/></div>
 <map name="_menus_8h_ad71874142fc75f4d283da6e3d4d5b966_cgraph" id="_menus_8h_ad71874142fc75f4d283da6e3d4d5b966_cgraph">
-<area shape="rect" title="Permite ao administrador realizar ações de gerência da empresa." alt="" coords="5,309,113,336"/>
-<area shape="rect" href="class_ugh_eats_f_d.html#a8772d46474c95fa729b2202b97c6ccc9" title="Permite o utilizador banir um cliente." alt="" coords="161,183,307,209"/>
-<area shape="rect" href="class_cliente_inexistente.html#afd87d49aaa754970f9fa7a94bae431cd" title=" " alt="" coords="171,302,297,343"/>
-<area shape="rect" href="class_ugh_eats_f_d.html#aa78c840c33ee17508cd4d6c49d0334eb" title="Permite o utilizador verificar os lucros dos servicos da empresa." alt="" coords="161,411,307,437"/>
-<area shape="rect" href="class_base.html#a38e5e57fd4ebee40a932147dd0ab4034" title="Adder de um cliente a lista negra." alt="" coords="373,5,487,32"/>
-<area shape="rect" href="class_base.html#a555b2f74b2f1de2fa385aabc042e32cf" title="Remove um cliente do vetor de clientes." alt="" coords="366,56,494,83"/>
-<area shape="rect" href="class_base.html#a03a84054f061b0741832190dbb185f2b" title="Getter do cliente de indice i." alt="" coords="371,107,489,133"/>
-<area shape="rect" href="class_base.html#a79706f5078ba16ccb1908cafcf1303e9" title="Getter do tamanho do vetor clientes." alt="" coords="355,157,505,184"/>
-<area shape="rect" href="class_pessoa.html#ae1cc59b702e5292fee75c6165f71e31a" title="Permite obter o NIF da pessoa." alt="" coords="374,208,486,235"/>
-<area shape="rect" href="class_base.html#ada2f9a617cbdbfb76c6f0ec97274ee22" title="Da sort a lista negra." alt="" coords="373,259,487,285"/>
-<area shape="rect" href="class_base.html#a49d0432d4ef67d4832214c59f9a247ae" title="Da sort aos clientes." alt="" coords="365,309,495,336"/>
-<area shape="rect" href="class_base.html#a3b056cb5e3c09e6ba7ca3c8d357d3685" title="Getter do distrito." alt="" coords="371,360,489,387"/>
-<area shape="rect" href="class_base.html#a8f25c91dbd44ea3e91b78ffe33c9e245" title="Getter de uma entrega." alt="" coords="360,411,500,437"/>
-<area shape="rect" href="class_base.html#aaeae914de1416b4eb075f04ecbda27a2" title="Getter do tamanho do historial (string)" alt="" coords="355,461,505,488"/>
-<area shape="rect" href="_utils_8cpp.html#ad18a418ac3584aad8e272711bbfc5fb8" title="Separa os diferentes elementos de uma string separados por ponto e virgula." alt="" coords="363,512,497,539"/>
+<area shape="rect" title="Permite ao administrador realizar ações de gerência da empresa." alt="" coords="5,292,113,319"/>
+<area shape="rect" href="class_ugh_eats_f_d.html#a8772d46474c95fa729b2202b97c6ccc9" title="Permite o utilizador banir um cliente." alt="" coords="180,167,325,193"/>
+<area shape="rect" href="class_ugh_eats_f_d.html#aac0cbb06d313acf67b072d7aa5409985" title="Permite ver de forma estruturada os funcionarios da empresa." alt="" coords="171,226,334,267"/>
+<area shape="rect" href="class_ugh_eats_f_d.html#af99e6f89fd44d70dadb2aa5704cbcb57" title="Permite ver de forma estruturada os veículos da empresa." alt="" coords="161,292,344,319"/>
+<area shape="rect" href="class_excecao.html#abd15f4b2a5342dc86309398c3dddae18" title=" " alt="" coords="193,343,312,369"/>
+<area shape="rect" href="class_ugh_eats_f_d.html#aa78c840c33ee17508cd4d6c49d0334eb" title="Permite o utilizador verificar os lucros dos servicos da empresa." alt="" coords="180,411,325,437"/>
+<area shape="rect" href="class_base.html#a38e5e57fd4ebee40a932147dd0ab4034" title="Adder de um cliente a lista negra." alt="" coords="410,5,525,32"/>
+<area shape="rect" href="class_base.html#a555b2f74b2f1de2fa385aabc042e32cf" title="Remove um cliente do vetor de clientes." alt="" coords="403,56,531,83"/>
+<area shape="rect" href="class_base.html#a03a84054f061b0741832190dbb185f2b" title="Getter do cliente de indice i." alt="" coords="408,107,527,133"/>
+<area shape="rect" href="class_base.html#a79706f5078ba16ccb1908cafcf1303e9" title="Getter do tamanho do vetor clientes." alt="" coords="392,157,543,184"/>
+<area shape="rect" href="class_pessoa.html#a4f18fa80707eb641ab07b92eabeac725" title="Permite obter o NIF da pessoa." alt="" coords="411,208,523,235"/>
+<area shape="rect" href="class_base.html#ada2f9a617cbdbfb76c6f0ec97274ee22" title="Da sort a lista negra." alt="" coords="410,259,525,285"/>
+<area shape="rect" href="class_base.html#a49d0432d4ef67d4832214c59f9a247ae" title="Da sort aos clientes." alt="" coords="403,309,532,336"/>
+<area shape="rect" href="class_base.html#a3b056cb5e3c09e6ba7ca3c8d357d3685" title="Getter do distrito." alt="" coords="408,360,527,387"/>
+<area shape="rect" href="class_base.html#a8f25c91dbd44ea3e91b78ffe33c9e245" title="Getter de uma entrega." alt="" coords="397,411,537,437"/>
+<area shape="rect" href="class_base.html#aaeae914de1416b4eb075f04ecbda27a2" title="Getter do tamanho do historial (string)" alt="" coords="393,461,542,488"/>
+<area shape="rect" href="_utils_8cpp.html#ad18a418ac3584aad8e272711bbfc5fb8" title="Separa os diferentes elementos de uma string separados por ponto e virgula." alt="" coords="401,512,534,539"/>
 </map>
 </div>
 <div class="dynheader">
@@ -267,6 +291,130 @@ Here is the caller graph for this function:</div>
 <map name="_menus_8h_ad71874142fc75f4d283da6e3d4d5b966_icgraph" id="_menus_8h_ad71874142fc75f4d283da6e3d4d5b966_icgraph">
 <area shape="rect" title="Permite ao administrador realizar ações de gerência da empresa." alt="" coords="104,5,212,32"/>
 <area shape="rect" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,5,56,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a38f906ef8a2c83945effcdc7e1513dc7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38f906ef8a2c83945effcdc7e1513dc7">&#9670;&nbsp;</a></span>encontraEmail()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int encontraEmail </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_base.html">Base</a>&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>email</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Procura um email numa base. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>- base onde se pretende efetuar a pesquisa </td></tr>
+    <tr><td class="paramname">email</td><td>- email que se pretende encontrar </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Retorna a posição do email se encontrado, -1 se não existir e -2 de estiver na lista negra </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_menus_8h_a38f906ef8a2c83945effcdc7e1513dc7_cgraph.png" border="0" usemap="#_menus_8h_a38f906ef8a2c83945effcdc7e1513dc7_cgraph" alt=""/></div>
+<map name="_menus_8h_a38f906ef8a2c83945effcdc7e1513dc7_cgraph" id="_menus_8h_a38f906ef8a2c83945effcdc7e1513dc7_cgraph">
+<area shape="rect" title="Procura um email numa base." alt="" coords="5,107,111,133"/>
+<area shape="rect" href="class_base.html#afe27763037e14acaee148fe29a78908d" title="Getter de um cliente banido." alt="" coords="179,5,289,32"/>
+<area shape="rect" href="class_base.html#a8c991927b8eed6dd18ed439a3be169c2" title="Getter do tamanho da lista negra." alt="" coords="174,56,294,83"/>
+<area shape="rect" href="class_base.html#a03a84054f061b0741832190dbb185f2b" title="Getter do cliente de indice i." alt="" coords="175,107,293,133"/>
+<area shape="rect" href="class_base.html#a79706f5078ba16ccb1908cafcf1303e9" title="Getter do tamanho do vetor clientes." alt="" coords="159,157,309,184"/>
+<area shape="rect" href="class_cliente.html#a0d8dec401bee741d99f0ed84b553a3f5" title="Permite obter o email do cliente." alt="" coords="173,208,295,235"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_menus_8h_a38f906ef8a2c83945effcdc7e1513dc7_icgraph.png" border="0" usemap="#_menus_8h_a38f906ef8a2c83945effcdc7e1513dc7_icgraph" alt=""/></div>
+<map name="_menus_8h_a38f906ef8a2c83945effcdc7e1513dc7_icgraph" id="_menus_8h_a38f906ef8a2c83945effcdc7e1513dc7_icgraph">
+<area shape="rect" title="Procura um email numa base." alt="" coords="227,31,332,57"/>
+<area shape="rect" href="_menus_8h.html#a07bca02cd3cd3419dd2e2d2def738a46" title="Permite a um cliente entrar numa conta já criada." alt="" coords="114,5,169,32"/>
+<area shape="rect" href="_menus_8h.html#a7894fcb4b654e09cfbc248b911d73e2e" title="Permite a um novo cliente inscrever&#45;se mostrando no ecrã todas as instruções." alt="" coords="104,56,179,83"/>
+<area shape="rect" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,31,56,57"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ac782f2e2a70bdea011dc4c504e641135"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac782f2e2a70bdea011dc4c504e641135">&#9670;&nbsp;</a></span>encontraNif()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int encontraNif </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_base.html">Base</a>&#160;</td>
+          <td class="paramname"><em>base</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>nif</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Procura um nif numa base. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>- base onde se pretende efetuar a pesquisa </td></tr>
+    <tr><td class="paramname">nif</td><td>- nif que se pretende encontrar </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Retorna a posição do nif se encontrado, -1 se não existir e -2 de estiver na lista negra </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_menus_8h_ac782f2e2a70bdea011dc4c504e641135_cgraph.png" border="0" usemap="#_menus_8h_ac782f2e2a70bdea011dc4c504e641135_cgraph" alt=""/></div>
+<map name="_menus_8h_ac782f2e2a70bdea011dc4c504e641135_cgraph" id="_menus_8h_ac782f2e2a70bdea011dc4c504e641135_cgraph">
+<area shape="rect" title="Procura um nif numa base." alt="" coords="5,107,92,133"/>
+<area shape="rect" href="class_base.html#afe27763037e14acaee148fe29a78908d" title="Getter de um cliente banido." alt="" coords="160,5,271,32"/>
+<area shape="rect" href="class_base.html#a8c991927b8eed6dd18ed439a3be169c2" title="Getter do tamanho da lista negra." alt="" coords="155,56,275,83"/>
+<area shape="rect" href="class_base.html#a03a84054f061b0741832190dbb185f2b" title="Getter do cliente de indice i." alt="" coords="156,107,275,133"/>
+<area shape="rect" href="class_base.html#a79706f5078ba16ccb1908cafcf1303e9" title="Getter do tamanho do vetor clientes." alt="" coords="140,157,291,184"/>
+<area shape="rect" href="class_pessoa.html#a4f18fa80707eb641ab07b92eabeac725" title="Permite obter o NIF da pessoa." alt="" coords="159,208,271,235"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_menus_8h_ac782f2e2a70bdea011dc4c504e641135_icgraph.png" border="0" usemap="#_menus_8h_ac782f2e2a70bdea011dc4c504e641135_icgraph" alt=""/></div>
+<map name="_menus_8h_ac782f2e2a70bdea011dc4c504e641135_icgraph" id="_menus_8h_ac782f2e2a70bdea011dc4c504e641135_icgraph">
+<area shape="rect" title="Procura um nif numa base." alt="" coords="227,31,313,57"/>
+<area shape="rect" href="_menus_8h.html#a07bca02cd3cd3419dd2e2d2def738a46" title="Permite a um cliente entrar numa conta já criada." alt="" coords="114,5,169,32"/>
+<area shape="rect" href="_menus_8h.html#a7894fcb4b654e09cfbc248b911d73e2e" title="Permite a um novo cliente inscrever&#45;se mostrando no ecrã todas as instruções." alt="" coords="104,56,179,83"/>
+<area shape="rect" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,31,56,57"/>
 </map>
 </div>
 
@@ -301,13 +449,15 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="_menus_8h_a07bca02cd3cd3419dd2e2d2def738a46_cgraph.png" border="0" usemap="#_menus_8h_a07bca02cd3cd3419dd2e2d2def738a46_cgraph" alt=""/></div>
 <map name="_menus_8h_a07bca02cd3cd3419dd2e2d2def738a46_cgraph" id="_menus_8h_a07bca02cd3cd3419dd2e2d2def738a46_cgraph">
-<area shape="rect" title="Permite a um cliente entrar numa conta já criada." alt="" coords="5,132,60,159"/>
-<area shape="rect" href="class_base.html#afe27763037e14acaee148fe29a78908d" title="Getter de um cliente banido." alt="" coords="128,5,239,32"/>
-<area shape="rect" href="class_base.html#a8c991927b8eed6dd18ed439a3be169c2" title="Getter do tamanho da lista negra." alt="" coords="123,56,243,83"/>
-<area shape="rect" href="class_base.html#a03a84054f061b0741832190dbb185f2b" title="Getter do cliente de indice i." alt="" coords="124,107,243,133"/>
-<area shape="rect" href="class_base.html#a79706f5078ba16ccb1908cafcf1303e9" title="Getter do tamanho do vetor clientes." alt="" coords="108,157,259,184"/>
-<area shape="rect" href="class_cliente.html#a0d8dec401bee741d99f0ed84b553a3f5" title="Permite obter o email do cliente." alt="" coords="123,208,244,235"/>
-<area shape="rect" href="class_pessoa.html#ae1cc59b702e5292fee75c6165f71e31a" title="Permite obter o NIF da pessoa." alt="" coords="127,259,239,285"/>
+<area shape="rect" title="Permite a um cliente entrar numa conta já criada." alt="" coords="5,157,60,184"/>
+<area shape="rect" href="_menus_8h.html#a38f906ef8a2c83945effcdc7e1513dc7" title="Procura um email numa base." alt="" coords="108,157,213,184"/>
+<area shape="rect" href="class_base.html#a03a84054f061b0741832190dbb185f2b" title="Getter do cliente de indice i." alt="" coords="277,208,396,235"/>
+<area shape="rect" href="_menus_8h.html#ac782f2e2a70bdea011dc4c504e641135" title="Procura um nif numa base." alt="" coords="117,107,204,133"/>
+<area shape="rect" href="class_base.html#afe27763037e14acaee148fe29a78908d" title="Getter de um cliente banido." alt="" coords="281,56,392,83"/>
+<area shape="rect" href="class_base.html#a8c991927b8eed6dd18ed439a3be169c2" title="Getter do tamanho da lista negra." alt="" coords="277,107,397,133"/>
+<area shape="rect" href="class_base.html#a79706f5078ba16ccb1908cafcf1303e9" title="Getter do tamanho do vetor clientes." alt="" coords="261,157,412,184"/>
+<area shape="rect" href="class_cliente.html#a0d8dec401bee741d99f0ed84b553a3f5" title="Permite obter o email do cliente." alt="" coords="276,259,397,285"/>
+<area shape="rect" href="class_pessoa.html#a4f18fa80707eb641ab07b92eabeac725" title="Permite obter o NIF da pessoa." alt="" coords="281,5,393,32"/>
 </map>
 </div>
 <div class="dynheader">
@@ -351,20 +501,23 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="_menus_8h_a7894fcb4b654e09cfbc248b911d73e2e_cgraph.png" border="0" usemap="#_menus_8h_a7894fcb4b654e09cfbc248b911d73e2e_cgraph" alt=""/></div>
 <map name="_menus_8h_a7894fcb4b654e09cfbc248b911d73e2e_cgraph" id="_menus_8h_a7894fcb4b654e09cfbc248b911d73e2e_cgraph">
-<area shape="rect" title="Permite a um novo cliente inscrever&#45;se mostrando no ecrã todas as instruções." alt="" coords="5,309,80,336"/>
-<area shape="rect" href="class_base.html#a0ad51c049a15aa884aac28fdf5c4ac98" title="Adder de um cliente." alt="" coords="143,5,264,32"/>
-<area shape="rect" href="class_base.html#afe27763037e14acaee148fe29a78908d" title="Getter de um cliente banido." alt="" coords="148,56,259,83"/>
-<area shape="rect" href="class_base.html#a8c991927b8eed6dd18ed439a3be169c2" title="Getter do tamanho da lista negra." alt="" coords="143,107,263,133"/>
-<area shape="rect" href="class_base.html#a03a84054f061b0741832190dbb185f2b" title="Getter do cliente de indice i." alt="" coords="144,157,263,184"/>
-<area shape="rect" href="class_base.html#a79706f5078ba16ccb1908cafcf1303e9" title="Getter do tamanho do vetor clientes." alt="" coords="128,208,279,235"/>
-<area shape="rect" href="class_base.html#af7c0e12bbfc1587328225f9bc85b8ac0" title="Getter do concelho." alt="" coords="137,259,269,285"/>
-<area shape="rect" href="class_base.html#a3b056cb5e3c09e6ba7ca3c8d357d3685" title="Getter do distrito." alt="" coords="144,309,263,336"/>
-<area shape="rect" href="class_cliente.html#a0d8dec401bee741d99f0ed84b553a3f5" title="Permite obter o email do cliente." alt="" coords="143,360,264,387"/>
-<area shape="rect" href="class_base.html#aa141dd46cb14c86d1fc2c1fe1d987745" title="Getter de um concelho fronteira." alt="" coords="149,411,257,437"/>
-<area shape="rect" href="class_base.html#a7d81c47702ec7b96328cd60a3413f0e1" title="Getter do tamanho do vetor de concelhos fronteira." alt="" coords="145,461,262,488"/>
-<area shape="rect" href="class_pessoa.html#ae1cc59b702e5292fee75c6165f71e31a" title="Permite obter o NIF da pessoa." alt="" coords="147,512,259,539"/>
-<area shape="rect" href="_menus_8h.html#ac4a09258a3d01747f692bb9be6a2a4c5" title="Verifica se uma string é composta apenas por dígitos." alt="" coords="168,563,239,589"/>
-<area shape="rect" href="_menus_8h.html#a64090d5f471b1b376576dd41bbf06b3e" title="Verifica se um email é válido i.e. se tem formato de email." alt="" coords="163,613,243,640"/>
+<area shape="rect" title="Permite a um novo cliente inscrever&#45;se mostrando no ecrã todas as instruções." alt="" coords="5,259,80,285"/>
+<area shape="rect" href="class_base.html#a0ad51c049a15aa884aac28fdf5c4ac98" title="Adder de um cliente." alt="" coords="128,107,249,133"/>
+<area shape="rect" href="_menus_8h.html#a38f906ef8a2c83945effcdc7e1513dc7" title="Procura um email numa base." alt="" coords="136,208,241,235"/>
+<area shape="rect" href="_menus_8h.html#ac782f2e2a70bdea011dc4c504e641135" title="Procura um nif numa base." alt="" coords="145,157,232,184"/>
+<area shape="rect" href="class_base.html#a3b056cb5e3c09e6ba7ca3c8d357d3685" title="Getter do distrito." alt="" coords="129,259,248,285"/>
+<area shape="rect" href="_menus_8h.html#a4ba1a0a121cc71b80341bedf36f66b3e" title="Verifica se um concelho existe na base." alt="" coords="143,309,234,336"/>
+<area shape="rect" href="_menus_8h.html#ac4a09258a3d01747f692bb9be6a2a4c5" title="Verifica se uma string é composta apenas por dígitos." alt="" coords="153,360,224,387"/>
+<area shape="rect" href="_menus_8h.html#a64090d5f471b1b376576dd41bbf06b3e" title="Verifica se um email é válido i.e. se tem formato de email." alt="" coords="149,411,229,437"/>
+<area shape="rect" href="class_base.html#afe27763037e14acaee148fe29a78908d" title="Getter de um cliente banido." alt="" coords="317,107,428,133"/>
+<area shape="rect" href="class_base.html#a8c991927b8eed6dd18ed439a3be169c2" title="Getter do tamanho da lista negra." alt="" coords="313,157,433,184"/>
+<area shape="rect" href="class_base.html#a03a84054f061b0741832190dbb185f2b" title="Getter do cliente de indice i." alt="" coords="313,208,432,235"/>
+<area shape="rect" href="class_base.html#a79706f5078ba16ccb1908cafcf1303e9" title="Getter do tamanho do vetor clientes." alt="" coords="297,56,448,83"/>
+<area shape="rect" href="class_cliente.html#a0d8dec401bee741d99f0ed84b553a3f5" title="Permite obter o email do cliente." alt="" coords="312,259,433,285"/>
+<area shape="rect" href="class_pessoa.html#a4f18fa80707eb641ab07b92eabeac725" title="Permite obter o NIF da pessoa." alt="" coords="317,5,429,32"/>
+<area shape="rect" href="class_base.html#af7c0e12bbfc1587328225f9bc85b8ac0" title="Getter do concelho." alt="" coords="307,309,439,336"/>
+<area shape="rect" href="class_base.html#aa141dd46cb14c86d1fc2c1fe1d987745" title="Getter de um concelho fronteira." alt="" coords="319,360,427,387"/>
+<area shape="rect" href="class_base.html#a7d81c47702ec7b96328cd60a3413f0e1" title="Getter do tamanho do vetor de concelhos fronteira." alt="" coords="314,411,431,437"/>
 </map>
 </div>
 <div class="dynheader">
@@ -373,6 +526,65 @@ Here is the caller graph for this function:</div>
 <div class="center"><img src="_menus_8h_a7894fcb4b654e09cfbc248b911d73e2e_icgraph.png" border="0" usemap="#_menus_8h_a7894fcb4b654e09cfbc248b911d73e2e_icgraph" alt=""/></div>
 <map name="_menus_8h_a7894fcb4b654e09cfbc248b911d73e2e_icgraph" id="_menus_8h_a7894fcb4b654e09cfbc248b911d73e2e_icgraph">
 <area shape="rect" title="Permite a um novo cliente inscrever&#45;se mostrando no ecrã todas as instruções." alt="" coords="104,5,179,32"/>
+<area shape="rect" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,5,56,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a4ba1a0a121cc71b80341bedf36f66b3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ba1a0a121cc71b80341bedf36f66b3e">&#9670;&nbsp;</a></span>is_concelho()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool is_concelho </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_base.html">Base</a> &amp;&#160;</td>
+          <td class="paramname"><em>b</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const string&#160;</td>
+          <td class="paramname"><em>concelho</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Verifica se um concelho existe na base. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">concelho</td><td>- string a ser verificada </td></tr>
+    <tr><td class="paramname">b</td><td>- base onde o concelho deve pertencer </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Retorna verdadeiro se o conselho existir naquela base, caso contrário lança a exceção <a class="el" href="class_concelho_inexistente.html">ConcelhoInexistente</a> </dd></dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_menus_8h_a4ba1a0a121cc71b80341bedf36f66b3e_cgraph.png" border="0" usemap="#_menus_8h_a4ba1a0a121cc71b80341bedf36f66b3e_cgraph" alt=""/></div>
+<map name="_menus_8h_a4ba1a0a121cc71b80341bedf36f66b3e_cgraph" id="_menus_8h_a4ba1a0a121cc71b80341bedf36f66b3e_cgraph">
+<area shape="rect" title="Verifica se um concelho existe na base." alt="" coords="5,56,96,83"/>
+<area shape="rect" href="class_base.html#af7c0e12bbfc1587328225f9bc85b8ac0" title="Getter do concelho." alt="" coords="144,5,276,32"/>
+<area shape="rect" href="class_base.html#aa141dd46cb14c86d1fc2c1fe1d987745" title="Getter de um concelho fronteira." alt="" coords="156,56,264,83"/>
+<area shape="rect" href="class_base.html#a7d81c47702ec7b96328cd60a3413f0e1" title="Getter do tamanho do vetor de concelhos fronteira." alt="" coords="151,107,269,133"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_menus_8h_a4ba1a0a121cc71b80341bedf36f66b3e_icgraph.png" border="0" usemap="#_menus_8h_a4ba1a0a121cc71b80341bedf36f66b3e_icgraph" alt=""/></div>
+<map name="_menus_8h_a4ba1a0a121cc71b80341bedf36f66b3e_icgraph" id="_menus_8h_a4ba1a0a121cc71b80341bedf36f66b3e_icgraph">
+<area shape="rect" title="Verifica se um concelho existe na base." alt="" coords="227,5,317,32"/>
+<area shape="rect" href="_menus_8h.html#a7894fcb4b654e09cfbc248b911d73e2e" title="Permite a um novo cliente inscrever&#45;se mostrando no ecrã todas as instruções." alt="" coords="104,5,179,32"/>
 <area shape="rect" href="main_8cpp.html#ae66f6b31b5ad750f1fe042a706a4e3d4" title=" " alt="" coords="5,5,56,32"/>
 </map>
 </div>
